@@ -5,6 +5,8 @@
 
 界面用 iOS 26 的液态玻璃（Liquid Glass）API 做的：所有面板、胶囊、滑动的风格条都是系统玻璃材质，背景可以换成内置渐变或者你自己的照片。
 
+> **只想照着点？** 直接看一页清单：[`INSTALL-7DAYS.md`](INSTALL-7DAYS.md)（安装 / 续签 / 报错速查都在里面）。
+
 ---
 
 ## 一、现在需要你做的（15 分钟）
@@ -13,18 +15,24 @@
 
 ### 第 1 步：上传到 GitHub，自动编译
 
-1. 在 GitHub 新建一个空仓库（Private 也行），名字随便，比如 `lumigen`。
-2. 把 `C:\Users\15035\Projects\LumiGen` 这个文件夹里的**全部内容**上传上去（网页拖拽上传就可以）。
+**最省事的方式**：双击 `Scripts\push-to-github.bat`，粘贴你的空仓库地址（`.git` 结尾），它会自动提交并推送。
+先在 GitHub 网页上新建一个**空**仓库（Private 也行），不要勾选 README / .gitignore。
+
+**或者手动来**（不想用脚本）：
+
+1. 在 GitHub 新建一个空仓库，名字随便，比如 `lumigen`。
+2. 把 `C:\Users\15035\Projects\LumiGen` 这个文件夹里的**全部内容**上传上去（网页拖拽上传就可以，注意 `.github` 这个隐藏文件夹也要带上）。
 3. 打开仓库的 **Actions** 标签 → 左边选 `Build unsigned IPA` → 右边 **Run workflow**。
 4. 等 5～8 分钟，跑完后在这一次运行的页面底部 **Artifacts** 里下载 `LumiGen-unsigned-ipa`，解压得到 `LumiGen-unsigned.ipa`。
 
 > 免费额度对个人项目完全够用，一个月编译几次不花钱。
+> 如果 `github.com` 打不开，是网络问题（我这边调试环境也被拦了），换个网络或挂个代理再传。
 
 ### 第 2 步：用 Sideloadly 签名安装（Windows 上就能做）
 
-1. 电脑装 [iTunes](https://www.apple.com/itunes/)（微软商店版就行）和 [Sideloadly](https://sideloadly.io)。
-2. iPhone 用数据线连电脑，手机上点「信任」。
-3. 打开 Sideloadly：把 `LumiGen-unsigned.ipa` 拖进窗口 → **Apple ID** 填你自己的 Apple ID → 点 Start → 输入密码（可能还要在手机上输入双重验证码）。
+1. 电脑装 [iTunes 官网版](https://www.apple.com/itunes/download/standalone)（**别用微软商店版**，缺驱动，会报 Guru Meditation）和 [Sideloadly](https://sideloadly.io)。
+2. iPhone 用数据线连电脑（要能传数据的线），手机上点「信任」并输入锁屏密码。
+3. 打开 Sideloadly：把 `LumiGen-unsigned.ipa` 拖进窗口 → **Apple ID** 填你自己的 Apple ID → 点 Start → 输入 Apple ID 密码（可能还要在手机上输入双重验证码）。
 4. 装完手机上会有个「灵绘」图标。
 
 ### 第 3 步：信任自签证书
@@ -33,7 +41,8 @@ iPhone 设置 → 通用 → VPN 与设备管理 → 开发者 App → 选你的
 
 首次打开如果提示「App 需要开发者模式」：设置 → 隐私与安全性 → 开发者模式 → 打开 → 重启手机。
 
-> **签名有效期**：用免费 Apple ID 签的 App，**7 天**后会打不开。再插上电脑用 Sideloadly 点一次 Start 就续上了，模型不用重新下载。
+> **签名有效期**：用免费 Apple ID 签的 App，**7 天**后会打不开。再插上电脑用 Sideloadly 点一次 Start 就续上了，模型不用重新下载（App 里的下载器支持断点续传，同名文件会跳过）。
+> 剩余天数在 App 的「外观 → 关于」里能看到，剩 2 天会变黄提醒你。
 > 有 99 美元的开发者账号就是 1 年有效，也可以在买号后用 AltStore / SideStore 自动续签。
 
 ---
@@ -107,9 +116,10 @@ LumiGen/
 │  ├─ Core/
 │  │  ├─ Models.swift         模型预设、风格预设、尺寸
 │  │  ├─ ModelLibrary.swift   已装模型的扫描与选择
-│  │  ├─ ModelInstaller.swift 从镜像站按文件下载模型 + 进度
+│  │  ├─ ModelInstaller.swift 从镜像站下载模型（断点续传）+ 进度
 │  │  ├─ GeneratorEngine.swift 包住苹果管线的推理引擎
 │  │  ├─ Studio.swift         全局状态 / 出图流程
+│  │  ├─ Provisioning.swift   读证书到期时间（7 天签名提醒）
 │  │  └─ ImageExport.swift    存相册、分享面板
 │  ├─ UI/
 │  │  ├─ GlassKit.swift       液态玻璃 + 退回方案
@@ -118,10 +128,13 @@ LumiGen/
 │  │  ├─ ResultCanvas.swift   画布 / 进度 / 结果操作
 │  │  ├─ PromptDock.swift     风格条 + 输入框 + 生成键
 │  │  ├─ ModelSetupView.swift 模型下载与管理
-│  │  └─ SettingsView.swift   外观 / 尺寸 / 关于
+│  │  └─ SettingsView.swift   外观 / 尺寸 / 关于（含签名剩余天数）
 │  ├─ SDEngine/               苹果 ml-stable-diffusion 的 Swift 管线（MIT，已内置）
 │  └─ Resources/Assets.xcassets  App 图标（深色玻璃星芒）
-├─ Scripts/convert_model.sh   （可选）在 Mac 上转换任意模型
+├─ Scripts/
+│  ├─ push-to-github.bat      双击 → 粘仓库地址 → 自动推送到 GitHub
+│  └─ convert_model.sh        （可选）在 Mac 上转换任意模型
+├─ INSTALL-7DAYS.md           一页清单：装 / 信任 / 续签 / 报错速查
 └─ .github/workflows/build-ipa.yml  云端编译出未签名 IPA
 ```
 
