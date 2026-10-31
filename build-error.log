@@ -1,0 +1,509 @@
+## run info
+sha: 54ab49e07c5b0b439c30aa6982c5ce134104eb08
+date: Sat Oct 31 16:51:09 UTC 2026
+
+## diag (xcodebuild -list)
+Command line invocation:
+    /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/xcodebuild -list -project LingYu.xcodeproj
+
+Information about project "LingYu":
+    Targets:
+        LingYu
+
+    Build Configurations:
+        Debug
+        Release
+
+    If no build configuration is specified and -scheme is not passed then "Release" is used.
+
+    Schemes:
+        LingYu
+
+
+## build log (last 600 lines)
+Command line invocation:
+    /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/xcodebuild -project LingYu.xcodeproj -scheme LingYu -configuration Release -sdk iphoneos -derivedDataPath build CODE_SIGN_STYLE=Manual CODE_SIGN_IDENTITY= CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO build
+
+Build settings from command line:
+    CODE_SIGN_IDENTITY = 
+    CODE_SIGN_STYLE = Manual
+    CODE_SIGNING_ALLOWED = NO
+    CODE_SIGNING_REQUIRED = NO
+    SDKROOT = iphoneos26.2
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:iOS, id:dvtdevice-DVTiPhonePlaceholder-iphoneos:placeholder, name:Any iOS Device }
+{ platform:macOS, arch:arm64, variant:Designed for [iPad,iPhone], id:8ab05a7294beb967eb8408505ef1c47ab01ab590, name:My Mac }
+{ platform:iOS Simulator, id:dvtdevice-DVTiOSDeviceSimulatorPlaceholder-iphonesimulator:placeholder, name:Any iOS Simulator Device }
+{ platform:visionOS Simulator, arch:arm64, variant:Designed for [iPad,iPhone], id:A271C4C1-B959-49E7-9FC2-9DDE3C30705C, OS:26.2, name:Apple Vision Pro }
+{ platform:visionOS Simulator, arch:arm64, variant:Designed for [iPad,iPhone], id:F2226894-B182-4B98-95E0-78331EA57D3F, OS:26.4.1, name:Apple Vision Pro }
+{ platform:visionOS Simulator, arch:arm64, variant:Designed for [iPad,iPhone], id:847A0652-202A-452A-A9EF-93C3320AAA91, OS:26.5, name:Apple Vision Pro }
+{ platform:iOS Simulator, arch:arm64, id:DF8E4AC6-573D-4149-8C5A-5B77B8F64476, OS:26.2, name:iPad (A16) }
+{ platform:iOS Simulator, arch:x86_64, id:DF8E4AC6-573D-4149-8C5A-5B77B8F64476, OS:26.2, name:iPad (A16) }
+{ platform:iOS Simulator, arch:arm64, id:096038CB-2973-4E2D-B146-C2498D064137, OS:26.4.1, name:iPad (A16) }
+{ platform:iOS Simulator, arch:x86_64, id:096038CB-2973-4E2D-B146-C2498D064137, OS:26.4.1, name:iPad (A16) }
+{ platform:iOS Simulator, arch:arm64, id:D9DB98A1-6C9C-4B6A-B040-BE7C4207F458, OS:26.5, name:iPad (A16) }
+{ platform:iOS Simulator, arch:x86_64, id:D9DB98A1-6C9C-4B6A-B040-BE7C4207F458, OS:26.5, name:iPad (A16) }
+{ platform:iOS Simulator, arch:arm64, id:18866364-84AA-48A2-8689-54B7193027F7, OS:26.2, name:iPad Air 11-inch (M3) }
+{ platform:iOS Simulator, arch:x86_64, id:18866364-84AA-48A2-8689-54B7193027F7, OS:26.2, name:iPad Air 11-inch (M3) }
+{ platform:iOS Simulator, arch:arm64, id:29776D2E-C01F-4E39-9119-2ECBECD38424, OS:26.4.1, name:iPad Air 11-inch (M4) }
+{ platform:iOS Simulator, arch:x86_64, id:29776D2E-C01F-4E39-9119-2ECBECD38424, OS:26.4.1, name:iPad Air 11-inch (M4) }
+{ platform:iOS Simulator, arch:arm64, id:94FC0298-D3C7-45DD-8FA7-B3FD9568B5AA, OS:26.5, name:iPad Air 11-inch (M4) }
+{ platform:iOS Simulator, arch:x86_64, id:94FC0298-D3C7-45DD-8FA7-B3FD9568B5AA, OS:26.5, name:iPad Air 11-inch (M4) }
+{ platform:iOS Simulator, arch:arm64, id:D0008160-9463-4687-ADF5-C11C78A03E51, OS:26.2, name:iPad Air 13-inch (M3) }
+{ platform:iOS Simulator, arch:x86_64, id:D0008160-9463-4687-ADF5-C11C78A03E51, OS:26.2, name:iPad Air 13-inch (M3) }
+{ platform:iOS Simulator, arch:arm64, id:62263D5E-3902-41D6-9DE8-728A03F8A745, OS:26.4.1, name:iPad Air 13-inch (M4) }
+{ platform:iOS Simulator, arch:x86_64, id:62263D5E-3902-41D6-9DE8-728A03F8A745, OS:26.4.1, name:iPad Air 13-inch (M4) }
+{ platform:iOS Simulator, arch:arm64, id:6E9B9307-9F97-4A96-9D8B-EC4700403089, OS:26.5, name:iPad Air 13-inch (M4) }
+{ platform:iOS Simulator, arch:x86_64, id:6E9B9307-9F97-4A96-9D8B-EC4700403089, OS:26.5, name:iPad Air 13-inch (M4) }
+{ platform:iOS Simulator, arch:arm64, id:8F6DC875-6828-4C3A-9AD8-2FE226E75159, OS:26.2, name:iPad Pro 11-inch (M5) }
+{ platform:iOS Simulator, arch:x86_64, id:8F6DC875-6828-4C3A-9AD8-2FE226E75159, OS:26.2, name:iPad Pro 11-inch (M5) }
+{ platform:iOS Simulator, arch:arm64, id:A5AE3A46-EF94-42C1-B782-C4456CC83B28, OS:26.4.1, name:iPad Pro 11-inch (M5) }
+{ platform:iOS Simulator, arch:x86_64, id:A5AE3A46-EF94-42C1-B782-C4456CC83B28, OS:26.4.1, name:iPad Pro 11-inch (M5) }
+{ platform:iOS Simulator, arch:arm64, id:C537AD9E-8EAF-4CEA-93EB-BE5126F42823, OS:26.5, name:iPad Pro 11-inch (M5) }
+{ platform:iOS Simulator, arch:x86_64, id:C537AD9E-8EAF-4CEA-93EB-BE5126F42823, OS:26.5, name:iPad Pro 11-inch (M5) }
+{ platform:iOS Simulator, arch:arm64, id:C71BAB90-949C-4EAB-9916-0C31AF11B17F, OS:26.2, name:iPad Pro 13-inch (M5) }
+{ platform:iOS Simulator, arch:x86_64, id:C71BAB90-949C-4EAB-9916-0C31AF11B17F, OS:26.2, name:iPad Pro 13-inch (M5) }
+{ platform:iOS Simulator, arch:arm64, id:306F9837-3E76-4BB4-B887-65CAB5862076, OS:26.4.1, name:iPad Pro 13-inch (M5) }
+{ platform:iOS Simulator, arch:x86_64, id:306F9837-3E76-4BB4-B887-65CAB5862076, OS:26.4.1, name:iPad Pro 13-inch (M5) }
+{ platform:iOS Simulator, arch:arm64, id:3593632A-CE78-4177-B6DD-E03EA2DEDFB7, OS:26.5, name:iPad Pro 13-inch (M5) }
+{ platform:iOS Simulator, arch:x86_64, id:3593632A-CE78-4177-B6DD-E03EA2DEDFB7, OS:26.5, name:iPad Pro 13-inch (M5) }
+{ platform:iOS Simulator, arch:arm64, id:6871C188-89E1-4B32-8785-1D808CEBED64, OS:26.2, name:iPad mini (A17 Pro) }
+{ platform:iOS Simulator, arch:x86_64, id:6871C188-89E1-4B32-8785-1D808CEBED64, OS:26.2, name:iPad mini (A17 Pro) }
+{ platform:iOS Simulator, arch:arm64, id:5B15BF82-629F-44A5-8030-EEA2ECD78947, OS:26.4.1, name:iPad mini (A17 Pro) }
+{ platform:iOS Simulator, arch:x86_64, id:5B15BF82-629F-44A5-8030-EEA2ECD78947, OS:26.4.1, name:iPad mini (A17 Pro) }
+{ platform:iOS Simulator, arch:arm64, id:A1BBB2ED-CC79-4E5C-82CF-1489A77F232D, OS:26.5, name:iPad mini (A17 Pro) }
+{ platform:iOS Simulator, arch:x86_64, id:A1BBB2ED-CC79-4E5C-82CF-1489A77F232D, OS:26.5, name:iPad mini (A17 Pro) }
+{ platform:iOS Simulator, arch:arm64, id:F6F146B6-18AA-4FE2-9F0B-AA6D02028DDA, OS:26.2, name:iPhone 16e }
+{ platform:iOS Simulator, arch:x86_64, id:F6F146B6-18AA-4FE2-9F0B-AA6D02028DDA, OS:26.2, name:iPhone 16e }
+{ platform:iOS Simulator, arch:arm64, id:7575462E-E469-49BC-9003-BB78E48CCF46, OS:26.2, name:iPhone 17 }
+{ platform:iOS Simulator, arch:x86_64, id:7575462E-E469-49BC-9003-BB78E48CCF46, OS:26.2, name:iPhone 17 }
+{ platform:iOS Simulator, arch:arm64, id:EC7C4F25-3F36-44A2-8CC3-9CE1CD34AFD3, OS:26.4.1, name:iPhone 17 }
+{ platform:iOS Simulator, arch:x86_64, id:EC7C4F25-3F36-44A2-8CC3-9CE1CD34AFD3, OS:26.4.1, name:iPhone 17 }
+{ platform:iOS Simulator, arch:arm64, id:062CFAA4-9ACF-40ED-A1E2-3625F5ED4DA9, OS:26.5, name:iPhone 17 }
+{ platform:iOS Simulator, arch:x86_64, id:062CFAA4-9ACF-40ED-A1E2-3625F5ED4DA9, OS:26.5, name:iPhone 17 }
+{ platform:iOS Simulator, arch:arm64, id:F5C4661C-7B05-4238-BF71-BF2845D2630A, OS:26.2, name:iPhone 17 Pro }
+{ platform:iOS Simulator, arch:x86_64, id:F5C4661C-7B05-4238-BF71-BF2845D2630A, OS:26.2, name:iPhone 17 Pro }
+{ platform:iOS Simulator, arch:arm64, id:7EFC6246-6BDB-4FD4-AE32-9345E3B28BD8, OS:26.4.1, name:iPhone 17 Pro }
+{ platform:iOS Simulator, arch:x86_64, id:7EFC6246-6BDB-4FD4-AE32-9345E3B28BD8, OS:26.4.1, name:iPhone 17 Pro }
+{ platform:iOS Simulator, arch:arm64, id:F0C70C77-E423-4478-B648-3D25045B311B, OS:26.5, name:iPhone 17 Pro }
+{ platform:iOS Simulator, arch:x86_64, id:F0C70C77-E423-4478-B648-3D25045B311B, OS:26.5, name:iPhone 17 Pro }
+{ platform:iOS Simulator, arch:arm64, id:DCA2A4ED-7625-458E-B4A3-EA3CF230C9AB, OS:26.2, name:iPhone 17 Pro Max }
+{ platform:iOS Simulator, arch:x86_64, id:DCA2A4ED-7625-458E-B4A3-EA3CF230C9AB, OS:26.2, name:iPhone 17 Pro Max }
+{ platform:iOS Simulator, arch:arm64, id:71126E5B-B92E-4504-8F35-E6FB05950616, OS:26.4.1, name:iPhone 17 Pro Max }
+{ platform:iOS Simulator, arch:x86_64, id:71126E5B-B92E-4504-8F35-E6FB05950616, OS:26.4.1, name:iPhone 17 Pro Max }
+{ platform:iOS Simulator, arch:arm64, id:9E8558CA-F3AF-4CCC-92CD-B7E993A49F8A, OS:26.5, name:iPhone 17 Pro Max }
+{ platform:iOS Simulator, arch:x86_64, id:9E8558CA-F3AF-4CCC-92CD-B7E993A49F8A, OS:26.5, name:iPhone 17 Pro Max }
+{ platform:iOS Simulator, arch:arm64, id:A8AB901F-6672-49C0-818C-72ACF53131A5, OS:26.4.1, name:iPhone 17e }
+{ platform:iOS Simulator, arch:x86_64, id:A8AB901F-6672-49C0-818C-72ACF53131A5, OS:26.4.1, name:iPhone 17e }
+{ platform:iOS Simulator, arch:arm64, id:8A537B0A-2793-48DC-AA9E-DEC8874B183B, OS:26.5, name:iPhone 17e }
+{ platform:iOS Simulator, arch:x86_64, id:8A537B0A-2793-48DC-AA9E-DEC8874B183B, OS:26.5, name:iPhone 17e }
+{ platform:iOS Simulator, arch:arm64, id:0B44C686-A087-4854-A304-CE4506F7DE37, OS:26.2, name:iPhone Air }
+{ platform:iOS Simulator, arch:x86_64, id:0B44C686-A087-4854-A304-CE4506F7DE37, OS:26.2, name:iPhone Air }
+{ platform:iOS Simulator, arch:arm64, id:D529479B-2FD8-4F0C-8B24-CBAD8C819B55, OS:26.4.1, name:iPhone Air }
+{ platform:iOS Simulator, arch:x86_64, id:D529479B-2FD8-4F0C-8B24-CBAD8C819B55, OS:26.4.1, name:iPhone Air }
+{ platform:iOS Simulator, arch:arm64, id:1F0A9C4B-2DFC-444E-B162-696E5078A72B, OS:26.5, name:iPhone Air }
+{ platform:iOS Simulator, arch:x86_64, id:1F0A9C4B-2DFC-444E-B162-696E5078A72B, OS:26.5, name:iPhone Air }
+note: Using codesigning identity override: 
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (1 target)
+    Target 'LingYu' in project 'LingYu' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/actool --print-asset-tag-combinations --output-format xml1 /Users/runner/work/nxcdsl/nxcdsl/LingYu/Resources/Assets.xcassets
+
+ExecuteExternalTool /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+ExecuteExternalTool /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: ee5ef05877fd5a19c4baa831b400fcbf
+Build description path: /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/XCBuildData/ee5ef05877fd5a19c4baa831b400fcbf.xcbuilddata
+CreateBuildDirectory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products
+    cd /Users/runner/work/nxcdsl/nxcdsl/LingYu.xcodeproj
+    builtin-create-build-directory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products
+
+ClangStatCache /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk /Users/runner/work/nxcdsl/nxcdsl/build/SDKStatCaches.noindex/iphoneos26.2-23C53-dc75598d0054f22ec865fa860f139d72e6485aba7f6c350f1fcf1acb823f48eb.sdkstatcache
+    cd /Users/runner/work/nxcdsl/nxcdsl/LingYu.xcodeproj
+    /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk -o /Users/runner/work/nxcdsl/nxcdsl/build/SDKStatCaches.noindex/iphoneos26.2-23C53-dc75598d0054f22ec865fa860f139d72e6485aba7f6c350f1fcf1acb823f48eb.sdkstatcache
+
+CreateBuildDirectory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex
+    cd /Users/runner/work/nxcdsl/nxcdsl/LingYu.xcodeproj
+    builtin-create-build-directory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex
+
+CreateBuildDirectory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+    cd /Users/runner/work/nxcdsl/nxcdsl/LingYu.xcodeproj
+    builtin-create-build-directory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu-a7c4b38782fa5f93d58527357dc8c650-VFS-iphoneos/all-product-headers.yaml
+    cd /Users/runner/work/nxcdsl/nxcdsl/LingYu.xcodeproj
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu-a7c4b38782fa5f93d58527357dc8c650-VFS-iphoneos/all-product-headers.yaml
+
+CreateBuildDirectory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos
+    cd /Users/runner/work/nxcdsl/nxcdsl/LingYu.xcodeproj
+    builtin-create-build-directory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos
+
+CreateBuildDirectory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/ExplicitPrecompiledModules
+    cd /Users/runner/work/nxcdsl/nxcdsl/LingYu.xcodeproj
+    builtin-create-build-directory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/EagerLinkingTBDs/Release-iphoneos
+    cd /Users/runner/work/nxcdsl/nxcdsl/LingYu.xcodeproj
+    builtin-create-build-directory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/EagerLinkingTBDs/Release-iphoneos
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.SwiftConstValuesFileList (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu_const_extract_protocols.json (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.SwiftFileList (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.SwiftFileList
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.LinkFileList (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.LinkFileList
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu-OutputFileMap.json (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu.hmap (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu.hmap
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu.DependencyStaticMetadataFileList (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu.DependencyMetadataFileList (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu-project-headers.hmap (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu-project-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu-own-target-headers.hmap (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu-generated-files.hmap (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu-generated-files.hmap
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu-all-target-headers.hmap (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu-all-non-framework-target-headers.hmap (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu-all-non-framework-target-headers.hmap
+
+MkDir /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    /bin/mkdir -p /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app
+
+MkDir /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/assetcatalog_output/unthinned (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    /bin/mkdir -p /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/assetcatalog_output/unthinned
+
+MkDir /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/assetcatalog_output/thinned (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    /bin/mkdir -p /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/assetcatalog_output/thinned
+
+GenerateAssetSymbols /Users/runner/work/nxcdsl/nxcdsl/LingYu/Resources/Assets.xcassets (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/actool /Users/runner/work/nxcdsl/nxcdsl/LingYu/Resources/Assets.xcassets --compile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app --output-format human-readable-text --notices --warnings --export-dependency-info /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/assetcatalog_dependencies --output-partial-info-plist /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/assetcatalog_generated_info.plist --app-icon AppIcon --accent-color AccentColor --compress-pngs --enable-on-demand-resources YES --development-region en --target-device iphone --minimum-deployment-target 17.0 --platform iphoneos --bundle-identifier com.lingyu.app --generate-swift-asset-symbol-extensions NO --generate-swift-asset-symbols /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/DerivedSources/GeneratedAssetSymbols.swift --generate-objc-asset-symbols /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/DerivedSources/GeneratedAssetSymbols.h --generate-asset-symbol-index /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/* com.apple.actool.compilation-results */
+/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/DerivedSources/GeneratedAssetSymbols.h
+/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/DerivedSources/GeneratedAssetSymbols.swift
+
+
+CompileAssetCatalogVariant thinned /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app /Users/runner/work/nxcdsl/nxcdsl/LingYu/Resources/Assets.xcassets (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/actool /Users/runner/work/nxcdsl/nxcdsl/LingYu/Resources/Assets.xcassets --compile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/assetcatalog_output/thinned --output-format human-readable-text --notices --warnings --export-dependency-info /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/assetcatalog_dependencies_thinned --output-partial-info-plist /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/assetcatalog_generated_info.plist_thinned --app-icon AppIcon --accent-color AccentColor --compress-pngs --enable-on-demand-resources YES --development-region en --target-device iphone --minimum-deployment-target 17.0 --platform iphoneos
+/* com.apple.actool.compilation-results */
+/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/assetcatalog_generated_info.plist_thinned
+/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/assetcatalog_output/thinned/AppIcon60x60@2x.png
+/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/assetcatalog_output/thinned/AppIcon76x76@2x~ipad.png
+/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/assetcatalog_output/thinned/Assets.car
+
+
+SwiftDriver LingYu normal arm64 com.apple.xcode.tools.swift.compiler (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-SwiftDriver -- /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name LingYu -O -whole-module-optimization -enforce-exclusivity\=checked @/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.SwiftFileList -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk -target arm64-apple-ios17.0 -g -module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -swift-version 5 -I /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos -F /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos -emit-localized-strings -emit-localized-strings-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64 -c -num-threads 5 -Xcc -ivfsstatcache -Xcc /Users/runner/work/nxcdsl/nxcdsl/build/SDKStatCaches.noindex/iphoneos26.2-23C53-dc75598d0054f22ec865fa860f139d72e6485aba7f6c350f1fcf1acb823f48eb.sdkstatcache -output-file-map /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex -sdk-module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu-generated-files.hmap -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu-own-target-headers.hmap -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu-all-target-headers.hmap -Xcc -iquote -Xcc /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu-project-headers.hmap -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/include -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/DerivedSources/arm64 -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/DerivedSources -emit-objc-header -emit-objc-header-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu-Swift.h -working-directory /Users/runner/work/nxcdsl/nxcdsl -no-emit-module-separately-wmo
+
+SwiftDriver\ Compilation LingYu normal arm64 com.apple.xcode.tools.swift.compiler (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-Swift-Compilation -- /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name LingYu -O -whole-module-optimization -enforce-exclusivity\=checked @/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.SwiftFileList -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk -target arm64-apple-ios17.0 -g -module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -swift-version 5 -I /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos -F /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos -emit-localized-strings -emit-localized-strings-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64 -c -num-threads 5 -Xcc -ivfsstatcache -Xcc /Users/runner/work/nxcdsl/nxcdsl/build/SDKStatCaches.noindex/iphoneos26.2-23C53-dc75598d0054f22ec865fa860f139d72e6485aba7f6c350f1fcf1acb823f48eb.sdkstatcache -output-file-map /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex -sdk-module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu-generated-files.hmap -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu-own-target-headers.hmap -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu-all-target-headers.hmap -Xcc -iquote -Xcc /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu-project-headers.hmap -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/include -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/DerivedSources/arm64 -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/DerivedSources -emit-objc-header -emit-objc-header-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu-Swift.h -working-directory /Users/runner/work/nxcdsl/nxcdsl -no-emit-module-separately-wmo
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/SwiftShims-2OZ4DV04TGXLV4URHAE4T9OH1.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_stdbool-E77TCY69BZH1E7GR17QRJ7JSR.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/DeveloperToolsSupport-2EUO40KRALE1AOI7WTX09W48P.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/ptrauth-49XJDPTU57FXLGYU6DB9NZ0TZ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_stdarg-6HDY8O7B95YQWFHY0BL1ZDNWY.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_SwiftConcurrencyShims-BANI5WT8TRL3BW0PXFUUZNDM3.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/ptrcheck-CINW0S6QCDVHQAYQ8H9M2DQ0L.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_float-AGX9G78ASN11920XFOTNIDROS.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_stddef-E5QJ9C3ZNGWW2LWG4B3HXF5EZ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_AvailabilityInternal-BXKB9XNQTQH88T0FKUXFG06OL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_DarwinFoundation1-B3OSCL8Y9CHKYBXGFQKI3PU88.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_limits-2LLJ523H4NT8IXG90OMBH52QL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_DarwinFoundation2-DJNJL4HPOW7WS7UROAC8Z511L.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/ExtensionFoundation-C55F66N60XJVDCTIRUU6PE19K.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_stdint-B6L6GXZ0Z59YQCGE2UFQBACIP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/sys_types-F4Z740Q9ACMZRFCEQVQBUZQI4.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_tgmath-CAI5NCYSMOARIX5YVV9644RXM.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_stdatomic-3NI5J2IRH8EOXZF4KE29BQ2TJ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_intrinsics-4TBUBL98Z626K2ERLNOZBV8V0.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_DarwinFoundation3-AFB1D74SY5TDBQF0AU096MWEB.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_inttypes-F0C5U9NXSCNCH9TXC7ZE4CAPT.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Darwin-4VVOUW6S3TPAVMANQ3GIQUYCU.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/simd-FW4JEM6UEKR3T86WVR8GWT6O.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/ObjectiveC-C3YB8FDQ764D2VHA8J27PCFXL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/MachO-AU4UMVGB9A4GKHJPRMLFRKL18.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/os_object-1ZRMS6RD4KEZCI9O5W0TRDVMJ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/os_workgroup-8UQAW0WQ88EWWGKYKKL0GLFPH.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Dispatch-3R3ET4ICDBNU83VV2TSG511IS.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Spatial-BW4DDZBZ0DN39RQPDJ0XIZ7TF.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/XPC-8OB170EWL2O47FLDQPWB49ONP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreFoundation-ARXBPRTSZKRALL7XSJDEZ3BBJ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/dnssd-BBN35TMH3QAH58O9P2M72Z5FB.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/os-B7926776ZZIRKR2X5KIDINA89.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CFNetwork-WCV35LIKW374LST1MJZPEOQF.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreGraphics-3MR9KC2MVAQNISO5F6QKWOXJZ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreAudioTypes-O40XCWMIJRSODEMERLZBAWM1.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Security-4STLTMEYMY5INT3PLPD2RQ4IC.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreAudio-BO78I530UU26JQCYMHMQC6L9O.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/ImageIO-4QBHL5AFE2RXPFXZY5W4CHTU4.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreText-D0I9SJDINMWKVU0GUA0MLHBT7.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Foundation-9LJ2VJNRXWSGH1X22BZH75YWL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/UniformTypeIdentifiers-AL1FO7NHG8WGH2THYW46X9CX1.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreData-7O0SEE2YSHQ3NNSCLXVB3PUP4.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/FileProvider-F5E307X2VDTYO39C26WAUQJ85.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/DataDetection-39ZU7XSBLCDWMKWC5J6HJJJB6.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/RelevanceKit-9F7QEC2YG11ZZSD67WDTPFGOE.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/IOSurface-AT7W6HE6MBY4PQDW6WQ6VZB2H.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/HealthKit-3R2XCUP4FHIS9WONM90ZJ109Y.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/UserNotifications-4AHVETCNZVUILXEMKOEFEZDDS.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreSpotlight-AO4YBK32SKNHMLFE9S5Z0KX57.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_LocationEssentials-EB0RIBT3AAXQ369ARAWQFV3QO.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/OpenGLES-P8Z9GD9MH0LYP31ZL104P06M.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Metal-1JKNGNPFZWF3909NRC0GCYF7C.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreTransferable-56OD17KQBTU1U6PFPRRUNBHWA.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreLocation-B6P34OXZRWF42SH0HMZ4TTUUT.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/AppIntents-7UJTGXX1MOT1YEAKJLYRMOL8E.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/OSLog-AMFJ5R2A2BMPAW8DNYN4A46NU.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Symbols-9T8Z30MPLI67TNP5SH1BGBMP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreMIDI-79QZA0SFYQMVR14C06MF5MIL6.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Accessibility-9NNEHS7UASGH0M66KBGOJSEQ1.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Network-9F1T35YOTZBH4NG7X2TCQXXT7.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/UIUtilities-1R8JD020H0FBIV4GNZY1LOPBD.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreVideo-2CXWBGUS91DRCZ5STLQM9HZQ1.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/AudioToolbox-9YFOLPFEZQ3O44D1DMHYBW9L9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/AVRouting-EP8659395QYX1V01UGITOO7E0.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/QuartzCore-7RKP4LXNAP8DA089O88SCMCN3.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreMedia-46VHJDT1XCCEIB0SQQMW7CX4I.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreImage-6JXL3NGKDHJYMM2DLY3S3VEC0.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/SwiftUICore-4NC6TF8NWUIFR1P8H6HX7LFXR.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/MediaToolbox-217MCVVTWVPLIEL3RHPCK50IK.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/AVFAudio-9MN1E8QIQC6S41KUG8NRVVKGS.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/UIKit-6B89ZKDSBU69DFHX1RJLDWJB9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/AVFoundation-9NG9WOE5HUHWI1DHQO7TYWXKR.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Speech-2OAGYWAMPF1MUSZMBNQ85TVO0.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Photos-6A2ZYJFZU3FIXOOVCSDCKBOOL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/SwiftUI-APR7IYL1QGIFSEZ7HPEXCJDUE.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/PhotosUI-58WC2N1IJ3VZYD20LVQ2C29UU.pcm
+
+SwiftCompile normal arm64 Compiling\ LingYuApp.swift,\ DeepSeek.swift,\ Health.swift,\ KeyStore.swift,\ Model.swift,\ Speech.swift,\ Store.swift,\ ChatView.swift,\ GlassKit.swift,\ MemoryView.swift,\ Particles.swift,\ SettingsPane.swift,\ Theme.swift,\ GeneratedAssetSymbols.swift /Users/runner/work/nxcdsl/nxcdsl/LingYu/LingYuApp.swift /Users/runner/work/nxcdsl/nxcdsl/LingYu/Core/DeepSeek.swift /Users/runner/work/nxcdsl/nxcdsl/LingYu/Core/Health.swift /Users/runner/work/nxcdsl/nxcdsl/LingYu/Core/KeyStore.swift /Users/runner/work/nxcdsl/nxcdsl/LingYu/Core/Model.swift /Users/runner/work/nxcdsl/nxcdsl/LingYu/Core/Speech.swift /Users/runner/work/nxcdsl/nxcdsl/LingYu/Core/Store.swift /Users/runner/work/nxcdsl/nxcdsl/LingYu/UI/ChatView.swift /Users/runner/work/nxcdsl/nxcdsl/LingYu/UI/GlassKit.swift /Users/runner/work/nxcdsl/nxcdsl/LingYu/UI/MemoryView.swift /Users/runner/work/nxcdsl/nxcdsl/LingYu/UI/Particles.swift /Users/runner/work/nxcdsl/nxcdsl/LingYu/UI/SettingsPane.swift /Users/runner/work/nxcdsl/nxcdsl/LingYu/UI/Theme.swift /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/DerivedSources/GeneratedAssetSymbols.swift /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreImage.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Network.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/QuartzCore.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/AudioToolbox.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreText.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreAudio.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreTransferable.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/AVFAudio.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreVideo.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/HealthKit.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/DeveloperToolsSupport.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_PhotosUI_SwiftUI.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/UIKit.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Foundation.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_DarwinFoundation2.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Observation.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Darwin.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_StringProcessing.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreMedia.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/SwiftUI.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Swift.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_AppIntents_SwiftUI.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/FileProvider.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_Builtin_float.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Combine.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreSpotlight.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Speech.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_DarwinFoundation3.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreLocation.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Distributed.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_Concurrency.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/SwiftUICore.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/AVFoundation.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Synchronization.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Photos.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreFoundation.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/DataDetection.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/ExtensionFoundation.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Metal.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/RelevanceKit.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Symbols.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/XPC.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/ObjectiveC.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreData.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_DarwinFoundation1.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/PhotosUI.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Spatial.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/simd.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/UniformTypeIdentifiers.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreMIDI.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/os.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreGraphics.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Accessibility.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/OSLog.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/AppIntents.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Dispatch.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/System.swiftmodule/arm64e-apple-ios.swiftmodule /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreTransferable-56OD17KQBTU1U6PFPRRUNBHWA.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreSpotlight-AO4YBK32SKNHMLFE9S5Z0KX57.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/UIKit-6B89ZKDSBU69DFHX1RJLDWJB9.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreFoundation-ARXBPRTSZKRALL7XSJDEZ3BBJ.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CFNetwork-WCV35LIKW374LST1MJZPEOQF.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/DataDetection-39ZU7XSBLCDWMKWC5J6HJJJB6.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/MediaToolbox-217MCVVTWVPLIEL3RHPCK50IK.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/dnssd-BBN35TMH3QAH58O9P2M72Z5FB.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_LocationEssentials-EB0RIBT3AAXQ369ARAWQFV3QO.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/AVRouting-EP8659395QYX1V01UGITOO7E0.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/UniformTypeIdentifiers-AL1FO7NHG8WGH2THYW46X9CX1.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_SwiftConcurrencyShims-BANI5WT8TRL3BW0PXFUUZNDM3.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/QuartzCore-7RKP4LXNAP8DA089O88SCMCN3.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Spatial-BW4DDZBZ0DN39RQPDJ0XIZ7TF.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreAudio-BO78I530UU26JQCYMHMQC6L9O.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/SwiftUI-APR7IYL1QGIFSEZ7HPEXCJDUE.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/AppIntents-7UJTGXX1MOT1YEAKJLYRMOL8E.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/ptrcheck-CINW0S6QCDVHQAYQ8H9M2DQ0L.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/HealthKit-3R2XCUP4FHIS9WONM90ZJ109Y.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Darwin-4VVOUW6S3TPAVMANQ3GIQUYCU.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/AudioToolbox-9YFOLPFEZQ3O44D1DMHYBW9L9.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreText-D0I9SJDINMWKVU0GUA0MLHBT7.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreGraphics-3MR9KC2MVAQNISO5F6QKWOXJZ.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreLocation-B6P34OXZRWF42SH0HMZ4TTUUT.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Photos-6A2ZYJFZU3FIXOOVCSDCKBOOL.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/IOSurface-AT7W6HE6MBY4PQDW6WQ6VZB2H.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/os_workgroup-8UQAW0WQ88EWWGKYKKL0GLFPH.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Dispatch-3R3ET4ICDBNU83VV2TSG511IS.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Accessibility-9NNEHS7UASGH0M66KBGOJSEQ1.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreVideo-2CXWBGUS91DRCZ5STLQM9HZQ1.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_stdatomic-3NI5J2IRH8EOXZF4KE29BQ2TJ.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreImage-6JXL3NGKDHJYMM2DLY3S3VEC0.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_float-AGX9G78ASN11920XFOTNIDROS.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/FileProvider-F5E307X2VDTYO39C26WAUQJ85.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/ImageIO-4QBHL5AFE2RXPFXZY5W4CHTU4.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/SwiftUICore-4NC6TF8NWUIFR1P8H6HX7LFXR.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/ObjectiveC-C3YB8FDQ764D2VHA8J27PCFXL.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/ExtensionFoundation-C55F66N60XJVDCTIRUU6PE19K.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_stdbool-E77TCY69BZH1E7GR17QRJ7JSR.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_tgmath-CAI5NCYSMOARIX5YVV9644RXM.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_stdint-B6L6GXZ0Z59YQCGE2UFQBACIP.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Foundation-9LJ2VJNRXWSGH1X22BZH75YWL.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/ptrauth-49XJDPTU57FXLGYU6DB9NZ0TZ.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/DeveloperToolsSupport-2EUO40KRALE1AOI7WTX09W48P.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreAudioTypes-O40XCWMIJRSODEMERLZBAWM1.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/RelevanceKit-9F7QEC2YG11ZZSD67WDTPFGOE.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/os-B7926776ZZIRKR2X5KIDINA89.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Network-9F1T35YOTZBH4NG7X2TCQXXT7.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/SwiftShims-2OZ4DV04TGXLV4URHAE4T9OH1.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/os_object-1ZRMS6RD4KEZCI9O5W0TRDVMJ.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreData-7O0SEE2YSHQ3NNSCLXVB3PUP4.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/sys_types-F4Z740Q9ACMZRFCEQVQBUZQI4.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Security-4STLTMEYMY5INT3PLPD2RQ4IC.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_DarwinFoundation3-AFB1D74SY5TDBQF0AU096MWEB.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_inttypes-F0C5U9NXSCNCH9TXC7ZE4CAPT.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_intrinsics-4TBUBL98Z626K2ERLNOZBV8V0.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/XPC-8OB170EWL2O47FLDQPWB49ONP.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/OpenGLES-P8Z9GD9MH0LYP31ZL104P06M.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/AVFoundation-9NG9WOE5HUHWI1DHQO7TYWXKR.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_DarwinFoundation2-DJNJL4HPOW7WS7UROAC8Z511L.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/PhotosUI-58WC2N1IJ3VZYD20LVQ2C29UU.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreMIDI-79QZA0SFYQMVR14C06MF5MIL6.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_AvailabilityInternal-BXKB9XNQTQH88T0FKUXFG06OL.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/UIUtilities-1R8JD020H0FBIV4GNZY1LOPBD.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Metal-1JKNGNPFZWF3909NRC0GCYF7C.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_stdarg-6HDY8O7B95YQWFHY0BL1ZDNWY.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/OSLog-AMFJ5R2A2BMPAW8DNYN4A46NU.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/simd-FW4JEM6UEKR3T86WVR8GWT6O.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_DarwinFoundation1-B3OSCL8Y9CHKYBXGFQKI3PU88.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_stddef-E5QJ9C3ZNGWW2LWG4B3HXF5EZ.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/UserNotifications-4AHVETCNZVUILXEMKOEFEZDDS.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Symbols-9T8Z30MPLI67TNP5SH1BGBMP.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/MachO-AU4UMVGB9A4GKHJPRMLFRKL18.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/AVFAudio-9MN1E8QIQC6S41KUG8NRVVKGS.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreMedia-46VHJDT1XCCEIB0SQQMW7CX4I.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Speech-2OAGYWAMPF1MUSZMBNQ85TVO0.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_limits-2LLJ523H4NT8IXG90OMBH52QL.pcm /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu-dependencies-1.json (in target 'LingYu' from project 'LingYu')
+CompileSwift normal arm64 (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    
+/Users/runner/work/nxcdsl/nxcdsl/LingYu/Core/Speech.swift:67:45: warning: 'requestRecordPermission' was deprecated in iOS 17.0: Please use AVAudioApplication requestRecordPermissionWithCompletionHandler
+            AVAudioSession.sharedInstance().requestRecordPermission { ok in
+                                            ^
+
+LinkAssetCatalog /Users/runner/work/nxcdsl/nxcdsl/LingYu/Resources/Assets.xcassets (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-linkAssetCatalog --thinned /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/assetcatalog_output/thinned --thinned-dependencies /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/assetcatalog_dependencies_thinned --thinned-info-plist-content /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/assetcatalog_generated_info.plist_thinned --unthinned /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/assetcatalog_output/unthinned --unthinned-dependencies /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/assetcatalog_dependencies_unthinned --unthinned-info-plist-content /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/assetcatalog_generated_info.plist_unthinned --output /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app --plist-output /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/assetcatalog_generated_info.plist
+note: Emplaced /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/AppIcon60x60@2x.png (in target 'LingYu' from project 'LingYu')
+note: Emplaced /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/Assets.car (in target 'LingYu' from project 'LingYu')
+note: Emplaced /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/AppIcon76x76@2x~ipad.png (in target 'LingYu' from project 'LingYu')
+
+ProcessInfoPlistFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/Info.plist /Users/runner/work/nxcdsl/nxcdsl/Config/Info.plist (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-infoPlistUtility /Users/runner/work/nxcdsl/nxcdsl/Config/Info.plist -producttype com.apple.product-type.application -genpkginfo /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/PkgInfo -expandbuildsettings -format binary -platform iphoneos -additionalcontentfile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/assetcatalog_generated_info.plist -requiredArchitecture arm64 -o /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/Info.plist
+
+SwiftDriverJobDiscovery normal arm64 Compiling LingYuApp.swift, DeepSeek.swift, Health.swift, KeyStore.swift, Model.swift, Speech.swift, Store.swift, ChatView.swift, GlassKit.swift, MemoryView.swift, Particles.swift, SettingsPane.swift, Theme.swift, GeneratedAssetSymbols.swift (in target 'LingYu' from project 'LingYu')
+
+SwiftDriver\ Compilation\ Requirements LingYu normal arm64 com.apple.xcode.tools.swift.compiler (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name LingYu -O -whole-module-optimization -enforce-exclusivity\=checked @/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.SwiftFileList -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk -target arm64-apple-ios17.0 -g -module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -swift-version 5 -I /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos -F /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos -emit-localized-strings -emit-localized-strings-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64 -c -num-threads 5 -Xcc -ivfsstatcache -Xcc /Users/runner/work/nxcdsl/nxcdsl/build/SDKStatCaches.noindex/iphoneos26.2-23C53-dc75598d0054f22ec865fa860f139d72e6485aba7f6c350f1fcf1acb823f48eb.sdkstatcache -output-file-map /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex -sdk-module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu-generated-files.hmap -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu-own-target-headers.hmap -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu-all-target-headers.hmap -Xcc -iquote -Xcc /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu-project-headers.hmap -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/include -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/DerivedSources/arm64 -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/DerivedSources -emit-objc-header -emit-objc-header-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu-Swift.h -working-directory /Users/runner/work/nxcdsl/nxcdsl -no-emit-module-separately-wmo
+
+SwiftMergeGeneratedHeaders /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/DerivedSources/LingYu-Swift.h /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu-Swift.h (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-swiftHeaderTool -arch arm64 /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu-Swift.h -o /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/DerivedSources/LingYu-Swift.h
+
+Copy /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.swiftmodule/arm64-apple-ios.swiftdoc /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.swiftdoc (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.swiftdoc /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.swiftmodule/arm64-apple-ios.swiftdoc
+
+Copy /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.swiftmodule/arm64-apple-ios.swiftmodule /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.swiftmodule (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.swiftmodule /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.swiftmodule/arm64-apple-ios.swiftmodule
+
+Copy /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.swiftmodule/arm64-apple-ios.abi.json /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.abi.json (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.abi.json /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.swiftmodule/arm64-apple-ios.abi.json
+
+Copy /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.swiftsourceinfo (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.swiftsourceinfo /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo
+
+Ld /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/LingYu normal (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0 -isysroot /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk -Os -L/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/EagerLinkingTBDs/Release-iphoneos -L/Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos -F/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/EagerLinkingTBDs/Release-iphoneos -F/Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos -filelist /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.LinkFileList -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @executable_path/Frameworks -dead_strip -Xlinker -object_path_lto -Xlinker /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu_lto.o -Xlinker -dependency_info -Xlinker /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.swiftmodule @/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu-linker-args.resp -o /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/LingYu
+
+CopySwiftLibs /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-swiftStdLibTool --copy --verbose --scan-executable /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/LingYu --scan-folder /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/Frameworks --scan-folder /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/PlugIns --scan-folder /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/SystemExtensions --scan-folder /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/Extensions --platform iphoneos --toolchain /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v17.3.7003.10.k4vYLt/Metal.xctoolchain --toolchain /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-span
+Ignoring --strip-bitcode because --sign was not passed
+
+ExtractAppIntentsMetadata (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v17.3.7003.10.k4vYLt/Metal.xctoolchain --module-name LingYu --sdk-root /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk --xcode-version 17C52 --platform-family iOS --deployment-target 17.0 --bundle-identifier com.lingyu.app --output /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app --target-triple arm64-apple-ios17.0 --binary-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/LingYu --dependency-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu_dependency_info.dat --stringsdata-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.SwiftFileList --metadata-file-list /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu.DependencyMetadataFileList --static-metadata-file-list /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu.DependencyStaticMetadataFileList --swift-const-vals-list /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/Objects-normal/arm64/LingYu.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2026-10-31 16:51:07.707 appintentsmetadataprocessor[1416:7713] Starting appintentsmetadataprocessor export
+2026-10-31 16:51:07.817 appintentsmetadataprocessor[1416:7713] Writing Metadata.appintents
+2026-10-31 16:51:07.818 appintentsmetadataprocessor[1416:7713] Metadata root: /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/Metadata.appintents
+
+GenerateDSYMFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app.dSYM /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/LingYu (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/LingYu -o /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app.dSYM
+
+AppIntentsSSUTraining (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsnltrainingprocessor --infoplist-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/Info.plist --temp-dir-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/ssu --bundle-id com.lingyu.app --product-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app --extracted-metadata-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/Metadata.appintents --metadata-file-list /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/LingYu.DependencyMetadataFileList --archive-ssu-assets
+2026-10-31 16:51:07.841 appintentsnltrainingprocessor[1418:7724] Parsing options for appintentsnltrainingprocessor
+2026-10-31 16:51:07.842 appintentsnltrainingprocessor[1418:7724] Starting AppIntents SSU YAML Generation
+2026-10-31 16:51:07.851 appintentsnltrainingprocessor[1418:7724] Training '把健康数据存到${+applicationName}' for zh_CN
+2026-10-31 16:51:07.851 appintentsnltrainingprocessor[1418:7724] Training Negative Phrases '' for zh_CN
+2026-10-31 16:51:07.851 appintentsnltrainingprocessor[1418:7724] Application name '灵语' for zh_CN
+2026-10-31 16:51:07.858 appintentsnltrainingprocessor[1418:7724] Generated AppIntents SSU YAML files in file:///Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LingYu.build/Release-iphoneos/LingYu.build/ssu/
+2026-10-31 16:51:07.858 appintentsnltrainingprocessor[1418:7724] Copied AppIntents SSU YAML files to file:///Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/Metadata.appintents/
+Archiving all locales.
+[------------------------------------------------------------] 0% archiving zh_CN[🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢] 100% archived zh_CN[🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢🁢] 100% archived 1 locales/Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/Metadata.appintents/nlu
+/Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app/Metadata.appintents/nlu/c21b5f2b91bee02f4974c64535e6ab98.version
+
+
+RegisterExecutionPolicyException /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-RegisterExecutionPolicyException /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app
+
+Validate /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-validationUtility /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app -validate-for-store -shallow-bundle -infoplist-subpath Info.plist
+
+Touch /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app (in target 'LingYu' from project 'LingYu')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    /usr/bin/touch -c /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LingYu.app
+
+** BUILD SUCCEEDED **
+
