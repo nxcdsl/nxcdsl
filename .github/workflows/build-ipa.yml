@@ -1,8 +1,5 @@
 name: Build unsigned IPA
 
-# 在 GitHub 网页上点 Actions → Build unsigned IPA → Run workflow
-# 跑完在 Artifacts 里下载 LumiGen-unsigned-ipa，用 Windows 上的 Sideloadly 签名安装。
-
 on:
   workflow_dispatch:
   push:
@@ -18,7 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # 有 Xcode 26 就用它（真·液态玻璃），没有就用默认版本（自动退回近似玻璃）
       - name: Pick newest Xcode
         run: |
           ls /Applications | grep -i '^Xcode' || true
@@ -51,22 +47,18 @@ jobs:
             CODE_SIGNING_ALLOWED=NO \
             build 2>&1 | tee build.log
 
-      # 失败时把关键行写成 annotation，任何人（包括免登录 API）都能读到
+      # 错误行优先写 annotation（GitHub 每次最多 10 条，所以只取最关键的几条）
       - name: Report errors
         if: failure()
         run: |
-          echo "=========== diag ==========="
-          cat diag.txt 2>/dev/null || true
           echo "=========== errors =========="
-          grep -nE "(error|fatal error):" build.log 2>/dev/null | head -40 || true
+          grep -nE "error:" build.log 2>/dev/null | head -40 || true
           echo "=========== tail ==========="
           tail -30 build.log 2>/dev/null || true
 
-          head -12 diag.txt 2>/dev/null | while IFS= read -r l; do echo "::error::diag: $l"; done
-          grep -E "(error|fatal error):" build.log 2>/dev/null | head -14 | while IFS= read -r l; do
+          grep -E "error:" build.log 2>/dev/null | head -8 | cut -c1-600 | while IFS= read -r l; do
             echo "::error::$l"
           done
-          tail -8 build.log 2>/dev/null | while IFS= read -r l; do echo "::error::tail: $l"; done
 
       - name: Package IPA
         if: success()
@@ -83,18 +75,33 @@ jobs:
           path: LumiGen-unsigned.ipa
           if-no-files-found: error
 
-      # 成功后把 ipa 也放进 ci-log 分支，方便用 API 直接取（不用登录网页）
-      - name: Publish ipa to ci-log branch
-        if: success()
+      # 无论成功失败，都把完整日志（成功时还有 ipa）推到 ci-log 分支，
+      # 这样不用登录网页也能用 API 直接取到。
+      - name: Publish log to ci-log branch
+        if: always()
         continue-on-error: true
         run: |
           set -e
+          {
+            echo "## run info"
+            echo "sha: ${{ github.sha }}"
+            echo "date: $(date -u)"
+            echo
+            echo "## diag (xcodebuild -list)"
+            cat diag.txt 2>/dev/null || echo "(no diag)"
+            echo
+            echo "## build log (last 600 lines)"
+            tail -600 build.log 2>/dev/null || echo "(no build.log)"
+          } > build-error.log
+          wc -l build-error.log
+
           git config user.name "ci-log"
           git config user.email "ci-log@local"
           git checkout -B ci-log
-          cp LumiGen-unsigned.ipa .
-          git add -f LumiGen-unsigned.ipa
-          { cat diag.txt 2>/dev/null; echo; echo "=== build tail ==="; tail -40 build.log 2>/dev/null; } > build-error.log
           git add -f build-error.log
-          git commit -m "build output [skip ci]"
+          if [ -f LumiGen-unsigned.ipa ]; then
+            cp LumiGen-unsigned.ipa .
+            git add -f LumiGen-unsigned.ipa
+          fi
+          git commit -m "ci log [skip ci]" || true
           git push -f origin ci-log
