@@ -1,4 +1,5 @@
 import SwiftUI
+import AppIntents
 
 @main
 struct LingYuApp: App {
@@ -24,7 +25,7 @@ struct RootView: View {
                 pager
 
                 GlassTabBar(tab: $tab)
-                    .padding(.top, 6)
+                    .padding(.top, 8)
             }
             .padding(.horizontal, 12)
             .padding(.bottom, 4)
@@ -35,9 +36,17 @@ struct RootView: View {
         .environmentObject(theme)
         .preferredColorScheme(.dark)
         .onAppear { store.bootstrap() }
+        .onOpenURL { url in
+            guard url.scheme == "lingyu" else { return }
+            let comps = URLComponents(url: url, resolvingAgainstBaseURL: false)
+            let raw = comps?.queryItems?.first(where: { $0.name == "text" })?.value ?? ""
+            if let parsed = HealthTextParser.parse(raw) {
+                store.healthSummary = parsed
+                store.save()
+                store.showToast("健康数据已同步")
+            }
+        }
     }
-
-    // MARK: - 自己的分页器（比系统 TabView 顺，取消手势时是回弹而不是跳）
 
     private var pager: some View {
         GeometryReader { geo in
@@ -82,12 +91,14 @@ struct RootView: View {
     }
 }
 
-// MARK: - 底部栏：按住可以左右滑着换
+// MARK: - 底部栏：长按浮出玻璃球，拖着换页
 
 struct GlassTabBar: View {
 
     @Binding var tab: Int
     @Namespace private var ns
+
+    @State private var orbX: CGFloat? = nil
 
     private let items: [(icon: String, title: String)] = [
         ("bubble.left.and.bubble.right", "聊天"),
@@ -97,6 +108,9 @@ struct GlassTabBar: View {
 
     var body: some View {
         GeometryReader { geo in
+            let width = geo.size.width
+            let slot = width / CGFloat(items.count)
+
             HStack(spacing: 2) {
                 ForEach(Array(items.enumerated()), id: \.offset) { index, item in
                     Button {
@@ -112,7 +126,7 @@ struct GlassTabBar: View {
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 7)
                         .background {
-                            if tab == index { pill }
+                            if tab == index && orbX == nil { pill }
                         }
                     }
                     .buttonStyle(.plain)
@@ -120,17 +134,115 @@ struct GlassTabBar: View {
             }
             .padding(6)
             .barGlass()
+            .overlay(alignment: .leading) {
+                if let x = orbX {
+                    orb(index: index(at: x, slot: slot))
+                        .offset(x: x - 27, y: 3)
+                        .allowsHitTesting(false)
+                }
+            }
             .contentShape(Rectangle())
             .simultaneousGesture(
-                DragGesture(minimumDistance: 10)
+                LongPressGesture(minimumDuration: 0.2)
+                    .sequenced(before: DragGesture(minimumDistance: 0, coordinateSpace: .local))
                     .onChanged { value in
-                        let width = max(1, geo.size.width) / CGFloat(items.count)
-                        let index = min(items.count - 1, max(0, Int(value.location.x / width)))
-                        if index != tab { select(index) }
+                        switch value {
+                        case .second(true, let dragValue?):
+                            if orbX == nil {
+                                UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                                withAnimation(.spring(response: 0.28, dampingFraction: 0.7)) {
+                                    orbX = min(width, max(0, slot * (CGFloat(tab) + 0.5)))
+                                }
+                            }
+                            let x = min(width, max(0, dragValue.location.x))
+                            orbX = x
+                            let target = index(at: x, slot: slot)
+                            if target != tab {
+                                withAnimation(.spring(response: 0.28, dampingFraction: 0.8)) { tab = target }
+                                UIImpactFeedbackGenerator(style: .soft).impactOccurred()
+                            }
+                        default:
+                            break
+                        }
+                    }
+                    .onEnded { _ in
+                        withAnimation(.spring(response: 0.3, dampingFraction: 0.72)) { orbX = nil }
                     }
             )
         }
         .frame(height: 64)
+    }
+
+    private func index(at x: CGFloat, slot: CGFloat) -> Int {
+        min(items.count - 1, max(0, Int(x / max(1, slot))))
+    }
+
+    /// 那颗会折射的玻璃球
+    private func orb(index: Int) -> some View {
+        ZStack {
+            orbGlass
+            Image(systemName: items[index].0)
+                .font(.system(size: 19, weight: .semibold))
+                .foregroundStyle(.white.opacity(0.95))
+                .scaleEffect(1.06)
+        }
+        .frame(width: 54, height: 54)
+        .shadow(color: Color.white.opacity(0.30), radius: 14)
+        .transition(.scale(scale: 0.6).combined(with: .opacity))
+    }
+
+    @ViewBuilder
+    private var orbGlass: some View {
+        #if compiler(>=6.2)
+        if #available(iOS 26.0, *) {
+            Circle()
+                .fill(Color.white.opacity(0.06))
+                .glassEffect(.regular, in: .circle)
+                .overlay(rim)
+                .overlay(specular)
+        } else {
+            fallbackOrb
+        }
+        #else
+        fallbackOrb
+        #endif
+    }
+
+    private var fallbackOrb: some View {
+        Circle()
+            .fill(.ultraThinMaterial)
+            .overlay(Circle().fill(Color.white.opacity(0.10)))
+            .overlay(rim)
+            .overlay(specular)
+    }
+
+    private var rim: some View {
+        Circle()
+            .strokeBorder(
+                AngularGradient(
+                    colors: [Color.white.opacity(0.85),
+                             Color.white.opacity(0.10),
+                             Color.white.opacity(0.55),
+                             Color.white.opacity(0.08),
+                             Color.white.opacity(0.85)],
+                    center: .center
+                ),
+                lineWidth: 1.4
+            )
+            .blendMode(.plusLighter)
+    }
+
+    private var specular: some View {
+        Circle()
+            .fill(
+                RadialGradient(
+                    colors: [Color.white.opacity(0.55), Color.white.opacity(0.0)],
+                    center: UnitPoint(x: 0.32, y: 0.26),
+                    startRadius: 1,
+                    endRadius: 22
+                )
+            )
+            .blendMode(.plusLighter)
     }
 
     private func select(_ index: Int) {
@@ -183,4 +295,32 @@ private struct BarGlass: ViewModifier {
 
 extension View {
     func barGlass() -> some View { modifier(BarGlass()) }
+}
+
+// MARK: - 快捷指令动作
+
+struct SaveHealthIntent: AppIntent {
+
+    static var title: LocalizedStringResource = "保存健康数据到灵语"
+    static var description = IntentDescription("把一段健康数据交给灵语，聊天时会参考")
+    static var openAppWhenRun: Bool = false
+
+    @Parameter(title: "健康数据")
+    var text: String
+
+    func perform() async throws -> some IntentResult & ProvidesDialog {
+        let raw = text
+        AppStore.shared.healthSummary = HealthTextParser.parse(raw) ?? "近 7 天：\(raw.prefix(120))"
+        AppStore.shared.save()
+        return .result(dialog: "已同步到灵语")
+    }
+}
+
+struct LingYuShortcuts: AppShortcutsProvider {
+    static var appShortcuts: [AppShortcut] {
+        AppShortcut(intent: SaveHealthIntent(),
+                    phrases: ["把健康数据存到\(.applicationName)"],
+                    shortTitle: "保存健康数据",
+                    systemImageName: "heart.text.square")
+    }
 }

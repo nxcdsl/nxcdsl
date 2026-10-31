@@ -256,7 +256,7 @@ struct SettingsPane: View {
             }
 
             HStack(spacing: 8) {
-                chip("剪贴板导入") { importClipboard() }
+                chip("快捷指令") { openShortcuts() }
                 chip("连接 Health") {
                     Task {
                         await health.connect()
@@ -280,7 +280,7 @@ struct SettingsPane: View {
                 Spacer(minLength: 0)
             }
 
-            Text("快捷指令做法：新建 →「查找健康样本」(全部，近 7 天) →「拷贝到剪贴板」→ 回来点剪贴板导入")
+            Text("快捷指令：新建 →「查找健康样本」(全部，近 7 天) →「保存健康数据到灵语」")
                 .font(.system(size: 9.5))
                 .foregroundStyle(.white.opacity(0.28))
                 .fixedSize(horizontal: false, vertical: true)
@@ -311,6 +311,12 @@ struct SettingsPane: View {
                     await MainActor.run { healthItem = nil }
                 }
             }
+        }
+    }
+
+    private func openShortcuts() {
+        if let url = URL(string: "shortcuts://") {
+            UIApplication.shared.open(url)
         }
     }
 
