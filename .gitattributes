@@ -1,0 +1,10 @@
+* text=auto
+*.swift text
+*.md text
+*.plist text
+*.yml text eol=lf
+*.sh text eol=lf
+*.pbxproj text
+*.xcscheme text
+*.json text
+*.png binary
