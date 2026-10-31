@@ -100,7 +100,6 @@ jobs:
           git checkout -B ci-log
           git add -f build-error.log
           if [ -f LumiGen-unsigned.ipa ]; then
-            cp LumiGen-unsigned.ipa .
             git add -f LumiGen-unsigned.ipa
           fi
           git commit -m "ci log [skip ci]" || true
