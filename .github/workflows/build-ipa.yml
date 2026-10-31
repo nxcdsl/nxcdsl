@@ -1,0 +1,106 @@
+name: Build unsigned IPA
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master, lingyu ]
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pick newest Xcode
+        run: |
+          ls /Applications | grep -i '^Xcode' || true
+          for v in 26.2 26.1 26.0 26; do
+            if [ -d "/Applications/Xcode_${v}.app" ]; then
+              echo "using Xcode_${v}"
+              sudo xcode-select -s "/Applications/Xcode_${v}.app"
+              break
+            fi
+          done
+          xcodebuild -version
+          swift --version || true
+
+      - name: Project check
+        run: |
+          xcodebuild -list -project LingYu.xcodeproj 2>&1 | tee diag.txt
+
+      - name: Build (no codesign)
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -project LingYu.xcodeproj \
+            -scheme LingYu \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath build \
+            CODE_SIGN_STYLE=Manual \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            build 2>&1 | tee build.log
+
+      # 错误行优先写 annotation（GitHub 每次最多 10 条，所以只取最关键的几条）
+      - name: Report errors
+        if: failure()
+        run: |
+          echo "=========== errors =========="
+          grep -nE "error:" build.log 2>/dev/null | head -40 || true
+          echo "=========== tail ==========="
+          tail -30 build.log 2>/dev/null || true
+
+          grep -E "error:" build.log 2>/dev/null | head -8 | cut -c1-600 | while IFS= read -r l; do
+            echo "::error::$l"
+          done
+
+      - name: Package IPA
+        if: success()
+        run: |
+          mkdir -p Payload
+          cp -R build/Build/Products/Release-iphoneos/LingYu.app Payload/
+          zip -qry LingYu-unsigned.ipa Payload
+          ls -lh LingYu-unsigned.ipa
+
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: LingYu-unsigned-ipa
+          path: LingYu-unsigned.ipa
+          if-no-files-found: error
+
+      # 无论成功失败，都把完整日志（成功时还有 ipa）推到 ci-log-lingyu 分支，
+      # 这样不用登录网页也能用 API 直接取到。
+      - name: Publish log to ci-log-lingyu branch
+        if: always()
+        continue-on-error: true
+        run: |
+          set -e
+          {
+            echo "## run info"
+            echo "sha: ${{ github.sha }}"
+            echo "date: $(date -u)"
+            echo
+            echo "## diag (xcodebuild -list)"
+            cat diag.txt 2>/dev/null || echo "(no diag)"
+            echo
+            echo "## build log (last 600 lines)"
+            tail -600 build.log 2>/dev/null || echo "(no build.log)"
+          } > build-error.log
+          wc -l build-error.log
+
+          git config user.name "ci-log-lingyu"
+          git config user.email "ci-log-lingyu@local"
+          git checkout -B ci-log-lingyu
+          git add -f build-error.log
+          if [ -f LingYu-unsigned.ipa ]; then
+            git add -f LingYu-unsigned.ipa
+          fi
+          git commit -m "ci log [skip ci]" || true
+          git push -f origin ci-log-lingyu
