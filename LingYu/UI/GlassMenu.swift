@@ -73,3 +73,18 @@ struct GlassMenuPanel: View {
         }
     }
 }
+
+// MARK: - 透明底部浮层
+
+extension View {
+    func glassSheet<C: View>(_ isPresented: Binding<Bool>, @ViewBuilder content: @escaping () -> C) -> some View {
+        sheet(isPresented: isPresented) {
+            content()
+                .environmentObject(AppStore.shared)
+                .presentationBackground(.clear)
+                .presentationCornerRadius(36)
+                .presentationDragIndicator(.visible)
+                .presentationDetents([.medium, .large])
+        }
+    }
+}
