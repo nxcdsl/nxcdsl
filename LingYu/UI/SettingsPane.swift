@@ -26,7 +26,6 @@ struct SettingsPane: View {
                 backgroundCard
                 healthCard
                 personaCard
-                styleCard
             }
             .padding(.horizontal, 4)
             .padding(.top, 6)
@@ -386,39 +385,6 @@ struct SettingsPane: View {
         .glassCard(cornerRadius: 22, strength: 0.9)
     }
 
-    // MARK: - 反馈方式
-
-    private var styleCard: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text("二级菜单").font(.system(size: 12, weight: .medium)).foregroundStyle(.white.opacity(0.55))
-            HStack(spacing: 8) {
-                styleChip("弹出列表", true)
-                styleChip("底部浮层", false)
-                Spacer(minLength: 0)
-            }
-        }
-        .padding(14)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .glassCard(cornerRadius: 22, strength: 0.9)
-    }
-
-    private func styleChip(_ title: String, _ value: Bool) -> some View {
-        let on = store.popupStyle == value
-        return Button {
-            store.popupStyle = value
-            store.save()
-        } label: {
-            Text(title)
-                .font(.system(size: 12.5, weight: .medium))
-                .foregroundStyle(on ? Color.black.opacity(0.85) : Color.white.opacity(0.7))
-                .padding(.horizontal, 14)
-                .padding(.vertical, 8)
-                .background {
-                    Capsule().fill(on ? Color.white.opacity(0.9) : Color.white.opacity(0.08))
-                }
-        }
-        .buttonStyle(.plain)
-    }
 }
 
 // MARK: - 用一句话描述生成角色

@@ -85,13 +85,9 @@ struct ChatView: View {
     }
 
     private func open(_ kind: MenuKind) {
-        if store.popupStyle {
-            withAnimation(.spring(response: 0.3, dampingFraction: 0.88)) { store.menu = kind }
-        } else {
-            switch kind {
-            case .personas: showPersonas = true
-            case .modes: showModes = true
-            }
+        switch kind {
+        case .personas: showPersonas = true
+        case .modes: showModes = true
         }
     }
 
