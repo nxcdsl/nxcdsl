@@ -261,10 +261,19 @@ struct SettingsView: View {
                 infoRow("版本", "1.0")
                 infoRow("推理", "Core ML · 全部在本机")
                 infoRow("联网", "只在下载模型时使用")
+                infoRow("签名有效期", Provisioning.summary)
             }
             .padding(14)
             .frame(maxWidth: .infinity, alignment: .leading)
             .glassCard(cornerRadius: 18, strength: 0.8)
+
+            if Provisioning.needsRenewalSoon {
+                Text("签名快到期了：插上电脑，用 Sideloadly 对同一个 ipa 再点一次 Start 就能续上，模型不用重下。")
+                    .font(.system(size: 10.5))
+                    .foregroundStyle(Color(red: 1.0, green: 0.78, blue: 0.42))
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(.horizontal, 4)
+            }
         }
     }
 

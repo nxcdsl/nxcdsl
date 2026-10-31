@@ -13,41 +13,42 @@
 		AA020000000000000000010C /* ModelInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000010B /* ModelInstaller.swift */; };
 		AA020000000000000000010E /* ModelLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000010D /* ModelLibrary.swift */; };
 		AA0200000000000000000110 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000010F /* Models.swift */; };
-		AA0200000000000000000112 /* Studio.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000111 /* Studio.swift */; };
-		AA0200000000000000000114 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000113 /* Assets.xcassets */; };
-		AA0200000000000000000119 /* CGImage+vImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000118 /* CGImage+vImage.swift */; };
-		AA020000000000000000011B /* ControlNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000011A /* ControlNet.swift */; };
-		AA020000000000000000011D /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000011C /* Decoder.swift */; };
-		AA020000000000000000011F /* DiscreteFlowScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000011E /* DiscreteFlowScheduler.swift */; };
-		AA0200000000000000000121 /* DPMSolverMultistepScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000120 /* DPMSolverMultistepScheduler.swift */; };
-		AA0200000000000000000123 /* Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000122 /* Encoder.swift */; };
-		AA0200000000000000000125 /* ManagedMLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000124 /* ManagedMLModel.swift */; };
-		AA0200000000000000000127 /* MultilingualTextEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000126 /* MultilingualTextEncoder.swift */; };
-		AA0200000000000000000129 /* NumPyRandomSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000128 /* NumPyRandomSource.swift */; };
-		AA020000000000000000012B /* NvRandomSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000012A /* NvRandomSource.swift */; };
-		AA020000000000000000012D /* RandomSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000012C /* RandomSource.swift */; };
-		AA020000000000000000012F /* ResourceManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000012E /* ResourceManaging.swift */; };
-		AA0200000000000000000131 /* SafetyChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000130 /* SafetyChecker.swift */; };
-		AA0200000000000000000133 /* SampleTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000132 /* SampleTimer.swift */; };
-		AA0200000000000000000135 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000134 /* Scheduler.swift */; };
-		AA0200000000000000000137 /* StableDiffusionPipeline.Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000136 /* StableDiffusionPipeline.Configuration.swift */; };
-		AA0200000000000000000139 /* StableDiffusionPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000138 /* StableDiffusionPipeline.swift */; };
-		AA020000000000000000013B /* StableDiffusionPipeline+Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000013A /* StableDiffusionPipeline+Resources.swift */; };
-		AA020000000000000000013D /* StableDiffusionXL+Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000013C /* StableDiffusionXL+Resources.swift */; };
-		AA020000000000000000013F /* StableDiffusionXLPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000013E /* StableDiffusionXLPipeline.swift */; };
-		AA0200000000000000000141 /* TextEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000140 /* TextEncoder.swift */; };
-		AA0200000000000000000143 /* TextEncoderXL.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000142 /* TextEncoderXL.swift */; };
-		AA0200000000000000000145 /* TorchRandomSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000144 /* TorchRandomSource.swift */; };
-		AA0200000000000000000147 /* Unet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000146 /* Unet.swift */; };
-		AA0200000000000000000149 /* BPETokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000148 /* BPETokenizer.swift */; };
-		AA020000000000000000014B /* BPETokenizer+Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000014A /* BPETokenizer+Reading.swift */; };
-		AA020000000000000000014D /* GlassKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000014C /* GlassKit.swift */; };
-		AA020000000000000000014F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000014E /* HomeView.swift */; };
-		AA0200000000000000000151 /* ModelSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000150 /* ModelSetupView.swift */; };
-		AA0200000000000000000153 /* PromptDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000152 /* PromptDock.swift */; };
-		AA0200000000000000000155 /* ResultCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000154 /* ResultCanvas.swift */; };
-		AA0200000000000000000157 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000156 /* SettingsView.swift */; };
-		AA0200000000000000000159 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000158 /* Theme.swift */; };
+		AA0200000000000000000112 /* Provisioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000111 /* Provisioning.swift */; };
+		AA0200000000000000000114 /* Studio.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000113 /* Studio.swift */; };
+		AA0200000000000000000116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000115 /* Assets.xcassets */; };
+		AA020000000000000000011B /* CGImage+vImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000011A /* CGImage+vImage.swift */; };
+		AA020000000000000000011D /* ControlNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000011C /* ControlNet.swift */; };
+		AA020000000000000000011F /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000011E /* Decoder.swift */; };
+		AA0200000000000000000121 /* DiscreteFlowScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000120 /* DiscreteFlowScheduler.swift */; };
+		AA0200000000000000000123 /* DPMSolverMultistepScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000122 /* DPMSolverMultistepScheduler.swift */; };
+		AA0200000000000000000125 /* Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000124 /* Encoder.swift */; };
+		AA0200000000000000000127 /* ManagedMLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000126 /* ManagedMLModel.swift */; };
+		AA0200000000000000000129 /* MultilingualTextEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000128 /* MultilingualTextEncoder.swift */; };
+		AA020000000000000000012B /* NumPyRandomSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000012A /* NumPyRandomSource.swift */; };
+		AA020000000000000000012D /* NvRandomSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000012C /* NvRandomSource.swift */; };
+		AA020000000000000000012F /* RandomSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000012E /* RandomSource.swift */; };
+		AA0200000000000000000131 /* ResourceManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000130 /* ResourceManaging.swift */; };
+		AA0200000000000000000133 /* SafetyChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000132 /* SafetyChecker.swift */; };
+		AA0200000000000000000135 /* SampleTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000134 /* SampleTimer.swift */; };
+		AA0200000000000000000137 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000136 /* Scheduler.swift */; };
+		AA0200000000000000000139 /* StableDiffusionPipeline.Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000138 /* StableDiffusionPipeline.Configuration.swift */; };
+		AA020000000000000000013B /* StableDiffusionPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000013A /* StableDiffusionPipeline.swift */; };
+		AA020000000000000000013D /* StableDiffusionPipeline+Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000013C /* StableDiffusionPipeline+Resources.swift */; };
+		AA020000000000000000013F /* StableDiffusionXL+Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000013E /* StableDiffusionXL+Resources.swift */; };
+		AA0200000000000000000141 /* StableDiffusionXLPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000140 /* StableDiffusionXLPipeline.swift */; };
+		AA0200000000000000000143 /* TextEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000142 /* TextEncoder.swift */; };
+		AA0200000000000000000145 /* TextEncoderXL.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000144 /* TextEncoderXL.swift */; };
+		AA0200000000000000000147 /* TorchRandomSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000146 /* TorchRandomSource.swift */; };
+		AA0200000000000000000149 /* Unet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000148 /* Unet.swift */; };
+		AA020000000000000000014B /* BPETokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000014A /* BPETokenizer.swift */; };
+		AA020000000000000000014D /* BPETokenizer+Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000014C /* BPETokenizer+Reading.swift */; };
+		AA020000000000000000014F /* GlassKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000014E /* GlassKit.swift */; };
+		AA0200000000000000000151 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000150 /* HomeView.swift */; };
+		AA0200000000000000000153 /* ModelSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000152 /* ModelSetupView.swift */; };
+		AA0200000000000000000155 /* PromptDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000154 /* PromptDock.swift */; };
+		AA0200000000000000000157 /* ResultCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000156 /* ResultCanvas.swift */; };
+		AA0200000000000000000159 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000158 /* SettingsView.swift */; };
+		AA020000000000000000015B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000015A /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,42 +60,43 @@
 		AA010000000000000000010B /* ModelInstaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModelInstaller.swift"; sourceTree = "<group>"; };
 		AA010000000000000000010D /* ModelLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModelLibrary.swift"; sourceTree = "<group>"; };
 		AA010000000000000000010F /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000111 /* Studio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Studio.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000113 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets.xcassets"; sourceTree = "<group>"; };
-		AA0100000000000000000117 /* LICENSE-apple-ml-stable-diffusion.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = "LICENSE-apple-ml-stable-diffusion.md"; sourceTree = "<group>"; };
-		AA0100000000000000000118 /* CGImage+vImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+vImage.swift"; sourceTree = "<group>"; };
-		AA010000000000000000011A /* ControlNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControlNet.swift"; sourceTree = "<group>"; };
-		AA010000000000000000011C /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decoder.swift"; sourceTree = "<group>"; };
-		AA010000000000000000011E /* DiscreteFlowScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscreteFlowScheduler.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000120 /* DPMSolverMultistepScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DPMSolverMultistepScheduler.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000122 /* Encoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encoder.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000124 /* ManagedMLModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManagedMLModel.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000126 /* MultilingualTextEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MultilingualTextEncoder.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000128 /* NumPyRandomSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumPyRandomSource.swift"; sourceTree = "<group>"; };
-		AA010000000000000000012A /* NvRandomSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NvRandomSource.swift"; sourceTree = "<group>"; };
-		AA010000000000000000012C /* RandomSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RandomSource.swift"; sourceTree = "<group>"; };
-		AA010000000000000000012E /* ResourceManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResourceManaging.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000130 /* SafetyChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SafetyChecker.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000132 /* SampleTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SampleTimer.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000134 /* Scheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scheduler.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000136 /* StableDiffusionPipeline.Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StableDiffusionPipeline.Configuration.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000138 /* StableDiffusionPipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StableDiffusionPipeline.swift"; sourceTree = "<group>"; };
-		AA010000000000000000013A /* StableDiffusionPipeline+Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StableDiffusionPipeline+Resources.swift"; sourceTree = "<group>"; };
-		AA010000000000000000013C /* StableDiffusionXL+Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StableDiffusionXL+Resources.swift"; sourceTree = "<group>"; };
-		AA010000000000000000013E /* StableDiffusionXLPipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StableDiffusionXLPipeline.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000140 /* TextEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextEncoder.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000142 /* TextEncoderXL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextEncoderXL.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000144 /* TorchRandomSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TorchRandomSource.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000146 /* Unet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Unet.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000148 /* BPETokenizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BPETokenizer.swift"; sourceTree = "<group>"; };
-		AA010000000000000000014A /* BPETokenizer+Reading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BPETokenizer+Reading.swift"; sourceTree = "<group>"; };
-		AA010000000000000000014C /* GlassKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GlassKit.swift"; sourceTree = "<group>"; };
-		AA010000000000000000014E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000150 /* ModelSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModelSetupView.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000152 /* PromptDock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PromptDock.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000154 /* ResultCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResultCanvas.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000156 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsView.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000158 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000111 /* Provisioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Provisioning.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000113 /* Studio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Studio.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets.xcassets"; sourceTree = "<group>"; };
+		AA0100000000000000000119 /* LICENSE-apple-ml-stable-diffusion.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = "LICENSE-apple-ml-stable-diffusion.md"; sourceTree = "<group>"; };
+		AA010000000000000000011A /* CGImage+vImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+vImage.swift"; sourceTree = "<group>"; };
+		AA010000000000000000011C /* ControlNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControlNet.swift"; sourceTree = "<group>"; };
+		AA010000000000000000011E /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decoder.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000120 /* DiscreteFlowScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscreteFlowScheduler.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000122 /* DPMSolverMultistepScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DPMSolverMultistepScheduler.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000124 /* Encoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encoder.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000126 /* ManagedMLModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManagedMLModel.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000128 /* MultilingualTextEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MultilingualTextEncoder.swift"; sourceTree = "<group>"; };
+		AA010000000000000000012A /* NumPyRandomSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumPyRandomSource.swift"; sourceTree = "<group>"; };
+		AA010000000000000000012C /* NvRandomSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NvRandomSource.swift"; sourceTree = "<group>"; };
+		AA010000000000000000012E /* RandomSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RandomSource.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000130 /* ResourceManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResourceManaging.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000132 /* SafetyChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SafetyChecker.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000134 /* SampleTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SampleTimer.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000136 /* Scheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scheduler.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000138 /* StableDiffusionPipeline.Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StableDiffusionPipeline.Configuration.swift"; sourceTree = "<group>"; };
+		AA010000000000000000013A /* StableDiffusionPipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StableDiffusionPipeline.swift"; sourceTree = "<group>"; };
+		AA010000000000000000013C /* StableDiffusionPipeline+Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StableDiffusionPipeline+Resources.swift"; sourceTree = "<group>"; };
+		AA010000000000000000013E /* StableDiffusionXL+Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StableDiffusionXL+Resources.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000140 /* StableDiffusionXLPipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StableDiffusionXLPipeline.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000142 /* TextEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextEncoder.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000144 /* TextEncoderXL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextEncoderXL.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000146 /* TorchRandomSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TorchRandomSource.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000148 /* Unet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Unet.swift"; sourceTree = "<group>"; };
+		AA010000000000000000014A /* BPETokenizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BPETokenizer.swift"; sourceTree = "<group>"; };
+		AA010000000000000000014C /* BPETokenizer+Reading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BPETokenizer+Reading.swift"; sourceTree = "<group>"; };
+		AA010000000000000000014E /* GlassKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GlassKit.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000150 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000152 /* ModelSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModelSetupView.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000154 /* PromptDock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PromptDock.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000156 /* ResultCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResultCanvas.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000158 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsView.swift"; sourceTree = "<group>"; };
+		AA010000000000000000015A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +155,8 @@
 				AA010000000000000000010B /* ModelInstaller.swift */,
 				AA010000000000000000010D /* ModelLibrary.swift */,
 				AA010000000000000000010F /* Models.swift */,
-				AA0100000000000000000111 /* Studio.swift */,
+				AA0100000000000000000111 /* Provisioning.swift */,
+				AA0100000000000000000113 /* Studio.swift */,
 			);
 			path = "Core";
 			sourceTree = "<group>";
@@ -161,7 +164,7 @@
 		AA0300000000000000000102 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AA0100000000000000000113 /* Assets.xcassets */,
+				AA0100000000000000000115 /* Assets.xcassets */,
 			);
 			path = "Resources";
 			sourceTree = "<group>";
@@ -169,49 +172,49 @@
 		AA0300000000000000000103 /* SDEngine */ = {
 			isa = PBXGroup;
 			children = (
-				AA0300000000000000000115 /* pipeline */,
-				AA0300000000000000000116 /* tokenizer */,
-				AA0100000000000000000117 /* LICENSE-apple-ml-stable-diffusion.md */,
+				AA0300000000000000000117 /* pipeline */,
+				AA0300000000000000000118 /* tokenizer */,
+				AA0100000000000000000119 /* LICENSE-apple-ml-stable-diffusion.md */,
 			);
 			path = "SDEngine";
 			sourceTree = "<group>";
 		};
-		AA0300000000000000000115 /* pipeline */ = {
+		AA0300000000000000000117 /* pipeline */ = {
 			isa = PBXGroup;
 			children = (
-				AA0100000000000000000118 /* CGImage+vImage.swift */,
-				AA010000000000000000011A /* ControlNet.swift */,
-				AA010000000000000000011C /* Decoder.swift */,
-				AA010000000000000000011E /* DiscreteFlowScheduler.swift */,
-				AA0100000000000000000120 /* DPMSolverMultistepScheduler.swift */,
-				AA0100000000000000000122 /* Encoder.swift */,
-				AA0100000000000000000124 /* ManagedMLModel.swift */,
-				AA0100000000000000000126 /* MultilingualTextEncoder.swift */,
-				AA0100000000000000000128 /* NumPyRandomSource.swift */,
-				AA010000000000000000012A /* NvRandomSource.swift */,
-				AA010000000000000000012C /* RandomSource.swift */,
-				AA010000000000000000012E /* ResourceManaging.swift */,
-				AA0100000000000000000130 /* SafetyChecker.swift */,
-				AA0100000000000000000132 /* SampleTimer.swift */,
-				AA0100000000000000000134 /* Scheduler.swift */,
-				AA0100000000000000000136 /* StableDiffusionPipeline.Configuration.swift */,
-				AA0100000000000000000138 /* StableDiffusionPipeline.swift */,
-				AA010000000000000000013A /* StableDiffusionPipeline+Resources.swift */,
-				AA010000000000000000013C /* StableDiffusionXL+Resources.swift */,
-				AA010000000000000000013E /* StableDiffusionXLPipeline.swift */,
-				AA0100000000000000000140 /* TextEncoder.swift */,
-				AA0100000000000000000142 /* TextEncoderXL.swift */,
-				AA0100000000000000000144 /* TorchRandomSource.swift */,
-				AA0100000000000000000146 /* Unet.swift */,
+				AA010000000000000000011A /* CGImage+vImage.swift */,
+				AA010000000000000000011C /* ControlNet.swift */,
+				AA010000000000000000011E /* Decoder.swift */,
+				AA0100000000000000000120 /* DiscreteFlowScheduler.swift */,
+				AA0100000000000000000122 /* DPMSolverMultistepScheduler.swift */,
+				AA0100000000000000000124 /* Encoder.swift */,
+				AA0100000000000000000126 /* ManagedMLModel.swift */,
+				AA0100000000000000000128 /* MultilingualTextEncoder.swift */,
+				AA010000000000000000012A /* NumPyRandomSource.swift */,
+				AA010000000000000000012C /* NvRandomSource.swift */,
+				AA010000000000000000012E /* RandomSource.swift */,
+				AA0100000000000000000130 /* ResourceManaging.swift */,
+				AA0100000000000000000132 /* SafetyChecker.swift */,
+				AA0100000000000000000134 /* SampleTimer.swift */,
+				AA0100000000000000000136 /* Scheduler.swift */,
+				AA0100000000000000000138 /* StableDiffusionPipeline.Configuration.swift */,
+				AA010000000000000000013A /* StableDiffusionPipeline.swift */,
+				AA010000000000000000013C /* StableDiffusionPipeline+Resources.swift */,
+				AA010000000000000000013E /* StableDiffusionXL+Resources.swift */,
+				AA0100000000000000000140 /* StableDiffusionXLPipeline.swift */,
+				AA0100000000000000000142 /* TextEncoder.swift */,
+				AA0100000000000000000144 /* TextEncoderXL.swift */,
+				AA0100000000000000000146 /* TorchRandomSource.swift */,
+				AA0100000000000000000148 /* Unet.swift */,
 			);
 			path = "pipeline";
 			sourceTree = "<group>";
 		};
-		AA0300000000000000000116 /* tokenizer */ = {
+		AA0300000000000000000118 /* tokenizer */ = {
 			isa = PBXGroup;
 			children = (
-				AA0100000000000000000148 /* BPETokenizer.swift */,
-				AA010000000000000000014A /* BPETokenizer+Reading.swift */,
+				AA010000000000000000014A /* BPETokenizer.swift */,
+				AA010000000000000000014C /* BPETokenizer+Reading.swift */,
 			);
 			path = "tokenizer";
 			sourceTree = "<group>";
@@ -219,13 +222,13 @@
 		AA0300000000000000000104 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				AA010000000000000000014C /* GlassKit.swift */,
-				AA010000000000000000014E /* HomeView.swift */,
-				AA0100000000000000000150 /* ModelSetupView.swift */,
-				AA0100000000000000000152 /* PromptDock.swift */,
-				AA0100000000000000000154 /* ResultCanvas.swift */,
-				AA0100000000000000000156 /* SettingsView.swift */,
-				AA0100000000000000000158 /* Theme.swift */,
+				AA010000000000000000014E /* GlassKit.swift */,
+				AA0100000000000000000150 /* HomeView.swift */,
+				AA0100000000000000000152 /* ModelSetupView.swift */,
+				AA0100000000000000000154 /* PromptDock.swift */,
+				AA0100000000000000000156 /* ResultCanvas.swift */,
+				AA0100000000000000000158 /* SettingsView.swift */,
+				AA010000000000000000015A /* Theme.swift */,
 			);
 			path = "UI";
 			sourceTree = "<group>";
@@ -289,7 +292,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA0200000000000000000114,
+				AA0200000000000000000116,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,7 +310,7 @@
 				AA020000000000000000010E,
 				AA0200000000000000000110,
 				AA0200000000000000000112,
-				AA0200000000000000000119,
+				AA0200000000000000000114,
 				AA020000000000000000011B,
 				AA020000000000000000011D,
 				AA020000000000000000011F,
@@ -340,6 +343,7 @@
 				AA0200000000000000000155,
 				AA0200000000000000000157,
 				AA0200000000000000000159,
+				AA020000000000000000015B,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
