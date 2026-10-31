@@ -13,25 +13,33 @@ struct RootView: View {
     @StateObject private var theme = ThemeStore()
     @State private var tab = 0
 
+    private let tabs: [(String, String)] = [
+        ("bubble.left.and.bubble.right", "聊天"),
+        ("sparkles", "回忆"),
+        ("person", "我")
+    ]
+
     var body: some View {
         ZStack {
             BackgroundLayer()
                 .environmentObject(theme)
 
             VStack(spacing: 0) {
-                Group {
-                    switch tab {
-                    case 0: ChatView()
-                    case 1: MemoryView()
-                    default: SettingsPane()
-                    }
+                TabView(selection: $tab) {
+                    ChatView().tag(0)
+                    MemoryView().tag(1)
+                    SettingsPane().tag(2)
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .tabViewStyle(.page(indexDisplayMode: .never))
 
                 tabBar
             }
             .padding(.horizontal, 12)
             .padding(.bottom, 4)
+
+            if let kind = store.menu {
+                menuOverlay(kind)
+            }
         }
         .environmentObject(store)
         .environmentObject(theme)
@@ -39,55 +47,68 @@ struct RootView: View {
         .onAppear { store.bootstrap() }
     }
 
+    // MARK: - iOS 26 那种底部栏
+
     private var tabBar: some View {
-        HStack(spacing: 4) {
-            tabItem(0, "bubble.left.and.bubble.right", "聊天")
-            tabItem(1, "sparkles", "回忆")
-            tabItem(2, "person", "我")
+        HStack(spacing: 2) {
+            ForEach(Array(tabs.enumerated()), id: \.offset) { index, item in
+                Button {
+                    withAnimation(.spring(response: 0.34, dampingFraction: 0.82)) { tab = index }
+                    UIImpactFeedbackGenerator(style: .soft).impactOccurred()
+                } label: {
+                    VStack(spacing: 3) {
+                        Image(systemName: item.0)
+                            .font(.system(size: 19, weight: tab == index ? .semibold : .regular))
+                        Text(item.1)
+                            .font(.system(size: 10, weight: .medium))
+                    }
+                    .foregroundStyle(tab == index ? Color.white : Color.white.opacity(0.5))
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 7)
+                    .background {
+                        if tab == index {
+                            Capsule(style: .continuous)
+                                .fill(Color.white.opacity(0.16))
+                                .overlay(Capsule(style: .continuous)
+                                    .strokeBorder(Color.white.opacity(0.12), lineWidth: 1))
+                        }
+                    }
+                }
+                .buttonStyle(.plain)
+            }
         }
         .padding(6)
         .glassCapsule()
-        .padding(.top, 8)
+        .padding(.top, 6)
     }
 
-    private func tabItem(_ index: Int, _ icon: String, _ label: String) -> some View {
-        Button {
-            withAnimation(.spring(response: 0.32, dampingFraction: 0.85)) { tab = index }
-            UIImpactFeedbackGenerator(style: .soft).impactOccurred()
-        } label: {
-            HStack(spacing: 6) {
-                Image(systemName: icon).font(.system(size: 15, weight: .semibold))
-                if tab == index {
-                    Text(label).font(.system(size: 13, weight: .semibold))
+    // MARK: - 弹出列表
+
+    @ViewBuilder
+    private func menuOverlay(_ kind: MenuKind) -> some View {
+        switch kind {
+        case .personas:
+            GlassMenuPanel(items: store.personas.map {
+                GlassMenuItem(id: $0.id.uuidString, title: $0.name,
+                              icon: $0.emoji, isEmoji: true, subtitle: $0.relation)
+            }, selected: store.currentID.uuidString) { item in
+                if let p = store.personas.first(where: { $0.id.uuidString == item.id }) {
+                    store.select(p)
                 }
-            }
-            .foregroundStyle(tab == index ? Color.black.opacity(0.85) : Color.white.opacity(0.65))
-            .padding(.horizontal, 16)
-            .padding(.vertical, 10)
-            .background {
-                if tab == index {
-                    Capsule(style: .continuous)
-                        .fill(Color.white)
-                        .shadow(color: .white.opacity(0.35), radius: 10, y: 2)
-                }
-            }
-            .frame(maxWidth: .infinity)
+                closeMenu()
+            } onClose: { closeMenu() }
+
+        case .modes:
+            GlassMenuPanel(items: ChatMode.allCases.map {
+                GlassMenuItem(id: $0.rawValue, title: $0.title, icon: $0.icon)
+            }, selected: store.mode.rawValue) { item in
+                if let m = ChatMode(rawValue: item.id) { store.mode = m }
+                closeMenu()
+            } onClose: { closeMenu() }
         }
-        .buttonStyle(.plain)
     }
-}
 
-// MARK: - 透明玻璃浮层（二级菜单）
-
-extension View {
-    func glassSheet<C: View>(_ isPresented: Binding<Bool>, @ViewBuilder content: @escaping () -> C) -> some View {
-        sheet(isPresented: isPresented) {
-            content()
-                .environmentObject(AppStore.shared)
-                .presentationBackground(.clear)
-                .presentationCornerRadius(36)
-                .presentationDragIndicator(.visible)
-                .presentationDetents([.medium, .large])
-        }
+    private func closeMenu() {
+        withAnimation(.spring(response: 0.28, dampingFraction: 0.9)) { store.menu = nil }
     }
 }

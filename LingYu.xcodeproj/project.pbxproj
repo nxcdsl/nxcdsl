@@ -15,9 +15,10 @@
 		AA020000000000000000010F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000010E /* Assets.xcassets */; };
 		AA0200000000000000000111 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000110 /* ChatView.swift */; };
 		AA0200000000000000000113 /* GlassKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000112 /* GlassKit.swift */; };
-		AA0200000000000000000115 /* MemoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000114 /* MemoryView.swift */; };
-		AA0200000000000000000117 /* SettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000116 /* SettingsPane.swift */; };
-		AA0200000000000000000119 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000118 /* Theme.swift */; };
+		AA0200000000000000000115 /* GlassMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000114 /* GlassMenu.swift */; };
+		AA0200000000000000000117 /* MemoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000116 /* MemoryView.swift */; };
+		AA0200000000000000000119 /* SettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100000000000000000118 /* SettingsPane.swift */; };
+		AA020000000000000000011B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010000000000000000011A /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +32,10 @@
 		AA010000000000000000010E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets.xcassets"; sourceTree = "<group>"; };
 		AA0100000000000000000110 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatView.swift"; sourceTree = "<group>"; };
 		AA0100000000000000000112 /* GlassKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GlassKit.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000114 /* MemoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemoryView.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000116 /* SettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsPane.swift"; sourceTree = "<group>"; };
-		AA0100000000000000000118 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000114 /* GlassMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GlassMenu.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000116 /* MemoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemoryView.swift"; sourceTree = "<group>"; };
+		AA0100000000000000000118 /* SettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsPane.swift"; sourceTree = "<group>"; };
+		AA010000000000000000011A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,9 +109,10 @@
 			children = (
 				AA0100000000000000000110 /* ChatView.swift */,
 				AA0100000000000000000112 /* GlassKit.swift */,
-				AA0100000000000000000114 /* MemoryView.swift */,
-				AA0100000000000000000116 /* SettingsPane.swift */,
-				AA0100000000000000000118 /* Theme.swift */,
+				AA0100000000000000000114 /* GlassMenu.swift */,
+				AA0100000000000000000116 /* MemoryView.swift */,
+				AA0100000000000000000118 /* SettingsPane.swift */,
+				AA010000000000000000011A /* Theme.swift */,
 			);
 			path = "UI";
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				AA0200000000000000000115,
 				AA0200000000000000000117,
 				AA0200000000000000000119,
+				AA020000000000000000011B,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

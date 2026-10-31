@@ -1,4 +1,5 @@
 import SwiftUI
+import PhotosUI
 import UIKit
 
 struct SettingsPane: View {
@@ -7,7 +8,10 @@ struct SettingsPane: View {
     @EnvironmentObject private var theme: ThemeStore
 
     @State private var keyField = ""
-    @State private var showAddPersona = false
+    @State private var editTarget: Persona?
+    @State private var showEditor = false
+    @State private var showAI = false
+    @State private var bgItem: PhotosPickerItem?
 
     private let caps = [20_000, 60_000, 120_000, 0]
 
@@ -19,13 +23,15 @@ struct SettingsPane: View {
                 usageCard
                 backgroundCard
                 personaCard
+                styleCard
             }
             .padding(.horizontal, 4)
             .padding(.top, 6)
             .padding(.bottom, 10)
         }
         .scrollIndicators(.hidden)
-        .glassSheet($showAddPersona) { PersonaEditor() }
+        .glassSheet($showEditor) { PersonaEditor(editing: editTarget) }
+        .glassSheet($showAI) { PersonaAIEditor() }
     }
 
     // MARK: - Key
@@ -68,7 +74,7 @@ struct SettingsPane: View {
         .glassCard(cornerRadius: 22, strength: 0.9)
     }
 
-    // MARK: - 推理等级
+    // MARK: - 推理
 
     private var levelCard: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -96,9 +102,7 @@ struct SettingsPane: View {
                     .buttonStyle(SoftPressStyle())
                 }
             }
-            Text(levelHint)
-                .font(.system(size: 10.5))
-                .foregroundStyle(.white.opacity(0.32))
+            Text(levelHint).font(.system(size: 10.5)).foregroundStyle(.white.opacity(0.32))
         }
         .padding(14)
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -162,11 +166,20 @@ struct SettingsPane: View {
         .glassCard(cornerRadius: 22, strength: 0.9)
     }
 
-    // MARK: - 背景
+    // MARK: - 背景（含自定义照片）
 
     private var backgroundCard: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("背景").font(.system(size: 12, weight: .medium)).foregroundStyle(.white.opacity(0.55))
+            HStack {
+                Text("背景").font(.system(size: 12, weight: .medium)).foregroundStyle(.white.opacity(0.55))
+                Spacer()
+                if theme.customImage != nil {
+                    Button { theme.clearCustom() } label: {
+                        Text("清除照片").font(.system(size: 10.5)).foregroundStyle(.white.opacity(0.45))
+                    }
+                }
+            }
+
             HStack(spacing: 8) {
                 ForEach(ThemeCatalog.all) { t in
                     Button {
@@ -183,14 +196,21 @@ struct SettingsPane: View {
                     }
                     .buttonStyle(.plain)
                 }
-                if theme.customImage != nil {
-                    Button { theme.select(ThemeStore.customID) } label: {
-                        Image(uiImage: theme.customImage!)
-                            .resizable().scaledToFill()
-                            .frame(width: 30, height: 30)
-                            .clipShape(Circle())
+
+                PhotosPicker(selection: $bgItem, matching: .images, photoLibrary: .shared()) {
+                    ZStack {
+                        if let img = theme.customImage {
+                            Image(uiImage: img).resizable().scaledToFill()
+                        } else {
+                            Circle().fill(Color.white.opacity(0.10))
+                            Image(systemName: "photo").font(.system(size: 12)).foregroundStyle(.white.opacity(0.6))
+                        }
                     }
-                    .buttonStyle(.plain)
+                    .frame(height: 30)
+                    .frame(width: 30)
+                    .clipShape(Circle())
+                    .overlay(Circle().strokeBorder(Color.white.opacity(theme.selectedID == ThemeStore.customID ? 0.9 : 0.18),
+                                                   lineWidth: theme.selectedID == ThemeStore.customID ? 2 : 1))
                 }
                 Spacer(minLength: 0)
             }
@@ -198,6 +218,18 @@ struct SettingsPane: View {
         .padding(14)
         .frame(maxWidth: .infinity, alignment: .leading)
         .glassCard(cornerRadius: 22, strength: 0.9)
+        .onChange(of: bgItem) { _, item in
+            guard let item else { return }
+            Task {
+                if let data = try? await item.loadTransferable(type: Data.self),
+                   let img = UIImage(data: data) {
+                    await MainActor.run {
+                        theme.setCustom(img)
+                        store.showToast("背景换好了")
+                    }
+                }
+            }
+        }
     }
 
     // MARK: - 角色
@@ -207,19 +239,38 @@ struct SettingsPane: View {
             HStack {
                 Text("角色").font(.system(size: 12, weight: .medium)).foregroundStyle(.white.opacity(0.55))
                 Spacer()
-                Button { showAddPersona = true } label: {
+                Button { showAI = true } label: {
+                    HStack(spacing: 4) {
+                        Image(systemName: "wand.and.stars").font(.system(size: 10, weight: .semibold))
+                        Text("描述生成").font(.system(size: 10.5, weight: .medium))
+                    }
+                    .foregroundStyle(.white.opacity(0.75))
+                    .padding(.horizontal, 9)
+                    .padding(.vertical, 5)
+                    .background(Capsule().fill(Color.white.opacity(0.10)))
+                }
+                .buttonStyle(.plain)
+
+                Button {
+                    editTarget = nil
+                    showEditor = true
+                } label: {
                     Image(systemName: "plus")
                         .font(.system(size: 11, weight: .bold))
                         .foregroundStyle(.white.opacity(0.75))
                         .frame(width: 26, height: 26)
                         .background(Circle().fill(Color.white.opacity(0.10)))
                 }
+                .buttonStyle(.plain)
             }
 
             ForEach(store.personas) { p in
                 HStack(spacing: 10) {
                     Text(p.emoji).font(.system(size: 16))
-                    Text(p.name).font(.system(size: 13.5, weight: .medium)).foregroundStyle(.white.opacity(0.9))
+                    VStack(alignment: .leading, spacing: 1) {
+                        Text(p.name).font(.system(size: 13.5, weight: .medium)).foregroundStyle(.white.opacity(0.9))
+                        Text(p.tone).font(.system(size: 10.5)).foregroundStyle(.white.opacity(0.35)).lineLimit(1)
+                    }
                     Spacer()
                     if store.personas.count > 1 {
                         Button {
@@ -231,16 +282,118 @@ struct SettingsPane: View {
                         } label: {
                             Image(systemName: "minus.circle")
                                 .font(.system(size: 13))
-                                .foregroundStyle(.white.opacity(0.35))
+                                .foregroundStyle(.white.opacity(0.30))
                         }
                         .buttonStyle(.plain)
                     }
                 }
-                .padding(.vertical, 3)
+                .padding(.vertical, 4)
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    editTarget = p
+                    showEditor = true
+                }
             }
         }
         .padding(14)
         .frame(maxWidth: .infinity, alignment: .leading)
         .glassCard(cornerRadius: 22, strength: 0.9)
+    }
+
+    // MARK: - 反馈方式
+
+    private var styleCard: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("二级菜单").font(.system(size: 12, weight: .medium)).foregroundStyle(.white.opacity(0.55))
+            HStack(spacing: 8) {
+                styleChip("弹出列表", true)
+                styleChip("底部浮层", false)
+                Spacer(minLength: 0)
+            }
+        }
+        .padding(14)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .glassCard(cornerRadius: 22, strength: 0.9)
+    }
+
+    private func styleChip(_ title: String, _ value: Bool) -> some View {
+        let on = store.popupStyle == value
+        return Button {
+            store.popupStyle = value
+            store.save()
+        } label: {
+            Text(title)
+                .font(.system(size: 12.5, weight: .medium))
+                .foregroundStyle(on ? Color.black.opacity(0.85) : Color.white.opacity(0.7))
+                .padding(.horizontal, 14)
+                .padding(.vertical, 8)
+                .background {
+                    Capsule().fill(on ? Color.white.opacity(0.9) : Color.white.opacity(0.08))
+                }
+        }
+        .buttonStyle(.plain)
+    }
+}
+
+// MARK: - 用一句话描述生成角色
+
+struct PersonaAIEditor: View {
+
+    @EnvironmentObject private var store: AppStore
+    @Environment(\.dismiss) private var dismiss
+
+    @State private var text = ""
+    @State private var busy = false
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("描述一下你想到的人")
+                .font(.system(size: 16, weight: .semibold))
+                .foregroundStyle(.white)
+
+            ZStack(alignment: .topLeading) {
+                if text.isEmpty {
+                    Text("比如：一个嘴很毒但关键时刻靠得住的程序员，说话短，爱用反问")
+                        .font(.system(size: 13))
+                        .foregroundStyle(.white.opacity(0.3))
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 12)
+                        .allowsHitTesting(false)
+                }
+                TextEditor(text: $text)
+                    .font(.system(size: 14))
+                    .foregroundStyle(.white)
+                    .scrollContentBackground(.hidden)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 6)
+                    .frame(height: 130)
+            }
+            .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(Color.white.opacity(0.08)))
+
+            Spacer(minLength: 0)
+
+            Button {
+                Task {
+                    busy = true
+                    _ = await store.makePersona(from: text)
+                    busy = false
+                    if store.hasKey { dismiss() }
+                }
+            } label: {
+                HStack(spacing: 6) {
+                    if busy { ProgressView().tint(.black).scaleEffect(0.8) }
+                    Text(busy ? "正在捏人…" : "生成")
+                        .font(.system(size: 15, weight: .semibold))
+                }
+                .foregroundStyle(.black.opacity(0.85))
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 13)
+                .background(Capsule().fill(Color.white.opacity(0.92)))
+            }
+            .buttonStyle(SoftPressStyle())
+            .disabled(busy || text.trimmed.isEmpty)
+        }
+        .padding(20)
+        .background(.ultraThinMaterial)
     }
 }

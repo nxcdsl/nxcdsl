@@ -40,13 +40,17 @@ struct ChatView: View {
 
             composer
         }
+        .glassSheet($showPersonas) { PersonaPicker() }
+        .glassSheet($showModes) { ModePicker() }
     }
 
     // MARK: - 顶栏
 
     private var header: some View {
         HStack(spacing: 8) {
-            Button { showPersonas = true } label: {
+            Button {
+                open(.personas)
+            } label: {
                 HStack(spacing: 7) {
                     Text(store.persona.emoji).font(.system(size: 14))
                     Text(store.persona.name)
@@ -64,7 +68,9 @@ struct ChatView: View {
 
             Spacer(minLength: 0)
 
-            Button { showModes = true } label: {
+            Button {
+                open(.modes)
+            } label: {
                 HStack(spacing: 6) {
                     Image(systemName: store.mode.icon).font(.system(size: 11, weight: .semibold))
                     Text(store.mode.title).font(.system(size: 12, weight: .medium))
@@ -77,8 +83,17 @@ struct ChatView: View {
             .buttonStyle(SoftPressStyle())
         }
         .padding(.top, 2)
-        .glassSheet($showPersonas) { PersonaPicker() }
-        .glassSheet($showModes) { ModePicker() }
+    }
+
+    private func open(_ kind: MenuKind) {
+        if store.popupStyle {
+            withAnimation(.spring(response: 0.3, dampingFraction: 0.88)) { store.menu = kind }
+        } else {
+            switch kind {
+            case .personas: showPersonas = true
+            case .modes: showModes = true
+            }
+        }
     }
 
     // MARK: - 气泡
@@ -229,40 +244,28 @@ struct ChatView: View {
     }
 }
 
-// MARK: - 人设选择
+// MARK: - 底部浮层版（设置里可切换）
 
 struct PersonaPicker: View {
 
     @EnvironmentObject private var store: AppStore
     @Environment(\.dismiss) private var dismiss
-    @State private var editing = false
 
     var body: some View {
         VStack(spacing: 0) {
-            HStack {
-                Text("和谁聊").font(.system(size: 16, weight: .semibold)).foregroundStyle(.white)
-                Spacer()
-                Button { editing = true } label: {
-                    Image(systemName: "plus")
-                        .font(.system(size: 13, weight: .bold))
-                        .foregroundStyle(.white.opacity(0.8))
-                        .frame(width: 32, height: 32)
-                        .background(Circle().fill(Color.white.opacity(0.12)))
-                }
-            }
-            .padding(.horizontal, 20)
-            .padding(.top, 22)
-            .padding(.bottom, 12)
+            Text("和谁聊")
+                .font(.system(size: 16, weight: .semibold))
+                .foregroundStyle(.white)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 20)
+                .padding(.top, 22)
+                .padding(.bottom, 12)
 
             ScrollView {
                 VStack(spacing: 8) {
                     ForEach(store.personas) { p in
                         Button {
-                            store.currentID = p.id
-                            if store.chats[p.id] == nil {
-                                store.chats[p.id] = [ChatMessage(role: "assistant", text: "嗯，我在。", date: Date())]
-                            }
-                            store.save()
+                            store.select(p)
                             dismiss()
                         } label: {
                             HStack(spacing: 12) {
@@ -290,70 +293,8 @@ struct PersonaPicker: View {
             .scrollIndicators(.hidden)
         }
         .background(.ultraThinMaterial)
-        .glassSheet($editing) { PersonaEditor() }
     }
 }
-
-struct PersonaEditor: View {
-
-    @EnvironmentObject private var store: AppStore
-    @Environment(\.dismiss) private var dismiss
-
-    @State private var name = ""
-    @State private var emoji = "🌙"
-    @State private var relation = ""
-    @State private var tone = ""
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 14) {
-            Text("新角色").font(.system(size: 16, weight: .semibold)).foregroundStyle(.white)
-
-            field("名字", $name, "小满")
-            field("头像 emoji", $emoji, "🌙")
-            field("关系", $relation, "大学的室友，毒舌但靠谱")
-            field("语气", $tone, "短句、爱开玩笑")
-
-            Spacer(minLength: 0)
-
-            Button {
-                let p = Persona(name: name.trimmed.isEmpty ? "无名" : name.trimmed,
-                                emoji: emoji.trimmed.isEmpty ? "🙂" : emoji.trimmed,
-                                relation: relation.trimmed.isEmpty ? "朋友" : relation.trimmed,
-                                tone: tone.trimmed.isEmpty ? "自然" : tone.trimmed,
-                                hue: Double.random(in: 0...1))
-                store.personas.append(p)
-                store.currentID = p.id
-                store.chats[p.id] = [ChatMessage(role: "assistant", text: "你好。", date: Date())]
-                store.save()
-                dismiss()
-            } label: {
-                Text("创建")
-                    .font(.system(size: 15, weight: .semibold))
-                    .foregroundStyle(.black.opacity(0.85))
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 13)
-                    .background(Capsule().fill(Color.white.opacity(0.92)))
-            }
-            .buttonStyle(SoftPressStyle())
-        }
-        .padding(20)
-        .background(.ultraThinMaterial)
-    }
-
-    private func field(_ label: String, _ binding: Binding<String>, _ hint: String) -> some View {
-        VStack(alignment: .leading, spacing: 5) {
-            Text(label).font(.system(size: 11)).foregroundStyle(.white.opacity(0.4))
-            TextField(hint, text: binding)
-                .font(.system(size: 14))
-                .foregroundStyle(.white)
-                .padding(.horizontal, 12)
-                .padding(.vertical, 10)
-                .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Color.white.opacity(0.08)))
-        }
-    }
-}
-
-// MARK: - 模式选择
 
 struct ModePicker: View {
 
@@ -401,5 +342,83 @@ struct ModePicker: View {
             .scrollIndicators(.hidden)
         }
         .background(.ultraThinMaterial)
+    }
+}
+
+// MARK: - 角色编辑（新建 / 修改）
+
+struct PersonaEditor: View {
+
+    @EnvironmentObject private var store: AppStore
+    @Environment(\.dismiss) private var dismiss
+
+    var editing: Persona? = nil
+
+    @State private var name = ""
+    @State private var emoji = "🌙"
+    @State private var relation = ""
+    @State private var tone = ""
+    @State private var loaded = false
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 13) {
+            Text(editing == nil ? "新角色" : "改角色")
+                .font(.system(size: 16, weight: .semibold))
+                .foregroundStyle(.white)
+
+            field("名字", $name, "小满")
+            field("头像 emoji", $emoji, "🌙")
+            field("关系", $relation, "大学的室友，毒舌但靠谱")
+            field("语气", $tone, "短句、爱开玩笑、偶尔安慰人")
+
+            Spacer(minLength: 0)
+
+            Button {
+                if var p = editing {
+                    p.name = name.trimmed.isEmpty ? p.name : name.trimmed
+                    p.emoji = emoji.trimmed.isEmpty ? p.emoji : emoji.trimmed
+                    p.relation = relation.trimmed.isEmpty ? p.relation : relation.trimmed
+                    p.tone = tone.trimmed.isEmpty ? p.tone : tone.trimmed
+                    store.update(p)
+                } else {
+                    let p = Persona(name: name.trimmed.isEmpty ? "无名" : name.trimmed,
+                                    emoji: emoji.trimmed.isEmpty ? "🙂" : emoji.trimmed,
+                                    relation: relation.trimmed.isEmpty ? "朋友" : relation.trimmed,
+                                    tone: tone.trimmed.isEmpty ? "自然" : tone.trimmed,
+                                    hue: Double.random(in: 0...1))
+                    store.add(p)
+                }
+                dismiss()
+            } label: {
+                Text("保存")
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundStyle(.black.opacity(0.85))
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 13)
+                    .background(Capsule().fill(Color.white.opacity(0.92)))
+            }
+            .buttonStyle(SoftPressStyle())
+        }
+        .padding(20)
+        .background(.ultraThinMaterial)
+        .onAppear {
+            guard !loaded else { return }
+            loaded = true
+            if let p = editing {
+                name = p.name; emoji = p.emoji; relation = p.relation; tone = p.tone
+            }
+        }
+    }
+
+    private func field(_ label: String, _ binding: Binding<String>, _ hint: String) -> some View {
+        VStack(alignment: .leading, spacing: 5) {
+            Text(label).font(.system(size: 11)).foregroundStyle(.white.opacity(0.4))
+            TextField(hint, text: binding)
+                .font(.system(size: 14))
+                .foregroundStyle(.white)
+                .padding(.horizontal, 12)
+                .padding(.vertical, 10)
+                .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Color.white.opacity(0.08)))
+        }
     }
 }

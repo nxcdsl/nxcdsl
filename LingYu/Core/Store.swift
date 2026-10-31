@@ -2,6 +2,8 @@ import SwiftUI
 import UIKit
 import Combine
 
+enum MenuKind { case personas, modes }
+
 final class AppStore: ObservableObject {
 
     static let shared = AppStore()
@@ -19,6 +21,8 @@ final class AppStore: ObservableObject {
     @Published var toast: String?
     @Published var summarizing = false
     @Published var hasKey = KeyStore.hasKey
+    @Published var menu: MenuKind? = nil
+    @Published var popupStyle = true
 
     private var toastTask: DispatchWorkItem?
     private let fileURL = FileManager.default.docsURL.appendingPathComponent("lingyu.json")
@@ -105,6 +109,59 @@ final class AppStore: ObservableObject {
         streamingText = ""
         isStreaming = false
         save()
+    }
+
+    func select(_ p: Persona) {
+        currentID = p.id
+        if chats[p.id] == nil {
+            chats[p.id] = [ChatMessage(role: "assistant", text: "嗯，我在。", date: Date())]
+        }
+        save()
+    }
+
+    func add(_ p: Persona) {
+        personas.append(p)
+        chats[p.id] = [ChatMessage(role: "assistant", text: "你好。", date: Date())]
+        currentID = p.id
+        save()
+    }
+
+    func update(_ p: Persona) {
+        if let i = personas.firstIndex(where: { $0.id == p.id }) { personas[i] = p }
+        save()
+    }
+
+    @MainActor
+    func makePersona(from text: String) async -> Persona? {
+        guard hasKey else {
+            showToast("先去「我」里填 API Key")
+            return nil
+        }
+        let prompt = """
+        根据这段印象，设计一个聊天角色。只输出 JSON：
+        {"name":"两个汉字的昵称","emoji":"一个 emoji","relation":"一句话：TA 是谁、和我什么关系","tone":"TA 说话的具体方式，包含口头禅和对情绪的反应"}
+        要求：relation 和 tone 必须严格贴着我的印象，不要发挥成别人，不要写性格分析。
+        印象：\(text)
+        """
+        do {
+            let client = DeepSeekClient(key: KeyStore.key)
+            let raw = try await client.complete(prompt: prompt, maxTokens: 400)
+            guard let start = raw.firstIndex(of: "{"),
+                  let end = raw.lastIndex(of: "}") else { return nil }
+            let json = String(raw[start...end])
+            guard let data = json.data(using: .utf8),
+                  let obj = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else { return nil }
+            let p = Persona(name: (obj["name"] as? String) ?? "无名",
+                            emoji: (obj["emoji"] as? String) ?? "🙂",
+                            relation: (obj["relation"] as? String) ?? "朋友",
+                            tone: (obj["tone"] as? String) ?? "自然",
+                            hue: Double.random(in: 0...1))
+            add(p)
+            return p
+        } catch {
+            showToast(error.localizedDescription)
+            return nil
+        }
     }
 
     func append(_ msg: ChatMessage) {
@@ -267,11 +324,12 @@ final class AppStore: ObservableObject {
         var usage: [String: Usage]
         var level: Int
         var dailyCap: Int
+        var popupStyle: Bool?
     }
 
     func save() {
         let snap = Snapshot(personas: personas, currentID: currentID, chats: chats,
-                            memories: memories, usage: usage, level: level, dailyCap: dailyCap)
+                            memories: memories, usage: usage, level: level, dailyCap: dailyCap, popupStyle: popupStyle)
         if let data = try? JSONEncoder().encode(snap) {
             try? data.write(to: fileURL)
         }
@@ -287,5 +345,6 @@ final class AppStore: ObservableObject {
         usage = snap.usage
         level = snap.level
         dailyCap = snap.dailyCap
+        if let ps = snap.popupStyle { popupStyle = ps }
     }
 }
