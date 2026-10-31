@@ -1,12 +1,16 @@
 name: Build unsigned IPA
 
 # 在 GitHub 网页上点 Actions → Build unsigned IPA → Run workflow
-# 跑完在 Artifacts 里下载 LumiGen-unsigned.ipa，用 Windows 上的 Sideloadly 签名安装。
+# 跑完在 Artifacts 里下载 LumiGen-unsigned-ipa，用 Windows 上的 Sideloadly 签名安装。
 
 on:
   workflow_dispatch:
   push:
     branches: [ main, master ]
+
+permissions:
+  contents: write
+  actions: read
 
 jobs:
   build:
@@ -26,7 +30,11 @@ jobs:
             fi
           done
           xcodebuild -version
-          xcodebuild -showsdks | grep -i iphoneos || true
+          swift --version || true
+
+      - name: Project check
+        run: |
+          xcodebuild -list -project LumiGen.xcodeproj 2>&1 | tee diag.txt
 
       - name: Build (no codesign)
         run: |
@@ -41,9 +49,27 @@ jobs:
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO \
-            build
+            build 2>&1 | tee build.log
+
+      # 失败时把关键行写成 annotation，任何人（包括免登录 API）都能读到
+      - name: Report errors
+        if: failure()
+        run: |
+          echo "=========== diag ==========="
+          cat diag.txt 2>/dev/null || true
+          echo "=========== errors =========="
+          grep -nE "(error|fatal error):" build.log 2>/dev/null | head -40 || true
+          echo "=========== tail ==========="
+          tail -30 build.log 2>/dev/null || true
+
+          head -12 diag.txt 2>/dev/null | while IFS= read -r l; do echo "::error::diag: $l"; done
+          grep -E "(error|fatal error):" build.log 2>/dev/null | head -14 | while IFS= read -r l; do
+            echo "::error::$l"
+          done
+          tail -8 build.log 2>/dev/null | while IFS= read -r l; do echo "::error::tail: $l"; done
 
       - name: Package IPA
+        if: success()
         run: |
           mkdir -p Payload
           cp -R build/Build/Products/Release-iphoneos/LumiGen.app Payload/
@@ -51,7 +77,24 @@ jobs:
           ls -lh LumiGen-unsigned.ipa
 
       - uses: actions/upload-artifact@v4
+        if: success()
         with:
           name: LumiGen-unsigned-ipa
           path: LumiGen-unsigned.ipa
           if-no-files-found: error
+
+      # 成功后把 ipa 也放进 ci-log 分支，方便用 API 直接取（不用登录网页）
+      - name: Publish ipa to ci-log branch
+        if: success()
+        continue-on-error: true
+        run: |
+          set -e
+          git config user.name "ci-log"
+          git config user.email "ci-log@local"
+          git checkout -B ci-log
+          cp LumiGen-unsigned.ipa .
+          git add -f LumiGen-unsigned.ipa
+          { cat diag.txt 2>/dev/null; echo; echo "=== build tail ==="; tail -40 build.log 2>/dev/null; } > build-error.log
+          git add -f build-error.log
+          git commit -m "build output [skip ci]"
+          git push -f origin ci-log
