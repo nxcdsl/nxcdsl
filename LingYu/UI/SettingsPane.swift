@@ -256,15 +256,16 @@ struct SettingsPane: View {
             }
 
             HStack(spacing: 8) {
+                chip("剪贴板导入") { importClipboard() }
                 chip("连接 Health") {
                     Task {
                         await health.connect()
                         if let s = health.summary { store.healthSummary = s; store.save() }
                     }
                 }
-                chip("刷新") {
-                    Task { await health.refresh() }
-                }
+                Spacer(minLength: 0)
+            }
+            HStack(spacing: 8) {
                 PhotosPicker(selection: $healthItem, matching: .images, photoLibrary: .shared()) {
                     Text("截图导入")
                         .font(.system(size: 12.5, weight: .medium))
@@ -273,8 +274,16 @@ struct SettingsPane: View {
                         .padding(.vertical, 8)
                         .background(Capsule().fill(Color.white.opacity(0.10)))
                 }
+                chip("刷新 Health") {
+                    Task { await health.refresh() }
+                }
                 Spacer(minLength: 0)
             }
+
+            Text("快捷指令做法：新建 →「查找健康样本」(全部，近 7 天) →「拷贝到剪贴板」→ 回来点剪贴板导入")
+                .font(.system(size: 9.5))
+                .foregroundStyle(.white.opacity(0.28))
+                .fixedSize(horizontal: false, vertical: true)
 
             if store.healthSummary != nil {
                 Button {
@@ -302,6 +311,18 @@ struct SettingsPane: View {
                     await MainActor.run { healthItem = nil }
                 }
             }
+        }
+    }
+
+    private func importClipboard() {
+        let raw = UIPasteboard.general.string ?? ""
+        if let parsed = HealthTextParser.parse(raw) {
+            store.healthSummary = parsed
+            store.save()
+            health.status = "已从剪贴板导入"
+            health.summary = parsed
+        } else {
+            store.showToast("剪贴板里没读出健康数据")
         }
     }
 

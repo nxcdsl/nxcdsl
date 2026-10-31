@@ -143,3 +143,62 @@ final class HealthStore: ObservableObject {
         return seconds / 3600 / Double(days)
     }
 }
+
+/// 从「快捷指令 → 拷贝到剪贴板」的健康文本里挑数字
+enum HealthTextParser {
+
+    static func parse(_ raw: String) -> String? {
+        guard !raw.isEmpty else { return nil }
+        var parts: [String] = []
+
+        let steps = average(raw, pattern: "([0-9][0-9,]*)\\s*步")
+        if steps > 0 { parts.append("日均步数 \(Int(steps.rounded()))") }
+
+        let sleep = averageSleep(raw)
+        if sleep > 0 { parts.append("睡眠 \(String(format: "%.1f", sleep)) 小时") }
+
+        let hr = average(raw, pattern: "([0-9]{2,3})\\s*次/?分")
+        if hr > 0 { parts.append("静息心率 \(Int(hr.rounded()))") }
+
+        let weight = average(raw, pattern: "([0-9]+(?:\\.[0-9]+)?)\\s*(?:公斤|kg)")
+        if weight > 0 { parts.append("体重 \(String(format: "%.1f", weight)) kg") }
+
+        let exercise = average(raw, pattern: "([0-9]+)\\s*分钟")
+        if exercise > 0 { parts.append("日均运动 \(Int(exercise.rounded())) 分钟") }
+
+        guard !parts.isEmpty else { return nil }
+        return "近 7 天：" + parts.joined(separator: "，")
+    }
+
+    private static func average(_ text: String, pattern: String) -> Double {
+        guard let re = try? NSRegularExpression(pattern: pattern) else { return 0 }
+        let ns = text as NSString
+        let matches = re.matches(in: text, range: NSRange(location: 0, length: ns.length))
+        let values = matches.compactMap { m -> Double? in
+            guard m.numberOfRanges > 1 else { return nil }
+            let s = ns.substring(with: m.range(at: 1)).replacingOccurrences(of: ",", with: "")
+            return Double(s)
+        }
+        guard !values.isEmpty else { return 0 }
+        return values.reduce(0, +) / Double(values.count)
+    }
+
+    /// “7小时32分” 这种也能算
+    private static func averageSleep(_ text: String) -> Double {
+        guard let re = try? NSRegularExpression(pattern: "([0-9]+)\\s*小时\\s*(?:([0-9]+)\\s*分)?") else { return 0 }
+        let ns = text as NSString
+        let matches = re.matches(in: text, range: NSRange(location: 0, length: ns.length))
+        let values = matches.compactMap { m -> Double? in
+            guard m.numberOfRanges > 1 else { return nil }
+            let h = Double(ns.substring(with: m.range(at: 1))) ?? 0
+            var mins: Double = 0
+            if m.numberOfRanges > 2, m.range(at: 2).location != NSNotFound {
+                mins = Double(ns.substring(with: m.range(at: 2))) ?? 0
+            }
+            let v = h + mins / 60
+            return (v > 0.5 && v < 16) ? v : nil
+        }
+        guard !values.isEmpty else { return 0 }
+        return values.reduce(0, +) / Double(values.count)
+    }
+}
