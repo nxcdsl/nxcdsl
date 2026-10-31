@@ -12,6 +12,8 @@ struct SettingsPane: View {
     @State private var showEditor = false
     @State private var showAI = false
     @State private var bgItem: PhotosPickerItem?
+    @State private var healthItem: PhotosPickerItem?
+    @ObservedObject private var health = HealthStore.shared
 
     private let caps = [20_000, 60_000, 120_000, 0]
 
@@ -22,6 +24,7 @@ struct SettingsPane: View {
                 levelCard
                 usageCard
                 backgroundCard
+                healthCard
                 personaCard
                 styleCard
             }
@@ -230,6 +233,89 @@ struct SettingsPane: View {
                 }
             }
         }
+    }
+
+    // MARK: - 健康
+
+    private var healthCard: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(spacing: 6) {
+                Text("健康").font(.system(size: 12, weight: .medium)).foregroundStyle(.white.opacity(0.55))
+                Spacer()
+                if health.busy { ProgressView().tint(.white).scaleEffect(0.6) }
+                Text(health.status.isEmpty ? (store.healthSummary == nil ? "未连接" : "已启用") : health.status)
+                    .font(.system(size: 10.5))
+                    .foregroundStyle(.white.opacity(0.35))
+            }
+
+            if let s = store.healthSummary {
+                Text(s)
+                    .font(.system(size: 12))
+                    .foregroundStyle(.white.opacity(0.7))
+                    .lineSpacing(2)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+
+            HStack(spacing: 8) {
+                chip("连接 Health") {
+                    Task {
+                        await health.connect()
+                        if let s = health.summary { store.healthSummary = s; store.save() }
+                    }
+                }
+                chip("刷新") {
+                    Task { await health.refresh() }
+                }
+                PhotosPicker(selection: $healthItem, matching: .images, photoLibrary: .shared()) {
+                    Text("截图导入")
+                        .font(.system(size: 12.5, weight: .medium))
+                        .foregroundStyle(.white.opacity(0.8))
+                        .padding(.horizontal, 13)
+                        .padding(.vertical, 8)
+                        .background(Capsule().fill(Color.white.opacity(0.10)))
+                }
+                Spacer(minLength: 0)
+            }
+
+            if store.healthSummary != nil {
+                Button {
+                    store.healthSummary = nil
+                    store.save()
+                    health.summary = nil
+                    health.status = ""
+                } label: {
+                    Text("不再使用")
+                        .font(.system(size: 10.5))
+                        .foregroundStyle(.white.opacity(0.35))
+                }
+                .buttonStyle(.plain)
+            }
+        }
+        .padding(14)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .glassCard(cornerRadius: 22, strength: 0.9)
+        .onChange(of: healthItem) { _, item in
+            guard let item else { return }
+            Task {
+                if let data = try? await item.loadTransferable(type: Data.self),
+                   let img = UIImage(data: data) {
+                    _ = await store.healthFromImage(img)
+                    await MainActor.run { healthItem = nil }
+                }
+            }
+        }
+    }
+
+    private func chip(_ title: String, _ action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Text(title)
+                .font(.system(size: 12.5, weight: .medium))
+                .foregroundStyle(.white.opacity(0.8))
+                .padding(.horizontal, 13)
+                .padding(.vertical, 8)
+                .background(Capsule().fill(Color.white.opacity(0.10)))
+        }
+        .buttonStyle(.plain)
     }
 
     // MARK: - 角色

@@ -40,6 +40,8 @@ struct RootView: View {
             if let kind = store.menu {
                 menuOverlay(kind)
             }
+
+            ParticleLayer()
         }
         .environmentObject(store)
         .environmentObject(theme)

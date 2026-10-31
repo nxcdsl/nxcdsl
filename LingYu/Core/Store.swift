@@ -18,6 +18,9 @@ final class AppStore: ObservableObject {
     @Published var dailyCap = 60_000         // token
     @Published var isStreaming = false
     @Published var streamingText = ""
+    @Published var healthSummary: String? = nil
+    private var rawReply = ""
+    private var flushTimer: Timer?
     @Published var toast: String?
     @Published var summarizing = false
     @Published var hasKey = KeyStore.hasKey
@@ -88,15 +91,19 @@ final class AppStore: ObservableObject {
         append(userMsg)
 
         streamingText = ""
+        rawReply = ""
         isStreaming = true
+        startFlush()
 
         do {
             let api = buildAPIMessages(latest: content, image: image)
             let client = DeepSeekClient(key: KeyStore.key)
             let used = try await client.stream(messages: api, maxTokens: maxTokens) { piece in
-                Task { @MainActor in self.streamingText += piece }
+                DispatchQueue.main.async { self.rawReply += piece }
             }
-            var reply = streamingText.trimmed
+            stopFlush()
+            streamingText = rawReply
+            var reply = rawReply.trimmed
             if reply.isEmpty { reply = "……" }
             var assistant = ChatMessage(role: "assistant", text: reply, date: Date())
             assistant.mood = Mood.score(reply)
@@ -164,6 +171,77 @@ final class AppStore: ObservableObject {
         }
     }
 
+    private func startFlush() {
+        flushTimer?.invalidate()
+        flushTimer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { [weak self] _ in
+            guard let self else { return }
+            if self.streamingText != self.rawReply { self.streamingText = self.rawReply }
+        }
+    }
+
+    private func stopFlush() {
+        flushTimer?.invalidate()
+        flushTimer = nil
+    }
+
+    func deleteMessage(_ id: UUID) {
+        chats[currentID]?.removeAll { $0.id == id }
+        save()
+    }
+
+    func deleteMemory(_ id: UUID) {
+        memories.removeAll { $0.id == id }
+        save()
+    }
+
+    func clearChat(_ personaID: UUID, greeting: String) {
+        chats[personaID] = [ChatMessage(role: "assistant", text: greeting, date: Date())]
+        save()
+    }
+
+    /// 用一张健康截图读出数据（HealthKit 拿不到权限时的兜底）
+    @MainActor
+    func healthFromImage(_ image: UIImage) async -> String? {
+        guard hasKey else {
+            showToast("先去「我」里填 API Key")
+            return nil
+        }
+        guard let b64 = Self.jpegBase64(image) else { return nil }
+        let prompt = """
+        读这张健康/运动截图，提取这些数字（没有的填 0）。只输出 JSON：
+        {"steps":日均步数,"sleep":平均睡眠小时,"hr":静息心率,"weight":体重公斤,"exercise":日均运动分钟}
+        """
+        do {
+            let client = DeepSeekClient(key: KeyStore.key)
+            let raw = try await client.completeWithImage(prompt: prompt, imageBase64: b64, maxTokens: 300)
+            guard let start = raw.firstIndex(of: "{"),
+                  let end = raw.lastIndex(of: "}") else { return nil }
+            let json = String(raw[start...end])
+            guard let data = json.data(using: .utf8),
+                  let obj = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else { return nil }
+            func num(_ k: String) -> Double {
+                if let d = obj[k] as? Double { return d }
+                if let i = obj[k] as? Int { return Double(i) }
+                if let s = obj[k] as? String { return Double(s) ?? 0 }
+                return 0
+            }
+            var parts: [String] = []
+            if num("steps") > 0 { parts.append("日均步数 \(Int(num("steps")))") }
+            if num("sleep") > 0 { parts.append("睡眠 \(String(format: "%.1f", num("sleep"))) 小时") }
+            if num("hr") > 0 { parts.append("静息心率 \(Int(num("hr")))") }
+            if num("exercise") > 0 { parts.append("日均运动 \(Int(num("exercise"))) 分钟") }
+            if num("weight") > 0 { parts.append("体重 \(String(format: "%.1f", num("weight"))) kg") }
+            guard !parts.isEmpty else { return nil }
+            let text = "近 7 天：" + parts.joined(separator: "，")
+            healthSummary = text
+            save()
+            return text
+        } catch {
+            showToast(error.localizedDescription)
+            return nil
+        }
+    }
+
     func append(_ msg: ChatMessage) {
         var list = chats[currentID] ?? []
         list.append(msg)
@@ -176,6 +254,9 @@ final class AppStore: ObservableObject {
         var sys = "你是\(persona.name)。\(persona.relation)。语气：\(persona.tone)。"
         sys += mode.directive
         if level == 2 { sys += "想清楚再回答，但只说结论和关键推理。" }
+        if let h = healthSummary, !h.isEmpty {
+            sys += "\n我的身体数据（知道就行，别主动复述）：\(h)"
+        }
         sys += "用中文，短句，别啰嗦，别总结我说过的话。"
         let recent = memories.suffix(3)
         if !recent.isEmpty {
@@ -325,11 +406,12 @@ final class AppStore: ObservableObject {
         var level: Int
         var dailyCap: Int
         var popupStyle: Bool?
+        var healthSummary: String?
     }
 
     func save() {
         let snap = Snapshot(personas: personas, currentID: currentID, chats: chats,
-                            memories: memories, usage: usage, level: level, dailyCap: dailyCap, popupStyle: popupStyle)
+                            memories: memories, usage: usage, level: level, dailyCap: dailyCap, popupStyle: popupStyle, healthSummary: healthSummary)
         if let data = try? JSONEncoder().encode(snap) {
             try? data.write(to: fileURL)
         }
@@ -346,5 +428,6 @@ final class AppStore: ObservableObject {
         level = snap.level
         dailyCap = snap.dailyCap
         if let ps = snap.popupStyle { popupStyle = ps }
+        healthSummary = snap.healthSummary
     }
 }

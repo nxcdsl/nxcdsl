@@ -5,11 +5,14 @@ import UIKit
 struct ChatView: View {
 
     @EnvironmentObject private var store: AppStore
+    @StateObject private var speech = Speech()
+
     @State private var input = ""
     @State private var showPersonas = false
     @State private var showModes = false
     @State private var pickerItem: PhotosPickerItem?
     @State private var pendingImage: UIImage?
+    @State private var frames: [UUID: CGRect] = [:]
 
     var body: some View {
         VStack(spacing: 8) {
@@ -31,7 +34,7 @@ struct ChatView: View {
                 }
                 .scrollIndicators(.hidden)
                 .onChange(of: store.messages.count) { _, _ in
-                    withAnimation(.easeOut(duration: 0.2)) { proxy.scrollTo("bottom", anchor: .bottom) }
+                    withAnimation(.easeOut(duration: 0.22)) { proxy.scrollTo("bottom", anchor: .bottom) }
                 }
                 .onChange(of: store.streamingText) { _, _ in
                     proxy.scrollTo("bottom", anchor: .bottom)
@@ -48,9 +51,7 @@ struct ChatView: View {
 
     private var header: some View {
         HStack(spacing: 8) {
-            Button {
-                open(.personas)
-            } label: {
+            Button { open(.personas) } label: {
                 HStack(spacing: 7) {
                     Text(store.persona.emoji).font(.system(size: 14))
                     Text(store.persona.name)
@@ -68,9 +69,7 @@ struct ChatView: View {
 
             Spacer(minLength: 0)
 
-            Button {
-                open(.modes)
-            } label: {
+            Button { open(.modes) } label: {
                 HStack(spacing: 6) {
                     Image(systemName: store.mode.icon).font(.system(size: 11, weight: .semibold))
                     Text(store.mode.title).font(.system(size: 12, weight: .medium))
@@ -108,22 +107,55 @@ struct ChatView: View {
                 .foregroundStyle(m.isUser ? Color.black.opacity(0.88) : Color.white.opacity(0.94))
                 .padding(.horizontal, 14)
                 .padding(.vertical, 10)
-                .background {
-                    if m.isUser {
-                        RoundedRectangle(cornerRadius: 20, style: .continuous)
-                            .fill(Color.white.opacity(0.90))
-                    } else {
-                        RoundedRectangle(cornerRadius: 20, style: .continuous)
-                            .fill(.ultraThinMaterial)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 20, style: .continuous)
-                                    .strokeBorder(Color.white.opacity(0.14), lineWidth: 1)
-                            )
+                .background { bubbleBackground(isUser: m.isUser) }
+                .background(
+                    GeometryReader { geo in
+                        Color.clear.onAppear { frames[m.id] = geo.frame(in: .global) }
+                    }
+                )
+                .textSelection(.enabled)
+                .contextMenu {
+                    Button {
+                        UIPasteboard.general.string = m.text
+                    } label: {
+                        Label("复制", systemImage: "doc.on.doc")
+                    }
+                    Button(role: .destructive) {
+                        remove(m)
+                    } label: {
+                        Label("删除", systemImage: "trash")
                     }
                 }
-                .textSelection(.enabled)
 
             if !m.isUser { Spacer(minLength: 46) }
+        }
+    }
+
+    @ViewBuilder
+    private func bubbleBackground(isUser: Bool, shimmer: Bool = false) -> some View {
+        if isUser {
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .fill(Color.white.opacity(0.90))
+        } else {
+            ZStack {
+                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                    .fill(.ultraThinMaterial)
+                if shimmer {
+                    GeometryReader { geo in
+                        TimelineView(.animation(minimumInterval: 1.0 / 30.0)) { tl in
+                            let t = tl.date.timeIntervalSinceReferenceDate
+                                .truncatingRemainder(dividingBy: 1.5) / 1.5
+                            LinearGradient(colors: [.clear, .white.opacity(0.10), .clear],
+                                           startPoint: .leading, endPoint: .trailing)
+                                .frame(width: geo.size.width * 0.45)
+                                .offset(x: -geo.size.width * 0.5 + geo.size.width * 1.5 * t)
+                        }
+                    }
+                    .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                }
+                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                    .strokeBorder(Color.white.opacity(0.14), lineWidth: 1)
+            }
         }
     }
 
@@ -142,7 +174,7 @@ struct ChatView: View {
                     .padding(.horizontal, 16)
                     .padding(.vertical, 14)
                 } else {
-                    Text(store.streamingText)
+                    (Text(store.streamingText) + Text("▏").foregroundColor(Color.white.opacity(0.5)))
                         .font(.system(size: 15))
                         .lineSpacing(3)
                         .foregroundStyle(.white.opacity(0.94))
@@ -150,16 +182,17 @@ struct ChatView: View {
                         .padding(.vertical, 10)
                 }
             }
-            .background {
-                RoundedRectangle(cornerRadius: 20, style: .continuous)
-                    .fill(.ultraThinMaterial)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20, style: .continuous)
-                            .strokeBorder(Color.white.opacity(0.16), lineWidth: 1)
-                    )
-            }
+            .background { bubbleBackground(isUser: false, shimmer: true) }
             Spacer(minLength: 46)
         }
+    }
+
+    private func remove(_ m: ChatMessage) {
+        if let f = frames[m.id] {
+            BurstCenter.shared.fire(at: CGPoint(x: f.midX, y: f.midY))
+        }
+        UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
+        withAnimation(.easeOut(duration: 0.18)) { store.deleteMessage(m.id) }
     }
 
     // MARK: - 输入
@@ -204,6 +237,8 @@ struct ChatView: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
 
+            micButton
+
             Button {
                 UIImpactFeedbackGenerator(style: .medium).impactOccurred()
                 let text = input
@@ -237,6 +272,54 @@ struct ChatView: View {
                     .onTapGesture { self.pendingImage = nil }
             }
         }
+        .overlay(alignment: .top) {
+            if speech.recording {
+                voiceBar
+                    .offset(y: -54)
+                    .transition(.opacity.combined(with: .scale(scale: 0.9)))
+            }
+        }
+    }
+
+    private var micButton: some View {
+        Image(systemName: speech.recording ? "waveform" : "mic.fill")
+            .font(.system(size: 14, weight: .semibold))
+            .foregroundStyle(speech.recording ? Color.black.opacity(0.85) : Color.white.opacity(0.7))
+            .frame(width: 36, height: 36)
+            .background(Circle().fill(speech.recording ? Color.white.opacity(0.9) : Color.white.opacity(0.10)))
+            .contentShape(Circle())
+            .gesture(
+                DragGesture(minimumDistance: 0)
+                    .onChanged { _ in
+                        if !speech.recording { speech.begin() }
+                    }
+                    .onEnded { _ in finishVoice() }
+            )
+    }
+
+    private var voiceBar: some View {
+        HStack(spacing: 8) {
+            VoiceBars()
+                .frame(width: 26, height: 16)
+            Text(speech.text.isEmpty ? "在听…" : speech.text)
+                .font(.system(size: 12.5))
+                .foregroundStyle(.white.opacity(0.9))
+                .lineLimit(1)
+            Text("松开发送")
+                .font(.system(size: 10))
+                .foregroundStyle(.white.opacity(0.4))
+        }
+        .padding(.horizontal, 12)
+        .padding(.vertical, 8)
+        .frame(maxWidth: 320)
+        .glassCapsule()
+    }
+
+    private func finishVoice() {
+        let text = speech.end().trimmed
+        guard !text.isEmpty else { return }
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        Task { await store.send(text) }
     }
 
     private var canSend: Bool {
@@ -244,7 +327,25 @@ struct ChatView: View {
     }
 }
 
-// MARK: - 底部浮层版（设置里可切换）
+// MARK: - 声纹
+
+struct VoiceBars: View {
+    var body: some View {
+        TimelineView(.animation(minimumInterval: 1.0 / 24.0)) { tl in
+            let t = tl.date.timeIntervalSinceReferenceDate
+            HStack(alignment: .center, spacing: 2) {
+                ForEach(0..<5, id: \.self) { i in
+                    let h = 4.0 + 9.0 * abs(sin(t * 6 + Double(i) * 1.1))
+                    Capsule()
+                        .fill(Color.white.opacity(0.75))
+                        .frame(width: 2.5, height: h)
+                }
+            }
+        }
+    }
+}
+
+// MARK: - 底部浮层版选择器
 
 struct PersonaPicker: View {
 
@@ -345,7 +446,7 @@ struct ModePicker: View {
     }
 }
 
-// MARK: - 角色编辑（新建 / 修改）
+// MARK: - 角色编辑
 
 struct PersonaEditor: View {
 

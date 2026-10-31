@@ -56,10 +56,23 @@ struct DeepSeekClient {
     // MARK: - 一次性
 
     func complete(prompt: String, maxTokens: Int) async throws -> String {
-        let messages: [[String: Any]] = [
+        try await once([
             ["role": "system", "content": "只输出要求的格式，不要解释。"],
             ["role": "user", "content": prompt]
-        ]
+        ], maxTokens: maxTokens)
+    }
+
+    func completeWithImage(prompt: String, imageBase64: String, maxTokens: Int) async throws -> String {
+        try await once([
+            ["role": "system", "content": "只输出要求的 JSON，不要解释。"],
+            ["role": "user", "content": [
+                ["type": "text", "text": prompt],
+                ["type": "image_url", "image_url": ["url": "data:image/jpeg;base64,\(imageBase64)"]]
+            ]]
+        ], maxTokens: maxTokens)
+    }
+
+    private func once(_ messages: [[String: Any]], maxTokens: Int) async throws -> String {
         let (data, response) = try await URLSession.shared.data(for: try request(messages, maxTokens: maxTokens, stream: false))
         guard let http = response as? HTTPURLResponse else { throw DeepSeekError.empty }
         guard http.statusCode == 200 else {

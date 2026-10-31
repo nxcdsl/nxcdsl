@@ -1,8 +1,10 @@
 import SwiftUI
+import UIKit
 
 struct MemoryView: View {
 
     @EnvironmentObject private var store: AppStore
+    @State private var frames: [UUID: CGRect] = [:]
 
     var body: some View {
         ScrollView {
@@ -134,6 +136,21 @@ struct MemoryView: View {
                     .padding(13)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .glassCard(cornerRadius: 20, strength: 0.85)
+                    .background(GeometryReader { g in
+                        Color.clear.onAppear { frames[card.id] = g.frame(in: .global) }
+                    })
+                    .contextMenu {
+                        Button {
+                            UIPasteboard.general.string = card.title + "\n" + card.detail
+                        } label: { Label("复制", systemImage: "doc.on.doc") }
+                        Button(role: .destructive) {
+                            if let f = frames[card.id] {
+                                BurstCenter.shared.fire(at: CGPoint(x: f.midX, y: f.midY))
+                            }
+                            UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
+                            withAnimation(.easeOut(duration: 0.18)) { store.deleteMemory(card.id) }
+                        } label: { Label("删除", systemImage: "trash") }
+                    }
                 }
             }
         }
