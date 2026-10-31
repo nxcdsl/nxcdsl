@@ -119,4 +119,5 @@ enum Mood {
 
 extension FileManager {
     var docsURL: URL { urls(for: .documentDirectory, in: .userDomainMask)[0] }
+    var documentsURL: URL { docsURL }
 }
