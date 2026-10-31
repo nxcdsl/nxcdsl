@@ -11,7 +11,7 @@ final class ModelLibrary: ObservableObject {
     private let fm = FileManager.default
 
     static var rootURL: URL {
-        let docs = fm.documentsURL
+        let docs = FileManager.default.documentsURL
         return docs.appendingPathComponent("Models", isDirectory: true)
     }
 
