@@ -16,7 +16,7 @@ final class ModelInstaller: ObservableObject {
     @Published private(set) var detail: String = ""
 
     /// 镜像站，留空则走 huggingface.co
-    static let defaultMirror = "hf-mirror.com"
+    static let defaultMirror = "huggingface.co"
 
     private let queue = DispatchQueue(label: "lumigen.installer", qos: .userInitiated)
     private var cancelled = false

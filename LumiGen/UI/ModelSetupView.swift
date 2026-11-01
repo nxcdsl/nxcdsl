@@ -260,11 +260,11 @@ struct ModelSetupView: View {
 
             if showAdvanced {
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("默认走镜像站，下载不动时可以换成 huggingface.co 或其他可用镜像。")
+                    Text("默认走 huggingface.co（挂 VPN 更快）。下载不动就换成 hf-mirror.com 试试。")
                         .font(.system(size: 11))
                         .foregroundStyle(.white.opacity(0.40))
                         .fixedSize(horizontal: false, vertical: true)
-                    TextField("hf-mirror.com", text: $mirror)
+                    TextField("huggingface.co", text: $mirror)
                         .textInputAutocapitalization(.never)
                         .autocorrectionDisabled()
                         .font(.system(size: 13, design: .monospaced))
