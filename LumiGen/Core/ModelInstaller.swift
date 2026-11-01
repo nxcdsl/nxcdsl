@@ -85,7 +85,18 @@ final class ModelInstaller: ObservableObject {
                             if self.cancelled { throw InstallError.cancelled }
                             guard let url = URL(string: "\(hostBase)/\(preset.repo)/resolve/main/\(file.remotePath)") else { continue }
                             do {
-                                try self.download(url, to: target)
+                                try self.download(url, to: target, expected: file.size) { bytes, bps in
+                                    var extra = ""
+                                    if bps > 2048 {
+                                        let remain = Double(max(0, totalBytes - doneBytes - bytes))
+                                        extra = String(format: " · %.1f MB/s · 约 %d 分",
+                                                       bps / 1_048_576,
+                                                       max(1, Int(remain / bps / 60) + 1))
+                                    }
+                                    let frac = Double(doneBytes + bytes) / Double(max(totalBytes, 1))
+                                    self.report(progress: frac,
+                                                detail: "下载 \(index + 1)/\(files.count)\(extra) · \(file.path)")
+                                }
                                 saved = true
                                 break
                             } catch {
@@ -230,11 +241,19 @@ final class ModelInstaller: ObservableObject {
         return payload
     }
 
-    private func download(_ url: URL, to destination: URL) throws {
+    /// 大于 20MB 的文件走分块下载：断了能接着传，进度也是按字节走的
+    private func download(_ url: URL, to destination: URL,
+                          expected: Int64 = 0,
+                          onProgress: ((Int64, Double) -> Void)? = nil) throws {
+        let fm = FileManager.default
+        if expected > 20 * 1024 * 1024 {
+            try chunkedDownload(url, to: destination, expected: expected, onProgress: onProgress)
+            return
+        }
         let sem = DispatchSemaphore(value: 0)
         var moveError: Error?
         var request = URLRequest(url: url)
-        request.timeoutInterval = 120
+        request.timeoutInterval = 300
         let task = URLSession.shared.downloadTask(with: request) { tmp, response, error in
             defer { sem.signal() }
             if let error { moveError = error; return }
@@ -244,10 +263,10 @@ final class ModelInstaller: ObservableObject {
             }
             guard let tmp else { moveError = InstallError.emptyDownload; return }
             do {
-                if FileManager.default.fileExists(atPath: destination.path) {
-                    try FileManager.default.removeItem(at: destination)
+                if fm.fileExists(atPath: destination.path) {
+                    try fm.removeItem(at: destination)
                 }
-                try FileManager.default.moveItem(at: tmp, to: destination)
+                try fm.moveItem(at: tmp, to: destination)
             } catch {
                 moveError = error
             }
@@ -255,6 +274,99 @@ final class ModelInstaller: ObservableObject {
         task.resume()
         sem.wait()
         if let moveError { throw moveError }
+        onProgress?(expected, 0)
+    }
+
+    private func chunkedDownload(_ url: URL, to destination: URL, expected: Int64,
+                                 onProgress: ((Int64, Double) -> Void)?) throws {
+        let fm = FileManager.default
+        var done: Int64 = 0
+        if let size = Self.fileSize(destination) { done = size }
+        if expected > 0 && done >= expected {
+            onProgress?(done, 0)
+            return
+        }
+        if done == 0 {
+            fm.createFile(atPath: destination.path, contents: nil)
+        }
+        guard let handle = try? FileHandle(forWritingTo: destination) else {
+            throw InstallError.emptyDownload
+        }
+        defer { try? handle.close() }
+        try? handle.seekToEnd()
+
+        let chunk: Int64 = 8 * 1024 * 1024
+        var lastBytes = done
+        var lastTime = Date()
+        var ranged = false
+
+        while done < expected {
+            if cancelled { throw InstallError.cancelled }
+            let end = min(done + chunk - 1, expected - 1)
+            var req = URLRequest(url: url)
+            req.timeoutInterval = 90
+            req.setValue("bytes=\(done)-\(end)", forHTTPHeaderField: "Range")
+
+            let sem = DispatchSemaphore(value: 0)
+            var payload: Data?
+            var failure: Error?
+            var status = 0
+            let task = URLSession.shared.dataTask(with: req) { data, response, error in
+                payload = data
+                failure = error
+                status = (response as? HTTPURLResponse)?.statusCode ?? 0
+                sem.signal()
+            }
+            task.resume()
+            sem.wait()
+
+            if let failure { throw failure }
+            if status == 200 && !ranged {
+                // 服务器不支持断点，退回整包下载
+                try? handle.close()
+                try? fm.removeItem(at: destination)
+                try downloadWhole(url, to: destination, onProgress: onProgress)
+                return
+            }
+            guard status == 206 || status == 200 else { throw InstallError.http(status) }
+            ranged = true
+            guard let payload, !payload.isEmpty else { throw InstallError.emptyDownload }
+
+            handle.write(payload)
+            done += Int64(payload.count)
+
+            let now = Date()
+            let dt = now.timeIntervalSince(lastTime)
+            var bps: Double = 0
+            if dt > 0.4 {
+                bps = Double(done - lastBytes) / dt
+                lastBytes = done
+                lastTime = now
+            }
+            onProgress?(done, bps)
+        }
+    }
+
+    private func downloadWhole(_ url: URL, to destination: URL,
+                               onProgress: ((Int64, Double) -> Void)?) throws {
+        let fm = FileManager.default
+        let sem = DispatchSemaphore(value: 0)
+        var moveError: Error?
+        var request = URLRequest(url: url)
+        request.timeoutInterval = 300
+        let task = URLSession.shared.downloadTask(with: request) { tmp, response, error in
+            defer { sem.signal() }
+            if let error { moveError = error; return }
+            guard let tmp else { moveError = InstallError.emptyDownload; return }
+            do {
+                if fm.fileExists(atPath: destination.path) { try fm.removeItem(at: destination) }
+                try fm.moveItem(at: tmp, to: destination)
+            } catch { moveError = error }
+        }
+        task.resume()
+        sem.wait()
+        if let moveError { throw moveError }
+        onProgress?(Self.fileSize(destination) ?? 0, 0)
     }
 }
 
