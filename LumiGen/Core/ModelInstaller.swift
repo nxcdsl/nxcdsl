@@ -107,6 +107,17 @@ final class ModelInstaller: ObservableObject {
                         if saved { break }
                     }
                     guard saved else { throw lastError ?? InstallError.emptyDownload }
+                    if file.size > 0, let actual = Self.fileSize(target), actual != file.size {
+                        // 体积不对：可能是断点续传拼歪了，整包重下一次
+                        try? FileManager.default.removeItem(at: target)
+                        guard let url = URL(string: "\(bases[0])/\(preset.repo)/resolve/main/\(file.remotePath)") else {
+                            throw InstallError.emptyDownload
+                        }
+                        try self.downloadWhole(url, to: target, onProgress: nil)
+                        if let after = Self.fileSize(target), after != file.size {
+                            throw InstallError.emptyDownload
+                        }
+                    }
                     doneBytes += file.size
                     self.report(progress: Double(doneBytes) / Double(max(totalBytes, 1)),
                                 detail: "下载 \(index + 1)/\(files.count) · \(file.path)")

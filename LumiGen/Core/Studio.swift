@@ -58,7 +58,7 @@ final class Studio: ObservableObject {
     let installer = ModelInstaller()
 
     private var bag = Set<AnyCancellable>()
-    private var startedAt = Date()
+    private(set) var startedAt = Date()
     private var bannerWork: DispatchWorkItem?
 
     init() {

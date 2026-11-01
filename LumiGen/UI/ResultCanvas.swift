@@ -129,9 +129,17 @@ struct ResultCanvas: View {
                         .foregroundStyle(.white.opacity(0.85))
                 }
 
-                Text(studio.phase.caption)
-                    .font(.system(size: 13, weight: .medium))
-                    .foregroundStyle(.white.opacity(0.75))
+                VStack(spacing: 4) {
+                    Text(studio.phase.caption)
+                        .font(.system(size: 13, weight: .medium))
+                        .foregroundStyle(.white.opacity(0.75))
+                    TimelineView(.periodic(from: .now, by: 1)) { _ in
+                        let secs = Int(Date().timeIntervalSince(studio.startedAt))
+                        Text("\(secs) 秒 · \(studio.engine.unitName)")
+                            .font(.system(size: 11, weight: .regular, design: .rounded))
+                            .foregroundStyle(.white.opacity(0.45))
+                    }
+                }
             }
         }
         .transition(.opacity)
