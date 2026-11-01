@@ -8,6 +8,7 @@ struct PromptDock: View {
 
     var body: some View {
         VStack(spacing: 9) {
+            controlRail
             styleRail
 
             HStack(alignment: .bottom, spacing: 10) {
@@ -19,6 +20,25 @@ struct PromptDock: View {
         }
         .padding(12)
         .glassCard(cornerRadius: 30)
+    }
+
+    // MARK: - 控制标签
+
+    private var controlRail: some View {
+        HStack(spacing: 8) {
+            ForEach(ControlTag.allCases) { tag in
+                GlassChip(title: tag.title,
+                          emoji: tag.emoji,
+                          isOn: studio.controlTag == tag,
+                          tint: Color(red: tag.tint[0], green: tag.tint[1], blue: tag.tint[2])) {
+                    withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
+                        studio.controlTag = (studio.controlTag == tag) ? nil : tag
+                    }
+                    UIImpactFeedbackGenerator(style: .soft).impactOccurred()
+                }
+            }
+            Spacer(minLength: 0)
+        }
     }
 
     // MARK: - 风格

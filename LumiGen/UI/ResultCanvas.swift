@@ -24,6 +24,13 @@ struct ResultCanvas: View {
                     .resizable()
                     .scaledToFill()
                     .transition(.opacity.combined(with: .scale(scale: 1.02)))
+            } else if let preview = studio.preview {
+                Image(uiImage: preview)
+                    .resizable()
+                    .scaledToFill()
+                    .blur(radius: 1.5)
+                    .transition(.opacity)
+                    .animation(.easeOut(duration: 0.25), value: preview)
             } else {
                 placeholder
             }
@@ -107,7 +114,7 @@ struct ResultCanvas: View {
             RoundedRectangle(cornerRadius: radius, style: .continuous)
                 .fill(.ultraThinMaterial)
             RoundedRectangle(cornerRadius: radius, style: .continuous)
-                .fill(Color.black.opacity(0.25))
+                .fill(Color.black.opacity(studio.preview == nil ? 0.25 : 0.10))
 
             VStack(spacing: 16) {
                 ZStack {

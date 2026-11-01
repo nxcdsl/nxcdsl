@@ -24,6 +24,7 @@ final class GeneratorEngine {
         var seed: UInt32
         var resolution: Int
         var kind: ModelKind
+        var livePreview: Bool = false
     }
 
     var unitName: String {
@@ -51,6 +52,7 @@ final class GeneratorEngine {
     func generate(model: InstalledModel,
                   request: Request,
                   onProgress: @escaping (Int, Int) -> Void,
+                  onPreview: ((UIImage) -> Void)? = nil,
                   completion: @escaping (Result<UIImage, Error>) -> Void) {
 
         cancelFlag = false
@@ -86,8 +88,16 @@ final class GeneratorEngine {
                     config.cropsCoordsTopLeft = 0
                     config.strength = 1.0
 
+                    // 预览帧：最多 3 张，挑在中间和结尾，代价是多 2 次 VAE 解码
+                    let previewSteps = Self.previewSteps(total: request.steps, enabled: request.livePreview)
                     let images = try pipe.generateImages(configuration: config) { [weak self] progress in
                         onProgress(progress.step, progress.stepCount)
+                        if let onPreview, previewSteps.contains(progress.step) {
+                            if let decoded = try? pipe.decodeToImages(progress.currentLatentSamples, configuration: config),
+                               let cg = decoded.first ?? nil {
+                                onPreview(UIImage(cgImage: cg))
+                            }
+                        }
                         return !(self?.cancelFlag ?? true)
                     }
 
@@ -116,6 +126,15 @@ final class GeneratorEngine {
 
             completion(.failure(lastError ?? EngineError.notReady))
         }
+    }
+
+    /// 预览帧落在哪几步
+    private static func previewSteps(total: Int, enabled: Bool) -> Set<Int> {
+        guard enabled, total > 0 else { return [] }
+        if total <= 2 { return [total] }
+        let a = max(1, total / 3)
+        let b = max(a + 1, total * 2 / 3)
+        return [a, b, total]
     }
 
     // MARK: - 私有

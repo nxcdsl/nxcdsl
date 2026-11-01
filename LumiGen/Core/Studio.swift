@@ -52,6 +52,12 @@ final class Studio: ObservableObject {
     @Published var showSettings: Bool = false
     @Published var lastSeconds: Double = 0
     @Published var isSaved: Bool = false
+    @Published var controlTag: ControlTag? = nil
+    @Published var quality: QualityMode = .accurate
+    @Published var preview: UIImage? = nil
+    @Published var livePreview: Bool = UserDefaults.standard.object(forKey: "lumigen.livePreview") as? Bool ?? true
+    private var reroll = 0
+    private var lastPrompt = ""
 
     let engine = GeneratorEngine()
     let library = ModelLibrary()
@@ -62,6 +68,8 @@ final class Studio: ObservableObject {
     private var bannerWork: DispatchWorkItem?
 
     init() {
+        if let raw = UserDefaults.standard.string(forKey: "lumigen.quality"),
+           let q = QualityMode(rawValue: raw) { quality = q }
         library.objectWillChange
             .merge(with: installer.objectWillChange)
             .sink { [weak self] _ in self?.objectWillChange.send() }
@@ -99,15 +107,28 @@ final class Studio: ObservableObject {
         let text = prompt.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !text.isEmpty, !phase.isBusy else { return }
 
-        seed = seed == 0 ? UInt32.random(in: 1...4_000_000_000) : seed &+ 1
+        if lastPrompt == text { reroll += 1 } else { reroll = 0; lastPrompt = text }
+        seed = PromptMiddleware.nextSeed(seed, attempt: reroll)
+
+        let plan = PromptMiddleware.plan(user: PromptMiddleware.variantSubject(text, attempt: reroll),
+                                         style: style,
+                                         tag: controlTag,
+                                         kind: model.kind,
+                                         quality: quality,
+                                         sizeOverride: resolutionOverride,
+                                         attempt: reroll)
+        if let hint = plan.hint { showBanner(hint) }
+
+        preview = nil
         let request = GeneratorEngine.Request(
-            prompt: style.prompt(from: text),
-            negative: StylePreset.baseNegative,
-            steps: style.steps ?? model.steps,
-            guidance: model.guidance,
+            prompt: plan.positive,
+            negative: plan.negative,
+            steps: plan.steps,
+            guidance: plan.cfg,
             seed: seed,
-            resolution: resolution,
-            kind: model.kind
+            resolution: plan.size,
+            kind: model.kind,
+            livePreview: livePreview
         )
 
         isSaved = false
@@ -119,12 +140,15 @@ final class Studio: ObservableObject {
                 guard let self, self.phase.isBusy else { return }
                 self.phase = .sampling(step: step, total: total)
             }
+        }, onPreview: { [weak self] img in
+            DispatchQueue.main.async { self?.preview = img }
         }, completion: { [weak self] result in
             DispatchQueue.main.async {
                 guard let self else { return }
                 switch result {
                 case .success(let output):
                     self.image = output
+                    self.preview = nil
                     self.lastSeconds = Date().timeIntervalSince(self.startedAt)
                     self.phase = .done
                 case .failure(let error):
@@ -145,6 +169,16 @@ final class Studio: ObservableObject {
     }
 
     // MARK: - 小提示
+
+    func setLivePreview(_ on: Bool) {
+        livePreview = on
+        UserDefaults.standard.set(on, forKey: "lumigen.livePreview")
+    }
+
+    func setQuality(_ q: QualityMode) {
+        quality = q
+        UserDefaults.standard.set(q.rawValue, forKey: "lumigen.quality")
+    }
 
     func showBanner(_ text: String) {
         banner = text

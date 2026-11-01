@@ -18,6 +18,7 @@ struct SettingsView: View {
             ScrollView {
                 VStack(spacing: 20) {
                     backgroundSection
+                    outputSection
                     sizeSection
                     modelSection
                     aboutSection
@@ -171,6 +172,58 @@ struct SettingsView: View {
             )
         }
         .buttonStyle(SoftPressStyle())
+    }
+
+    // MARK: - 出图
+
+    private var outputSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            sectionTitle("出图")
+
+            HStack(spacing: 8) {
+                ForEach(QualityMode.allCases, id: \.self) { q in
+                    let on = studio.quality == q
+                    Button {
+                        studio.setQuality(q)
+                        UIImpactFeedbackGenerator(style: .soft).impactOccurred()
+                    } label: {
+                        Text(q.title)
+                            .font(.system(size: 14, weight: .semibold))
+                            .foregroundStyle(on ? Color.black.opacity(0.85) : Color.white.opacity(0.9))
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 11)
+                            .background {
+                                if on {
+                                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                        .fill(Color.white.opacity(0.9))
+                                }
+                            }
+                            .glassCard(cornerRadius: 16, strength: on ? 0.2 : 0.8)
+                    }
+                    .buttonStyle(SoftPressStyle())
+                }
+            }
+
+            Text(studio.quality.subtitle)
+                .font(.system(size: 10.5))
+                .foregroundStyle(.white.opacity(0.35))
+
+            Toggle(isOn: Binding(get: { studio.livePreview },
+                                 set: { studio.setLivePreview($0) })) {
+                Text("实时渲染")
+                    .font(.system(size: 12.5))
+                    .foregroundStyle(.white.opacity(0.8))
+            }
+            .tint(Color(red: 0.55, green: 0.85, blue: 1.0))
+
+            Text("生成时每一步都刷一张低清预览，能看到画面在成形。最多 3 帧，多花 2-4 秒。")
+                .font(.system(size: 10.5))
+                .foregroundStyle(.white.opacity(0.32))
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .padding(14)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .glassCard(cornerRadius: 22, strength: 0.9)
     }
 
     // MARK: - 尺寸
