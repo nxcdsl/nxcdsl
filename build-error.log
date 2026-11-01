@@ -1,0 +1,430 @@
+## run info
+sha: 9ab7877c949869a933be8790ee4733ef13eed023
+date: Sun Nov  1 07:07:14 UTC 2026
+
+## diag (xcodebuild -list)
+Command line invocation:
+    /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/xcodebuild -list -project LumiGen.xcodeproj
+
+Information about project "LumiGen":
+    Targets:
+        LumiGen
+
+    Build Configurations:
+        Debug
+        Release
+
+    If no build configuration is specified and -scheme is not passed then "Release" is used.
+
+    Schemes:
+        LumiGen
+
+
+## build log (last 600 lines)
+Command line invocation:
+    /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/xcodebuild -project LumiGen.xcodeproj -scheme LumiGen -configuration Release -sdk iphoneos -derivedDataPath build CODE_SIGN_STYLE=Manual CODE_SIGN_IDENTITY= CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO build
+
+Build settings from command line:
+    CODE_SIGN_IDENTITY = 
+    CODE_SIGN_STYLE = Manual
+    CODE_SIGNING_ALLOWED = NO
+    CODE_SIGNING_REQUIRED = NO
+    SDKROOT = iphoneos26.2
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:iOS, id:dvtdevice-DVTiPhonePlaceholder-iphoneos:placeholder, name:Any iOS Device }
+{ platform:macOS, arch:arm64, variant:Designed for [iPad,iPhone], id:c86f92875b4f0d6c3e1e5f0cecbcfa5c04ce9987, name:My Mac }
+{ platform:iOS Simulator, id:dvtdevice-DVTiOSDeviceSimulatorPlaceholder-iphonesimulator:placeholder, name:Any iOS Simulator Device }
+note: Using codesigning identity override: 
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (1 target)
+    Target 'LumiGen' in project 'LumiGen' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/actool --print-asset-tag-combinations --output-format xml1 /Users/runner/work/nxcdsl/nxcdsl/LumiGen/Resources/Assets.xcassets
+
+ExecuteExternalTool /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+ExecuteExternalTool /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: 779f5ff0940ef0eebcfe3d53289f41d5
+Build description path: /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/XCBuildData/779f5ff0940ef0eebcfe3d53289f41d5.xcbuilddata
+ClangStatCache /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk /Users/runner/work/nxcdsl/nxcdsl/build/SDKStatCaches.noindex/iphoneos26.2-23C53-dc75598d0054f22ec865fa860f139d72e6485aba7f6c350f1fcf1acb823f48eb.sdkstatcache
+    cd /Users/runner/work/nxcdsl/nxcdsl/LumiGen.xcodeproj
+    /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk -o /Users/runner/work/nxcdsl/nxcdsl/build/SDKStatCaches.noindex/iphoneos26.2-23C53-dc75598d0054f22ec865fa860f139d72e6485aba7f6c350f1fcf1acb823f48eb.sdkstatcache
+
+CreateBuildDirectory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products
+    cd /Users/runner/work/nxcdsl/nxcdsl/LumiGen.xcodeproj
+    builtin-create-build-directory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products
+
+CreateBuildDirectory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex
+    cd /Users/runner/work/nxcdsl/nxcdsl/LumiGen.xcodeproj
+    builtin-create-build-directory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex
+
+CreateBuildDirectory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos
+    cd /Users/runner/work/nxcdsl/nxcdsl/LumiGen.xcodeproj
+    builtin-create-build-directory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen-3387cdaa22878ecab12e04674e90f3a1-VFS-iphoneos/all-product-headers.yaml
+    cd /Users/runner/work/nxcdsl/nxcdsl/LumiGen.xcodeproj
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen-3387cdaa22878ecab12e04674e90f3a1-VFS-iphoneos/all-product-headers.yaml
+
+CreateBuildDirectory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+    cd /Users/runner/work/nxcdsl/nxcdsl/LumiGen.xcodeproj
+    builtin-create-build-directory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/ExplicitPrecompiledModules
+    cd /Users/runner/work/nxcdsl/nxcdsl/LumiGen.xcodeproj
+    builtin-create-build-directory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/EagerLinkingTBDs/Release-iphoneos
+    cd /Users/runner/work/nxcdsl/nxcdsl/LumiGen.xcodeproj
+    builtin-create-build-directory /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/EagerLinkingTBDs/Release-iphoneos
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen_const_extract_protocols.json (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.SwiftFileList (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.SwiftFileList
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.SwiftConstValuesFileList (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.LinkFileList (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.LinkFileList
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen-OutputFileMap.json (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen.hmap (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen.hmap
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen.DependencyStaticMetadataFileList (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen.DependencyMetadataFileList (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen-project-headers.hmap (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen-project-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen-own-target-headers.hmap (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen-generated-files.hmap (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen-generated-files.hmap
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen-all-target-headers.hmap (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen-all-non-framework-target-headers.hmap (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    write-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen-all-non-framework-target-headers.hmap
+
+MkDir /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    /bin/mkdir -p /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app
+
+MkDir /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/assetcatalog_output/unthinned (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    /bin/mkdir -p /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/assetcatalog_output/unthinned
+
+MkDir /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/assetcatalog_output/thinned (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    /bin/mkdir -p /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/assetcatalog_output/thinned
+
+GenerateAssetSymbols /Users/runner/work/nxcdsl/nxcdsl/LumiGen/Resources/Assets.xcassets (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/actool /Users/runner/work/nxcdsl/nxcdsl/LumiGen/Resources/Assets.xcassets --compile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app --output-format human-readable-text --notices --warnings --export-dependency-info /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/assetcatalog_dependencies --output-partial-info-plist /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/assetcatalog_generated_info.plist --app-icon AppIcon --accent-color AccentColor --compress-pngs --enable-on-demand-resources YES --development-region en --target-device iphone --minimum-deployment-target 17.0 --platform iphoneos --bundle-identifier com.lumigen.app --generate-swift-asset-symbol-extensions NO --generate-swift-asset-symbols /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/DerivedSources/GeneratedAssetSymbols.swift --generate-objc-asset-symbols /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/DerivedSources/GeneratedAssetSymbols.h --generate-asset-symbol-index /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/* com.apple.actool.compilation-results */
+/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/DerivedSources/GeneratedAssetSymbols.h
+/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/DerivedSources/GeneratedAssetSymbols.swift
+
+
+CompileAssetCatalogVariant thinned /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app /Users/runner/work/nxcdsl/nxcdsl/LumiGen/Resources/Assets.xcassets (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/actool /Users/runner/work/nxcdsl/nxcdsl/LumiGen/Resources/Assets.xcassets --compile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/assetcatalog_output/thinned --output-format human-readable-text --notices --warnings --export-dependency-info /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/assetcatalog_dependencies_thinned --output-partial-info-plist /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/assetcatalog_generated_info.plist_thinned --app-icon AppIcon --accent-color AccentColor --compress-pngs --enable-on-demand-resources YES --development-region en --target-device iphone --minimum-deployment-target 17.0 --platform iphoneos
+/* com.apple.actool.compilation-results */
+/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/assetcatalog_generated_info.plist_thinned
+/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/assetcatalog_output/thinned/AppIcon60x60@2x.png
+/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/assetcatalog_output/thinned/AppIcon76x76@2x~ipad.png
+/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/assetcatalog_output/thinned/Assets.car
+
+
+SwiftDriver LumiGen normal arm64 com.apple.xcode.tools.swift.compiler (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-SwiftDriver -- /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name LumiGen -O -whole-module-optimization -enforce-exclusivity\=checked @/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.SwiftFileList -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk -target arm64-apple-ios17.0 -g -module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -swift-version 5 -I /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos -F /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos -emit-localized-strings -emit-localized-strings-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64 -c -num-threads 3 -Xcc -ivfsstatcache -Xcc /Users/runner/work/nxcdsl/nxcdsl/build/SDKStatCaches.noindex/iphoneos26.2-23C53-dc75598d0054f22ec865fa860f139d72e6485aba7f6c350f1fcf1acb823f48eb.sdkstatcache -output-file-map /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex -sdk-module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen-generated-files.hmap -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen-own-target-headers.hmap -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen-all-target-headers.hmap -Xcc -iquote -Xcc /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen-project-headers.hmap -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/include -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/DerivedSources/arm64 -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/DerivedSources -emit-objc-header -emit-objc-header-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen-Swift.h -working-directory /Users/runner/work/nxcdsl/nxcdsl -no-emit-module-separately-wmo
+
+SwiftDriver\ Compilation LumiGen normal arm64 com.apple.xcode.tools.swift.compiler (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-Swift-Compilation -- /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name LumiGen -O -whole-module-optimization -enforce-exclusivity\=checked @/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.SwiftFileList -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk -target arm64-apple-ios17.0 -g -module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -swift-version 5 -I /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos -F /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos -emit-localized-strings -emit-localized-strings-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64 -c -num-threads 3 -Xcc -ivfsstatcache -Xcc /Users/runner/work/nxcdsl/nxcdsl/build/SDKStatCaches.noindex/iphoneos26.2-23C53-dc75598d0054f22ec865fa860f139d72e6485aba7f6c350f1fcf1acb823f48eb.sdkstatcache -output-file-map /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex -sdk-module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen-generated-files.hmap -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen-own-target-headers.hmap -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen-all-target-headers.hmap -Xcc -iquote -Xcc /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen-project-headers.hmap -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/include -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/DerivedSources/arm64 -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/DerivedSources -emit-objc-header -emit-objc-header-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen-Swift.h -working-directory /Users/runner/work/nxcdsl/nxcdsl -no-emit-module-separately-wmo
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_AvailabilityInternal-BXKB9XNQTQH88T0FKUXFG06OL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/DeveloperToolsSupport-2EUO40KRALE1AOI7WTX09W48P.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_float-AGX9G78ASN11920XFOTNIDROS.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_SwiftConcurrencyShims-BANI5WT8TRL3BW0PXFUUZNDM3.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_stddef-E5QJ9C3ZNGWW2LWG4B3HXF5EZ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_stdbool-E77TCY69BZH1E7GR17QRJ7JSR.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/ptrauth-49XJDPTU57FXLGYU6DB9NZ0TZ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_stdarg-6HDY8O7B95YQWFHY0BL1ZDNWY.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/ptrcheck-CINW0S6QCDVHQAYQ8H9M2DQ0L.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/SwiftShims-2OZ4DV04TGXLV4URHAE4T9OH1.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_DarwinFoundation1-B3OSCL8Y9CHKYBXGFQKI3PU88.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_DarwinFoundation2-DJNJL4HPOW7WS7UROAC8Z511L.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_limits-2LLJ523H4NT8IXG90OMBH52QL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/ExtensionFoundation-C55F66N60XJVDCTIRUU6PE19K.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/sys_types-F4Z740Q9ACMZRFCEQVQBUZQI4.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_stdint-B6L6GXZ0Z59YQCGE2UFQBACIP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_tgmath-CAI5NCYSMOARIX5YVV9644RXM.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_stdatomic-3NI5J2IRH8EOXZF4KE29BQ2TJ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_DarwinFoundation3-AFB1D74SY5TDBQF0AU096MWEB.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_intrinsics-4TBUBL98Z626K2ERLNOZBV8V0.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_inttypes-F0C5U9NXSCNCH9TXC7ZE4CAPT.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Darwin-4VVOUW6S3TPAVMANQ3GIQUYCU.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/simd-FW4JEM6UEKR3T86WVR8GWT6O.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/MachO-AU4UMVGB9A4GKHJPRMLFRKL18.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/ObjectiveC-C3YB8FDQ764D2VHA8J27PCFXL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/os_object-1ZRMS6RD4KEZCI9O5W0TRDVMJ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Spatial-BW4DDZBZ0DN39RQPDJ0XIZ7TF.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/os_workgroup-8UQAW0WQ88EWWGKYKKL0GLFPH.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Dispatch-3R3ET4ICDBNU83VV2TSG511IS.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/XPC-8OB170EWL2O47FLDQPWB49ONP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreFoundation-ARXBPRTSZKRALL7XSJDEZ3BBJ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/dnssd-BBN35TMH3QAH58O9P2M72Z5FB.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/os-B7926776ZZIRKR2X5KIDINA89.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CFNetwork-WCV35LIKW374LST1MJZPEOQF.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreGraphics-3MR9KC2MVAQNISO5F6QKWOXJZ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreAudioTypes-O40XCWMIJRSODEMERLZBAWM1.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Security-4STLTMEYMY5INT3PLPD2RQ4IC.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreAudio-BO78I530UU26JQCYMHMQC6L9O.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/ImageIO-4QBHL5AFE2RXPFXZY5W4CHTU4.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreText-D0I9SJDINMWKVU0GUA0MLHBT7.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Foundation-9LJ2VJNRXWSGH1X22BZH75YWL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/DataDetection-39ZU7XSBLCDWMKWC5J6HJJJB6.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Symbols-9T8Z30MPLI67TNP5SH1BGBMP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreMIDI-79QZA0SFYQMVR14C06MF5MIL6.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreTransferable-56OD17KQBTU1U6PFPRRUNBHWA.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Network-9F1T35YOTZBH4NG7X2TCQXXT7.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreData-7O0SEE2YSHQ3NNSCLXVB3PUP4.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/AudioToolbox-9YFOLPFEZQ3O44D1DMHYBW9L9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/OSLog-AMFJ5R2A2BMPAW8DNYN4A46NU.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/AVRouting-EP8659395QYX1V01UGITOO7E0.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/UniformTypeIdentifiers-AL1FO7NHG8WGH2THYW46X9CX1.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/NaturalLanguage-CAP6RLDQ8MGFUNLQP5JKG4FCT.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_LocationEssentials-EB0RIBT3AAXQ369ARAWQFV3QO.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Accessibility-9NNEHS7UASGH0M66KBGOJSEQ1.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/UserNotifications-4AHVETCNZVUILXEMKOEFEZDDS.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/IOSurface-AT7W6HE6MBY4PQDW6WQ6VZB2H.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreLocation-B6P34OXZRWF42SH0HMZ4TTUUT.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/UIUtilities-1R8JD020H0FBIV4GNZY1LOPBD.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Metal-1JKNGNPFZWF3909NRC0GCYF7C.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/OpenGLES-P8Z9GD9MH0LYP31ZL104P06M.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/FileProvider-F5E307X2VDTYO39C26WAUQJ85.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreVideo-2CXWBGUS91DRCZ5STLQM9HZQ1.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/QuartzCore-7RKP4LXNAP8DA089O88SCMCN3.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreMedia-46VHJDT1XCCEIB0SQQMW7CX4I.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Accelerate-5H6XZ57A4J0M8IAQ2YKQYH7MO.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreML-BCAWIYG5YOO6WPIK80XBSBN9Z.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreImage-6JXL3NGKDHJYMM2DLY3S3VEC0.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/AVFAudio-9MN1E8QIQC6S41KUG8NRVVKGS.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/UIKit-6B89ZKDSBU69DFHX1RJLDWJB9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/SwiftUICore-4NC6TF8NWUIFR1P8H6HX7LFXR.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/MediaToolbox-217MCVVTWVPLIEL3RHPCK50IK.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/AVFoundation-9NG9WOE5HUHWI1DHQO7TYWXKR.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/SwiftUI-APR7IYL1QGIFSEZ7HPEXCJDUE.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Photos-6A2ZYJFZU3FIXOOVCSDCKBOOL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/PhotosUI-58WC2N1IJ3VZYD20LVQ2C29UU.pcm
+
+SwiftCompile normal arm64 Compiling\ LumiGenApp.swift,\ GeneratorEngine.swift,\ ImageExport.swift,\ ModelInstaller.swift,\ ModelLibrary.swift,\ ModelManifest.swift,\ Models.swift,\ PromptMiddleware.swift,\ Provisioning.swift,\ Studio.swift,\ CGImage+vImage.swift,\ ControlNet.swift,\ Decoder.swift,\ DiscreteFlowScheduler.swift,\ DPMSolverMultistepScheduler.swift,\ Encoder.swift,\ ManagedMLModel.swift,\ MultilingualTextEncoder.swift,\ NumPyRandomSource.swift,\ NvRandomSource.swift,\ RandomSource.swift,\ ResourceManaging.swift,\ SafetyChecker.swift,\ SampleTimer.swift,\ Scheduler.swift,\ StableDiffusionPipeline.Configuration.swift,\ StableDiffusionPipeline.swift,\ StableDiffusionPipeline+Resources.swift,\ StableDiffusionXL+Resources.swift,\ StableDiffusionXLPipeline.swift,\ TextEncoder.swift,\ TextEncoderXL.swift,\ TorchRandomSource.swift,\ Unet.swift,\ BPETokenizer.swift,\ BPETokenizer+Reading.swift,\ GlassKit.swift,\ HomeView.swift,\ ModelSetupView.swift,\ PromptDock.swift,\ ResultCanvas.swift,\ SettingsView.swift,\ Theme.swift,\ GeneratedAssetSymbols.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/LumiGenApp.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/Core/GeneratorEngine.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/Core/ImageExport.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/Core/ModelInstaller.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/Core/ModelLibrary.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/Core/ModelManifest.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/Core/Models.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/Core/PromptMiddleware.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/Core/Provisioning.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/Core/Studio.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/CGImage+vImage.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/ControlNet.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/Decoder.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/DiscreteFlowScheduler.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/DPMSolverMultistepScheduler.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/Encoder.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/ManagedMLModel.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/MultilingualTextEncoder.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/NumPyRandomSource.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/NvRandomSource.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/RandomSource.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/ResourceManaging.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/SafetyChecker.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/SampleTimer.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/Scheduler.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/StableDiffusionPipeline.Configuration.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/StableDiffusionPipeline.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/StableDiffusionPipeline+Resources.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/StableDiffusionXL+Resources.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/StableDiffusionXLPipeline.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/TextEncoder.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/TextEncoderXL.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/TorchRandomSource.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/Unet.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/tokenizer/BPETokenizer.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/tokenizer/BPETokenizer+Reading.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/UI/GlassKit.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/UI/HomeView.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/UI/ModelSetupView.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/UI/PromptDock.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/UI/ResultCanvas.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/UI/SettingsView.swift /Users/runner/work/nxcdsl/nxcdsl/LumiGen/UI/Theme.swift /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/DerivedSources/GeneratedAssetSymbols.swift /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/ExtensionFoundation.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Darwin.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/DeveloperToolsSupport.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_StringProcessing.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Accessibility.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/OSLog.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_PhotosUI_SwiftUI.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/NaturalLanguage.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_Concurrency.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/XPC.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/AVFAudio.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreFoundation.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_Builtin_float.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/os.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/UniformTypeIdentifiers.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreVideo.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Distributed.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreMedia.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/ObjectiveC.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Photos.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Foundation.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/SwiftUI.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/UIKit.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Synchronization.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/FileProvider.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreImage.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Symbols.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Metal.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/AudioToolbox.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreML.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/SwiftUICore.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreMIDI.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreLocation.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_DarwinFoundation1.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/DataDetection.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreAudio.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Combine.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Network.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Observation.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Dispatch.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Accelerate.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Spatial.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/QuartzCore.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreGraphics.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Swift.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreData.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/PhotosUI.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/System.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_DarwinFoundation2.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreText.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/simd.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreTransferable.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/AVFoundation.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_DarwinFoundation3.swiftmodule/arm64e-apple-ios.swiftmodule /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreML-BCAWIYG5YOO6WPIK80XBSBN9Z.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreData-7O0SEE2YSHQ3NNSCLXVB3PUP4.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/NaturalLanguage-CAP6RLDQ8MGFUNLQP5JKG4FCT.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/AVRouting-EP8659395QYX1V01UGITOO7E0.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreMedia-46VHJDT1XCCEIB0SQQMW7CX4I.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/PhotosUI-58WC2N1IJ3VZYD20LVQ2C29UU.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/ptrauth-49XJDPTU57FXLGYU6DB9NZ0TZ.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/sys_types-F4Z740Q9ACMZRFCEQVQBUZQI4.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/UIUtilities-1R8JD020H0FBIV4GNZY1LOPBD.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreMIDI-79QZA0SFYQMVR14C06MF5MIL6.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/ObjectiveC-C3YB8FDQ764D2VHA8J27PCFXL.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Accelerate-5H6XZ57A4J0M8IAQ2YKQYH7MO.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreImage-6JXL3NGKDHJYMM2DLY3S3VEC0.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/IOSurface-AT7W6HE6MBY4PQDW6WQ6VZB2H.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Foundation-9LJ2VJNRXWSGH1X22BZH75YWL.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Symbols-9T8Z30MPLI67TNP5SH1BGBMP.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/SwiftUICore-4NC6TF8NWUIFR1P8H6HX7LFXR.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreAudio-BO78I530UU26JQCYMHMQC6L9O.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CFNetwork-WCV35LIKW374LST1MJZPEOQF.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Security-4STLTMEYMY5INT3PLPD2RQ4IC.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/ExtensionFoundation-C55F66N60XJVDCTIRUU6PE19K.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreFoundation-ARXBPRTSZKRALL7XSJDEZ3BBJ.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Spatial-BW4DDZBZ0DN39RQPDJ0XIZ7TF.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_float-AGX9G78ASN11920XFOTNIDROS.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/QuartzCore-7RKP4LXNAP8DA089O88SCMCN3.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/os_object-1ZRMS6RD4KEZCI9O5W0TRDVMJ.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/UserNotifications-4AHVETCNZVUILXEMKOEFEZDDS.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/dnssd-BBN35TMH3QAH58O9P2M72Z5FB.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreVideo-2CXWBGUS91DRCZ5STLQM9HZQ1.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/SwiftUI-APR7IYL1QGIFSEZ7HPEXCJDUE.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/simd-FW4JEM6UEKR3T86WVR8GWT6O.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Network-9F1T35YOTZBH4NG7X2TCQXXT7.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/DeveloperToolsSupport-2EUO40KRALE1AOI7WTX09W48P.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Darwin-4VVOUW6S3TPAVMANQ3GIQUYCU.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreAudioTypes-O40XCWMIJRSODEMERLZBAWM1.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/FileProvider-F5E307X2VDTYO39C26WAUQJ85.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_AvailabilityInternal-BXKB9XNQTQH88T0FKUXFG06OL.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/ImageIO-4QBHL5AFE2RXPFXZY5W4CHTU4.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/MediaToolbox-217MCVVTWVPLIEL3RHPCK50IK.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/OpenGLES-P8Z9GD9MH0LYP31ZL104P06M.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/UIKit-6B89ZKDSBU69DFHX1RJLDWJB9.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_stdint-B6L6GXZ0Z59YQCGE2UFQBACIP.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/AVFAudio-9MN1E8QIQC6S41KUG8NRVVKGS.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_SwiftConcurrencyShims-BANI5WT8TRL3BW0PXFUUZNDM3.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Photos-6A2ZYJFZU3FIXOOVCSDCKBOOL.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_DarwinFoundation2-DJNJL4HPOW7WS7UROAC8Z511L.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/os-B7926776ZZIRKR2X5KIDINA89.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/OSLog-AMFJ5R2A2BMPAW8DNYN4A46NU.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_stddef-E5QJ9C3ZNGWW2LWG4B3HXF5EZ.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_stdarg-6HDY8O7B95YQWFHY0BL1ZDNWY.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Metal-1JKNGNPFZWF3909NRC0GCYF7C.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_LocationEssentials-EB0RIBT3AAXQ369ARAWQFV3QO.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/os_workgroup-8UQAW0WQ88EWWGKYKKL0GLFPH.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_intrinsics-4TBUBL98Z626K2ERLNOZBV8V0.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/AVFoundation-9NG9WOE5HUHWI1DHQO7TYWXKR.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Accessibility-9NNEHS7UASGH0M66KBGOJSEQ1.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/ptrcheck-CINW0S6QCDVHQAYQ8H9M2DQ0L.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_inttypes-F0C5U9NXSCNCH9TXC7ZE4CAPT.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreLocation-B6P34OXZRWF42SH0HMZ4TTUUT.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/SwiftShims-2OZ4DV04TGXLV4URHAE4T9OH1.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_DarwinFoundation3-AFB1D74SY5TDBQF0AU096MWEB.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreGraphics-3MR9KC2MVAQNISO5F6QKWOXJZ.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/XPC-8OB170EWL2O47FLDQPWB49ONP.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreTransferable-56OD17KQBTU1U6PFPRRUNBHWA.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/AudioToolbox-9YFOLPFEZQ3O44D1DMHYBW9L9.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Dispatch-3R3ET4ICDBNU83VV2TSG511IS.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/CoreText-D0I9SJDINMWKVU0GUA0MLHBT7.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_stdatomic-3NI5J2IRH8EOXZF4KE29BQ2TJ.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_stdbool-E77TCY69BZH1E7GR17QRJ7JSR.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/UniformTypeIdentifiers-AL1FO7NHG8WGH2THYW46X9CX1.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_DarwinFoundation1-B3OSCL8Y9CHKYBXGFQKI3PU88.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_limits-2LLJ523H4NT8IXG90OMBH52QL.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/DataDetection-39ZU7XSBLCDWMKWC5J6HJJJB6.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/_Builtin_tgmath-CAI5NCYSMOARIX5YVV9644RXM.pcm /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/MachO-AU4UMVGB9A4GKHJPRMLFRKL18.pcm /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen-dependencies-1.json (in target 'LumiGen' from project 'LumiGen')
+
+CompileSwift normal arm64 (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    
+/Users/runner/work/nxcdsl/nxcdsl/LumiGen/Core/ModelInstaller.swift:307:9: warning: result of 'try?' is unused
+        try? handle.seekToEnd()
+        ^~~~~~~~~~~~~~~~~~~~~~~
+/Users/runner/work/nxcdsl/nxcdsl/LumiGen/SDEngine/pipeline/Scheduler.swift:77:21: warning: 'cblas_saxpy' was deprecated in iOS 16.4: An updated CBLAS interface supporting ILP64 is available.  Please compile with -DACCELERATE_NEW_LAPACK to access the new headers and -DACCELERATE_LAPACK_ILP64 for ILP64 support.
+                    cblas_saxpy(Int32(scalarCount), w, buffer.baseAddress, 1, scalars.baseAddress, 1)
+                    ^
+
+SwiftDriverJobDiscovery normal arm64 Compiling LumiGenApp.swift, GeneratorEngine.swift, ImageExport.swift, ModelInstaller.swift, ModelLibrary.swift, ModelManifest.swift, Models.swift, PromptMiddleware.swift, Provisioning.swift, Studio.swift, CGImage+vImage.swift, ControlNet.swift, Decoder.swift, DiscreteFlowScheduler.swift, DPMSolverMultistepScheduler.swift, Encoder.swift, ManagedMLModel.swift, MultilingualTextEncoder.swift, NumPyRandomSource.swift, NvRandomSource.swift, RandomSource.swift, ResourceManaging.swift, SafetyChecker.swift, SampleTimer.swift, Scheduler.swift, StableDiffusionPipeline.Configuration.swift, StableDiffusionPipeline.swift, StableDiffusionPipeline+Resources.swift, StableDiffusionXL+Resources.swift, StableDiffusionXLPipeline.swift, TextEncoder.swift, TextEncoderXL.swift, TorchRandomSource.swift, Unet.swift, BPETokenizer.swift, BPETokenizer+Reading.swift, GlassKit.swift, HomeView.swift, ModelSetupView.swift, PromptDock.swift, ResultCanvas.swift, SettingsView.swift, Theme.swift, GeneratedAssetSymbols.swift (in target 'LumiGen' from project 'LumiGen')
+
+SwiftDriver\ Compilation\ Requirements LumiGen normal arm64 com.apple.xcode.tools.swift.compiler (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name LumiGen -O -whole-module-optimization -enforce-exclusivity\=checked @/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.SwiftFileList -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk -target arm64-apple-ios17.0 -g -module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -swift-version 5 -I /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos -F /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos -emit-localized-strings -emit-localized-strings-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64 -c -num-threads 3 -Xcc -ivfsstatcache -Xcc /Users/runner/work/nxcdsl/nxcdsl/build/SDKStatCaches.noindex/iphoneos26.2-23C53-dc75598d0054f22ec865fa860f139d72e6485aba7f6c350f1fcf1acb823f48eb.sdkstatcache -output-file-map /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex -sdk-module-cache-path /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/nxcdsl/nxcdsl/build/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen-generated-files.hmap -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen-own-target-headers.hmap -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen-all-target-headers.hmap -Xcc -iquote -Xcc /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen-project-headers.hmap -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/include -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/DerivedSources/arm64 -Xcc -I/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/DerivedSources -emit-objc-header -emit-objc-header-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen-Swift.h -working-directory /Users/runner/work/nxcdsl/nxcdsl -no-emit-module-separately-wmo
+
+SwiftMergeGeneratedHeaders /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/DerivedSources/LumiGen-Swift.h /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen-Swift.h (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-swiftHeaderTool -arch arm64 /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen-Swift.h -o /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/DerivedSources/LumiGen-Swift.h
+
+Copy /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.swiftmodule/arm64-apple-ios.swiftmodule /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.swiftmodule (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.swiftmodule /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.swiftmodule/arm64-apple-ios.swiftmodule
+
+Copy /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.swiftmodule/arm64-apple-ios.swiftdoc /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.swiftdoc (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.swiftdoc /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.swiftmodule/arm64-apple-ios.swiftdoc
+
+Copy /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.swiftmodule/arm64-apple-ios.abi.json /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.abi.json (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.abi.json /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.swiftmodule/arm64-apple-ios.abi.json
+
+Copy /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.swiftsourceinfo (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.swiftsourceinfo /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo
+
+Ld /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app/LumiGen normal (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0 -isysroot /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk -Os -L/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/EagerLinkingTBDs/Release-iphoneos -L/Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos -F/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/EagerLinkingTBDs/Release-iphoneos -F/Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos -filelist /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.LinkFileList -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @executable_path/Frameworks -dead_strip -Xlinker -object_path_lto -Xlinker /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen_lto.o -Xlinker -dependency_info -Xlinker /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.swiftmodule @/Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen-linker-args.resp -o /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app/LumiGen
+
+LinkAssetCatalog /Users/runner/work/nxcdsl/nxcdsl/LumiGen/Resources/Assets.xcassets (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-linkAssetCatalog --thinned /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/assetcatalog_output/thinned --thinned-dependencies /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/assetcatalog_dependencies_thinned --thinned-info-plist-content /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/assetcatalog_generated_info.plist_thinned --unthinned /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/assetcatalog_output/unthinned --unthinned-dependencies /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/assetcatalog_dependencies_unthinned --unthinned-info-plist-content /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/assetcatalog_generated_info.plist_unthinned --output /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app --plist-output /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/assetcatalog_generated_info.plist
+note: Emplaced /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app/AppIcon76x76@2x~ipad.png (in target 'LumiGen' from project 'LumiGen')
+note: Emplaced /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app/AppIcon60x60@2x.png (in target 'LumiGen' from project 'LumiGen')
+note: Emplaced /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app/Assets.car (in target 'LumiGen' from project 'LumiGen')
+
+ProcessInfoPlistFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app/Info.plist /Users/runner/work/nxcdsl/nxcdsl/Config/Info.plist (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-infoPlistUtility /Users/runner/work/nxcdsl/nxcdsl/Config/Info.plist -producttype com.apple.product-type.application -genpkginfo /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app/PkgInfo -expandbuildsettings -format binary -platform iphoneos -additionalcontentfile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/assetcatalog_generated_info.plist -requiredArchitecture arm64 -o /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app/Info.plist
+
+ExtractAppIntentsMetadata (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v17.3.7003.10.BWqgSs/Metal.xctoolchain --module-name LumiGen --sdk-root /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk --xcode-version 17C52 --platform-family iOS --deployment-target 17.0 --bundle-identifier com.lumigen.app --output /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app --target-triple arm64-apple-ios17.0 --binary-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app/LumiGen --dependency-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen_dependency_info.dat --stringsdata-file /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.SwiftFileList --metadata-file-list /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen.DependencyMetadataFileList --static-metadata-file-list /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen.DependencyStaticMetadataFileList --swift-const-vals-list /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/Objects-normal/arm64/LumiGen.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2026-11-01 07:07:09.551 appintentsmetadataprocessor[7218:24832] Starting appintentsmetadataprocessor export
+2026-11-01 07:07:09.555 appintentsmetadataprocessor[7218:24832] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+CopySwiftLibs /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-swiftStdLibTool --copy --verbose --scan-executable /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app/LumiGen --scan-folder /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app/Frameworks --scan-folder /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app/PlugIns --scan-folder /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app/SystemExtensions --scan-folder /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app/Extensions --platform iphoneos --toolchain /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v17.3.7003.10.BWqgSs/Metal.xctoolchain --toolchain /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-span
+Ignoring --strip-bitcode because --sign was not passed
+
+GenerateDSYMFile /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app.dSYM /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app/LumiGen (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app/LumiGen -o /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app.dSYM
+
+AppIntentsSSUTraining (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsnltrainingprocessor --infoplist-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app/Info.plist --temp-dir-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/ssu --bundle-id com.lumigen.app --product-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app --extracted-metadata-path /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app/Metadata.appintents --metadata-file-list /Users/runner/work/nxcdsl/nxcdsl/build/Build/Intermediates.noindex/LumiGen.build/Release-iphoneos/LumiGen.build/LumiGen.DependencyMetadataFileList --archive-ssu-assets
+2026-11-01 07:07:09.630 appintentsnltrainingprocessor[7220:24836] Parsing options for appintentsnltrainingprocessor
+2026-11-01 07:07:09.632 appintentsnltrainingprocessor[7220:24836] No AppShortcuts found - Skipping.
+
+RegisterExecutionPolicyException /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-RegisterExecutionPolicyException /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app
+
+Validate /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    builtin-validationUtility /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app -validate-for-store -shallow-bundle -infoplist-subpath Info.plist
+
+Touch /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app (in target 'LumiGen' from project 'LumiGen')
+    cd /Users/runner/work/nxcdsl/nxcdsl
+    /usr/bin/touch -c /Users/runner/work/nxcdsl/nxcdsl/build/Build/Products/Release-iphoneos/LumiGen.app
+
+** BUILD SUCCEEDED **
+
