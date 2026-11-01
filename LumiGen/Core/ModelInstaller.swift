@@ -43,11 +43,14 @@ final class ModelInstaller: ObservableObject {
 
         let host = ModelInstaller.cleanHost(mirror)
         let base = host.isEmpty ? "https://huggingface.co" : "https://\(host)"
+        var bases = [base]
+        if !base.contains("huggingface.co") { bases.append("https://huggingface.co") }
+        if !base.contains("hf-mirror.com") { bases.append("https://hf-mirror.com") }
 
         queue.async { [weak self] in
             guard let self else { return }
             do {
-                let files = try self.listFiles(repo: preset.repo, base: base, subfolder: preset.subfolder)
+                let files = try self.fileList(for: preset, base: base)
                 guard !files.isEmpty else { throw InstallError.emptyRepo }
 
                 let totalBytes = files.reduce(Int64(0)) { $0 + $1.size }
@@ -72,10 +75,27 @@ final class ModelInstaller: ObservableObject {
                     }
                     self.report(progress: Double(doneBytes) / Double(max(totalBytes, 1)),
                                 detail: "下载 \(index + 1)/\(files.count) · \(file.path)")
-                    let url = URL(string: "\(base)/\(preset.repo)/resolve/main/\(file.remotePath)")!
                     try FileManager.default.createDirectory(at: target.deletingLastPathComponent(),
                                                             withIntermediateDirectories: true)
-                    try self.download(url, to: target)
+
+                    var lastError: Error?
+                    var saved = false
+                    for hostBase in bases {
+                        for attempt in 0..<2 {
+                            if self.cancelled { throw InstallError.cancelled }
+                            guard let url = URL(string: "\(hostBase)/\(preset.repo)/resolve/main/\(file.remotePath)") else { continue }
+                            do {
+                                try self.download(url, to: target)
+                                saved = true
+                                break
+                            } catch {
+                                lastError = error
+                                if attempt == 0 { usleep(400_000) }
+                            }
+                        }
+                        if saved { break }
+                    }
+                    guard saved else { throw lastError ?? InstallError.emptyDownload }
                     doneBytes += file.size
                     self.report(progress: Double(doneBytes) / Double(max(totalBytes, 1)),
                                 detail: "下载 \(index + 1)/\(files.count) · \(file.path)")
@@ -126,6 +146,17 @@ final class ModelInstaller: ObservableObject {
     }
 
     // MARK: - 清单
+
+    /// 优先用内置清单，没有才去问仓库接口
+    private func fileList(for preset: ModelPreset, base: String) throws -> [RemoteFile] {
+        if let table = ModelManifest.files(for: preset.id) {
+            return table.map { path, size in
+                let remote = (preset.subfolder.map { $0 + "/" } ?? "") + path
+                return RemoteFile(path: path, remotePath: remote, size: size)
+            }
+        }
+        return try listFiles(repo: preset.repo, base: base, subfolder: preset.subfolder)
+    }
 
     private struct RemoteFile {
         let path: String        // 本地相对路径（已去掉 subfolder）
