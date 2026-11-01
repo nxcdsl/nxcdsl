@@ -132,9 +132,7 @@ final class GeneratorEngine {
     private static func previewSteps(total: Int, enabled: Bool) -> Set<Int> {
         guard enabled, total > 0 else { return [] }
         if total <= 2 { return [total] }
-        let a = max(1, total / 3)
-        let b = max(a + 1, total * 2 / 3)
-        return [a, b, total]
+        return [max(1, total / 2), total]
     }
 
     // MARK: - 私有

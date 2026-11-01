@@ -315,6 +315,18 @@ struct SettingsView: View {
                 infoRow("推理", "Core ML · 全部在本机")
                 infoRow("联网", "只在下载模型时使用")
                 infoRow("签名有效期", Provisioning.summary)
+                if !studio.lastPositive.isEmpty {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("上次正向").font(.system(size: 10)).foregroundStyle(.white.opacity(0.3))
+                        Text(studio.lastPositive).font(.system(size: 10.5, design: .monospaced))
+                            .foregroundStyle(.white.opacity(0.55)).fixedSize(horizontal: false, vertical: true)
+                        Text("上次负向").font(.system(size: 10)).foregroundStyle(.white.opacity(0.3))
+                        Text(studio.lastNegative.isEmpty ? "（快档不发负面）" : studio.lastNegative)
+                            .font(.system(size: 10.5, design: .monospaced))
+                            .foregroundStyle(.white.opacity(0.55)).fixedSize(horizontal: false, vertical: true)
+                    }
+                    .padding(.top, 4)
+                }
             }
             .padding(14)
             .frame(maxWidth: .infinity, alignment: .leading)

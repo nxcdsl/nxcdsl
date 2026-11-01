@@ -58,6 +58,10 @@ final class Studio: ObservableObject {
     @Published var livePreview: Bool = UserDefaults.standard.object(forKey: "lumigen.livePreview") as? Bool ?? true
     private var reroll = 0
     private var lastPrompt = ""
+    private var lastFinish = Date.distantPast
+    private var idleTimer: Timer?
+    @Published var lastPositive = ""
+    @Published var lastNegative = ""
 
     let engine = GeneratorEngine()
     let library = ModelLibrary()
@@ -106,6 +110,9 @@ final class Studio: ObservableObject {
         }
         let text = prompt.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !text.isEmpty, !phase.isBusy else { return }
+        // 生成刚结束的 0.8 秒内忽略重复触发，避免误触又跑一遍
+        guard Date().timeIntervalSince(lastFinish) > 0.8 else { return }
+        idleTimer?.invalidate()
 
         if lastPrompt == text { reroll += 1 } else { reroll = 0; lastPrompt = text }
         seed = PromptMiddleware.nextSeed(seed, attempt: reroll)
@@ -117,6 +124,8 @@ final class Studio: ObservableObject {
                                          quality: quality,
                                          sizeOverride: resolutionOverride,
                                          attempt: reroll)
+        lastPositive = plan.positive
+        lastNegative = plan.negative
         if let hint = plan.hint { showBanner(hint) }
 
         preview = nil
@@ -151,7 +160,11 @@ final class Studio: ObservableObject {
                     self.preview = nil
                     self.lastSeconds = Date().timeIntervalSince(self.startedAt)
                     self.phase = .done
+                    self.lastFinish = Date()
+                    self.scheduleIdleUnload()
                 case .failure(let error):
+                    self.lastFinish = Date()
+                    self.scheduleIdleUnload()
                     if let engineError = error as? EngineError, engineError == .cancelled {
                         self.phase = .idle
                     } else {
@@ -169,6 +182,14 @@ final class Studio: ObservableObject {
     }
 
     // MARK: - 小提示
+
+    /// 生成完 12 秒没人动，就把模型从内存里放掉，避免整机发卡
+    private func scheduleIdleUnload() {
+        idleTimer?.invalidate()
+        idleTimer = Timer.scheduledTimer(withTimeInterval: 12, repeats: false) { [weak self] _ in
+            self?.engine.unload()
+        }
+    }
 
     func setLivePreview(_ on: Bool) {
         livePreview = on
